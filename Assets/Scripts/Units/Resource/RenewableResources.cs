@@ -20,8 +20,8 @@ public class RenewableResources : Resource
         itemPrototype.GetComponent<ItemPrototype>().item = materialsHolding;
         
         InvokeRepeating("UpdateResourceStatus", 0, 0.5f);
-
-        SpawnMaterials(); //Debug
+        
+        SpawnMaterials();
     }
     void Update()
     {
