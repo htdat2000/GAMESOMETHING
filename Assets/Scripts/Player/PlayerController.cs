@@ -68,7 +68,7 @@ public class PlayerController : Creatures
 
     public void Interact()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyDown(KeyCode.T) && interactGO != null)
         interactGO.Interact();
     }
     void MoveAnimationUpdate(Vector2 moveInput)
@@ -89,15 +89,4 @@ public class PlayerController : Creatures
         if(openStatus==true)
             Debug.Log("Inventory Closed");
     }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        interactGO = collision.GetComponent<IInteractables>();
-        Debug.Log("Player collide sth");
-    }
-    void OnTriggerExit2D(Collider2D collsion)
-    {
-        interactGO = null;
-    }
-
 }
