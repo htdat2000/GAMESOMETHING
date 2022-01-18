@@ -22,14 +22,19 @@ public class ItemPrototype : MonoBehaviour, IInteractables
         colliderComponent.size = new Vector2(item.sizeX, item.sizeY); 
     }
 
-    public void Interact()
+    public void Interact(Bag bag)
     {
-        PickUp();
+        PickUp(bag);
     }
 
-    void PickUp()
+    void PickUp(Bag bag)
     {
-        Bag.bag.AddItem(item);
+        bag.AddItem(item);
         Destroy(gameObject);
+    }
+
+    public void Interact()
+    {
+        return;
     }
 }

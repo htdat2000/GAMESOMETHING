@@ -8,10 +8,12 @@ public class PlayerController : Creatures
     float saveInput;
     bool openStatus = false;
 
+    Bag bag;
     public IInteractables interactGO;
     Animator anim;
     void Start()
     {
+        bag = GetComponent<Bag>();
         anim = GetComponent<Animator>();
     }
 
@@ -69,7 +71,7 @@ public class PlayerController : Creatures
     public void Interact()
     {
         if(Input.GetKeyDown(KeyCode.T) && interactGO != null)
-        interactGO.Interact();
+        interactGO.Interact(bag);
     }
     void MoveAnimationUpdate(Vector2 moveInput)
     {
