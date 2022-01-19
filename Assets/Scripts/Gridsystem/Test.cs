@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TEST : MonoBehaviour
+public class Test : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        MyGrid grid  = new MyGrid(3, 3, 0.5f);
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Slime : Enemies
 {
     private Vector2 randomPoint;
-
     private void Start() 
     {
         InvokeRepeating("ChoseRandomDir", 0f, 3f);
@@ -17,7 +16,6 @@ public class Slime : Enemies
         else
             Chase();
     }
-
     #region Override
     override protected void Move()
     {
@@ -45,7 +43,6 @@ public class Slime : Enemies
     {
         return;
     }
-
     private void ChoseRandomDir()
     {
         float randx = Random.Range(transform.position.x - 1f,transform.position.x + 1f);
