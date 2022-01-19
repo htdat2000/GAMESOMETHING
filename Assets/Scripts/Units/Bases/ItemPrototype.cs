@@ -29,8 +29,9 @@ public class ItemPrototype : MonoBehaviour, IInteractables
 
     void PickUp(Bag bag)
     {
-        bag.AddItem(item);
-        Destroy(gameObject);
+        bool wasPickedUp = bag.AddItem(item);
+        if(wasPickedUp)
+            Destroy(gameObject);
     }
 
     public void Interact()
