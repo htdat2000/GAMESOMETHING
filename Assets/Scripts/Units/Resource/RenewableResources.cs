@@ -62,7 +62,7 @@ public class RenewableResources : Resource
     {
         return;
     }
-    protected override void TakeDmg(int dmg)
+    public override void TakeDmg(int dmg)
     {
         if(currentMaterialHolding > 0)
         {
