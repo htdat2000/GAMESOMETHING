@@ -71,7 +71,9 @@ public class PlayerController : Creatures
     public void Interact()
     {
         if(Input.GetKeyDown(KeyCode.T) && interactGO != null)
-        interactGO.Interact(bag);
+        {
+        interactGO.Interact();
+        }
     }
     void MoveAnimationUpdate(Vector2 moveInput)
     {

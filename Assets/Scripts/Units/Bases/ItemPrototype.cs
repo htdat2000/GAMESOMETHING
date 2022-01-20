@@ -5,6 +5,7 @@ public class ItemPrototype : MonoBehaviour, IInteractables
     public Items item;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D colliderComponent;
+    private Bag bag;
 
     void Awake()
     {
@@ -21,21 +22,29 @@ public class ItemPrototype : MonoBehaviour, IInteractables
         spriteRenderer.sprite = item.icon;
         colliderComponent.size = new Vector2(item.sizeX, item.sizeY); 
     }
-
-    public void Interact(Bag bag)
+    public void Interact()
     {
         PickUp(bag);
     }
 
-    void PickUp(Bag bag)
-    {
-        bool wasPickedUp = bag.AddItem(item);
+    void PickUp(Bag _bag)
+    {   if(_bag != null)
+        {
+        bool wasPickedUp = _bag.AddItem(item);
         if(wasPickedUp)
+            {
             Destroy(gameObject);
+            }
+        }
     }
 
-    public void Interact()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        return;
+       collision.TryGetComponent<Bag>(out bag);
+    }
+    void OnTriggerExit2D(Collider2D collsion)
+    {
+        if(bag != null)
+        bag = null;
     }
 }

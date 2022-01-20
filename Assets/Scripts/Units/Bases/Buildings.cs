@@ -9,9 +9,4 @@ public abstract class Buildings : DamageableObjects, IInteractables
     {
         return;
     }
-
-    public void Interact(Bag bag)
-    {
-        return;
-    }
 }
