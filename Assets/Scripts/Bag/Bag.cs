@@ -16,33 +16,23 @@ public class Bag : MonoBehaviour
         }
         else 
         {
-            if(items.Contains(item))
+            if(item.stackAble)
             {
-                if(item.stackAble)
+                if(items.Contains(item) && amount[items.LastIndexOf(item)] < 999)
                 {
-                    if(amount[items.LastIndexOf(item)] < 999)
-                    {
-                        amount[items.LastIndexOf(item)]++;
-                    }
-                    else 
-                    {
-                        items.Add(item);
-                        amount.Add(1);
-                    }
+                    amount[items.LastIndexOf(item)]++;
+                    return true;
                 }
-                else 
-                {
-                    items.Add(item);
-                    amount.Add(1);
-                }
+                items.Add(item);
+                amount.Add(1);
             }
             else
             {
                 items.Add(item);
                 amount.Add(1);
             }
-        }
-        return true;
+            return true;
+        }  
     }
 
     public void RemoveItem(Items item)
