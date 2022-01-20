@@ -8,6 +8,7 @@ public class Player : Creatures
     float saveInput;
     Bag bag;
     Animator anim;
+    
     void Start()
     {
         bag = GetComponent<Bag>();

@@ -17,29 +17,39 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        player.Move();
-        Interact();
+        Move();
+        if(Input.GetKeyDown(KeyCode.T) && interactGO != null)
+        {
+            Interact();
+        }
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            player.Attack();
+            Attack();
         }
         if(Input.GetKeyDown(KeyCode.I))
         {
             OpenInventory();
-            openStatus = !openStatus;
         }
+    }
+
+    public void Move()
+    {
+        player.Move();
+    }
+    public void Attack()
+    {
+        player.Attack();
     }
     public void Interact()
     {
-        if(Input.GetKeyDown(KeyCode.T) && interactGO != null)
-        {
         interactGO.Interact();
-        }
     }
-    void OpenInventory(){
+    public void OpenInventory()
+    {
         if(openStatus==false)
             Debug.Log("Inventory Opened");
-        if(openStatus==true)
+        else
             Debug.Log("Inventory Closed");
+        openStatus = !openStatus;
     }
 }
