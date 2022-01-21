@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bag : MonoBehaviour
 {   
-    private int space = 20;
-    private List<Items> items = new List<Items>();
-    private List<int> amount = new List<int>();
+    public int space = 20;
+    public List<Items> items = new List<Items>();
+    public List<int> amount = new List<int>();
 
     public bool AddItem(Items item)
     {   
