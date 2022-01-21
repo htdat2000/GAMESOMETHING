@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCs : Mobs
 {
-    override protected void Move()
+    override public void Move()
     {
         return;
     }
@@ -12,7 +12,7 @@ public class NPCs : Mobs
     {
         return;
     }
-    override protected void TakeDmg(int dmg)
+    override public void TakeDmg(int dmg)
     {
         return;
     }
@@ -20,7 +20,7 @@ public class NPCs : Mobs
     {
         return;
     }
-    override protected void Attack()
+    override public void Attack()
     {
         return;
     }

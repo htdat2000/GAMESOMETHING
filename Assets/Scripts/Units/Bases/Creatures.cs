@@ -6,7 +6,7 @@ public abstract class Creatures : DamageableObjects
 {
     [SerializeField] protected float speed;
 
-    protected abstract void Move();
+    public abstract void Move();
     protected abstract void Die();
-    protected abstract void Attack();
+    public abstract void Attack();
 }
