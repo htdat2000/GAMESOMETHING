@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Animals : Mobs
 {
-    override protected void Move()
+    override public void Move()
     {
         return;
     }
@@ -12,7 +12,7 @@ public class Animals : Mobs
     {
         return;
     }
-    override protected void TakeDmg(int dmg)
+    override public void TakeDmg(int dmg)
     {
         return;
     }
@@ -20,7 +20,7 @@ public class Animals : Mobs
     {
         return;
     }
-    override protected void Attack()
+    override public void Attack()
     {
         return;
     }

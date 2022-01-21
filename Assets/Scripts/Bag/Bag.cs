@@ -3,23 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bag : MonoBehaviour
-{
-    public static Bag bag;
+{   
+    private int space = 20;
     private List<Items> items = new List<Items>();
+    private List<int> amount = new List<int>();
 
-    void Awake()
-    {
-        if(bag != null)
+    public bool AddItem(Items item)
+    {   
+        if(items.Count >= space)
         {
-            Debug.LogError("More than 1 bag in scene");
-            return;
+            return false;
         }
-        bag = this;
-    }
-
-    public void AddItem(Items item)
-    {
-        items.Add(item);
+        else 
+        {
+            if(item.stackAble)
+            {
+                if(items.Contains(item) && amount[items.LastIndexOf(item)] < 999)
+                {
+                    amount[items.LastIndexOf(item)]++;
+                    return true;
+                }
+                items.Add(item);
+                amount.Add(1);
+            }
+            else
+            {
+                items.Add(item);
+                amount.Add(1);
+            }
+            return true;
+        }  
     }
 
     public void RemoveItem(Items item)

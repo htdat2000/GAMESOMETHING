@@ -17,7 +17,7 @@ public class Slime : Enemies
             Chase();
     }
     #region Override
-    override protected void Move()
+    override public void Move()
     {
         transform.position += (transform.position - (Vector3)randomPoint).normalized * speed * Time.deltaTime;
     }
@@ -25,7 +25,7 @@ public class Slime : Enemies
     {
         return;
     }
-    override protected void TakeDmg(int dmg)
+    override public void TakeDmg(int dmg)
     {
         return;
     }
@@ -33,7 +33,7 @@ public class Slime : Enemies
     {
         return;
     }
-    override protected void Attack() 
+    override public void Attack() 
     {
         return;
     }

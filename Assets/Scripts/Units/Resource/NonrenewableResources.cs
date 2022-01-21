@@ -30,7 +30,7 @@ public class NonrenewableResources : Resource
     {
         return;
     }
-    protected override void TakeDmg(int dmg)
+    public override void TakeDmg(int dmg)
     {
         hp -= dmg;
         HPEqual0();
