@@ -8,9 +8,7 @@ public class PlayerController : MonoBehaviour
     private Player player;
     public float attackRange = 0f;
     bool openStatus = false;
-    
     public IInteractables interactGO;
-
     void Start()
     {
         player = GetComponent<Player>();

@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 
 public class PlayerInteractCollider : MonoBehaviour
-{
+{   
+    bool isLoaded = false;
     private PlayerController playerController;
+    public Bag bag;
 
     void Start()
     {
-        playerController = GetComponentInParent<PlayerController>();
+        LoadComponent();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -17,5 +19,20 @@ public class PlayerInteractCollider : MonoBehaviour
     {
         if(playerController.interactGO != null)
         playerController.interactGO = null;
+    }
+
+    void Reset() 
+    {
+        LoadComponent();
+    }
+
+    void LoadComponent()
+    {
+        if(!isLoaded)
+        {
+            playerController = GetComponentInParent<PlayerController>();
+            bag = GetComponentInParent<Bag>();
+            isLoaded = !isLoaded;
+        }
     }
 }

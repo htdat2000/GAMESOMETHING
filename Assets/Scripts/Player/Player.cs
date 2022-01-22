@@ -6,10 +6,10 @@ public class Player : Creatures
 {
     public float attackRange = 0f;
     float saveInput;
-    Bag bag;
+    private Bag bag;
     Animator anim;
     
-    void Start()
+    void Awake()
     {
         bag = GetComponent<Bag>();
         anim = GetComponent<Animator>();
