@@ -2,28 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public class Player : Creatures
 {
     public float attackRange = 0f;
+
+    public Vector2 moveDir;
     float saveInput;
     private Bag bag;
     Animator anim;
+    private Rigidbody2D rb;
     
     void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         bag = GetComponent<Bag>();
         anim = GetComponent<Animator>();
     }
-
+    void FixedUpdate() 
+    {
+        Move();
+    }
     #region Basic Function
     override public void Move()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        Vector2 moveAmount = moveInput.normalized * speed * Time.deltaTime;
-        if(moveInput.x!=0)
-            saveInput = moveInput.x;
-        transform.position += (Vector3)moveAmount;
-        MoveAnimationUpdate(moveInput);
+        if(moveDir.x != 0)
+            saveInput = moveDir.x;
+        rb.velocity = moveDir * speed * Time.deltaTime;
+        MoveAnimationUpdate(moveDir);
     }
     override protected void Die()
     {
@@ -54,9 +61,10 @@ public class Player : Creatures
     }
     #endregion
     
-    void MoveAnimationUpdate(Vector2 moveInput)
+    #region Animation
+    void MoveAnimationUpdate(Vector2 _moveDir)
     {
-        if(moveInput == Vector2.zero)
+        if(_moveDir == Vector2.zero)
         {
             anim.SetBool("IsRunning", false);
         }
@@ -65,5 +73,6 @@ public class Player : Creatures
             anim.SetBool("IsRunning", true);
         }
     }
+    #endregion
 }
 

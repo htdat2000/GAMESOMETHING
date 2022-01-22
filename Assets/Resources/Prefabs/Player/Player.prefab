@@ -225,8 +225,9 @@ MonoBehaviour:
   _id: 0
   _name: 
   hp: 0
-  speed: 3
+  speed: 60
   attackRange: 1.5
+  moveDir: {x: 0, y: 0}
 --- !u!1 &6588715397567289749
 GameObject:
   m_ObjectHideFlags: 0
