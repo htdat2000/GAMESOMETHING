@@ -13,7 +13,7 @@ public class BagUI : MonoBehaviour
     }
     void Start()
     {
-        
+        UpdateUI();
     }
 
     public void UpdateUI()

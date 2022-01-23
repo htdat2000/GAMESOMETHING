@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bag : MonoBehaviour
 {   
+    public GameEvent onItemChange;
     public int space = 20;
     public List<Items> items = new List<Items>();
     public List<int> amount = new List<int>();
@@ -17,9 +18,11 @@ public class Bag : MonoBehaviour
                 if(items.Contains(item) && amount[items.LastIndexOf(item)] < 999)
                 {
                     amount[items.LastIndexOf(item)]++;
+                    onItemChange.Invoke();
                     return true;
                 }
-            }       
+            }     
+            onItemChange.Invoke();  
             return false;     
         }
         else 
@@ -41,12 +44,14 @@ public class Bag : MonoBehaviour
                 items.Add(item);
                 amount.Add(1);
             }
+            onItemChange.Invoke();
             return true;
-        }  
+        }
     }
 
     public void RemoveItem(Items item)
     {
         items.Remove(item);
+        onItemChange.Invoke();
     }
 }
