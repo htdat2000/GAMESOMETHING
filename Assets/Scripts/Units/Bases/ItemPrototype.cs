@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 public class ItemPrototype : MonoBehaviour, IInteractables
-{
+{   
+    private bool isLoaded = false;
     public Items item;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D colliderComponent;
@@ -9,8 +10,7 @@ public class ItemPrototype : MonoBehaviour, IInteractables
 
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        colliderComponent = GetComponent<CapsuleCollider2D>();
+        LoadComponent();
     }
     void Start()
     {
@@ -40,11 +40,31 @@ public class ItemPrototype : MonoBehaviour, IInteractables
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-       collision.TryGetComponent<Bag>(out bag);
+       PlayerInteractCollider player; 
+       collision.TryGetComponent<PlayerInteractCollider>(out player);
+       if(player != null)
+       {
+           bag = player.bag;
+       }
     }
     void OnTriggerExit2D(Collider2D collsion)
     {
         if(bag != null)
         bag = null;
+    }
+
+    void Reset() 
+    {
+        LoadComponent();
+    }
+
+    void LoadComponent()
+    {
+        if(!isLoaded)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            colliderComponent = GetComponent<CapsuleCollider2D>();
+            isLoaded = !isLoaded;
+        }
     }
 }
