@@ -5,22 +5,25 @@ using CodeMonkey.Utils;
 
 public class Test : MonoBehaviour
 {
-    private MyGrid grid;
-
+    private Pathfinding pathfinding;
     void Start()
     {
-        grid  = new MyGrid(3, 3, 0.5f, new Vector3(5f,0f,0f));
+        pathfinding = new Pathfinding(10,10);
     }
     void Update() 
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0))
         {
-            grid.SetValue(UtilsClass.GetMouseWorldPosition(), 1);
-        }
-
-        if(Input.GetMouseButtonDown(1))
-        {
-            Debug.Log(grid.GetValue(UtilsClass.GetMouseWorldPosition()));
-        }
+            Vector3 mouseWorldPosition = UtilsClass.GetMouseWorldPosition();
+            pathfinding.GetMyGrid().GetXY(mouseWorldPosition, out int x, out int y);
+            List<PathNode> path = pathfinding.FindPath(0,0,x,y);
+            if(path != null)
+            {
+                for(int i = 0; i < path.Count - 1; i++)
+                {
+                    Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i+1].x, path[i+1].y) * 10f + Vector3.one * 5f, Color.green);
+                }
+            }
+        }    
     }
 }
