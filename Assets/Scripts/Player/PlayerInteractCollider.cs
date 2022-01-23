@@ -13,12 +13,21 @@ public class PlayerInteractCollider : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.TryGetComponent<IInteractables>(out playerController.interactGO);
+        IInteractables interactGO;
+        collision.TryGetComponent<IInteractables>(out interactGO);
+        if(interactGO != null)
+        {
+            playerController.AddInteractableGO(interactGO);
+        }
     }
-    void OnTriggerExit2D(Collider2D collsion)
+    void OnTriggerExit2D(Collider2D collision)
     {
-        if(playerController.interactGO != null)
-        playerController.interactGO = null;
+        IInteractables interactGO;
+        collision.TryGetComponent<IInteractables>(out interactGO);
+        if(interactGO != null)
+        {
+            playerController.RemoveInteractableGO(interactGO);
+        }
     }
 
     void Reset() 

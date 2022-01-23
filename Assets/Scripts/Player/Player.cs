@@ -29,7 +29,7 @@ public class Player : Creatures
     {
         if(moveDir.x != 0)
             saveInput = moveDir.x;
-        rb.velocity = moveDir * speed * Time.deltaTime;
+        rb.velocity = moveDir * speed;
         MoveAnimationUpdate(moveDir);
     }
     override protected void Die()
