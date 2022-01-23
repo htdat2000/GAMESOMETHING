@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class BagUI : MonoBehaviour
 {
-    [SerializeField] Bag bag;
-    private List<BagSlot> bagSlots = new List<BagSlot>();
+    [SerializeField] private Bag bag;
+    private BagSlot[] bagSlots;
 
     void Awake()
     {
-        GetComponentsInChildren<BagSlot>(bagSlots);
+        bagSlots = GetComponentsInChildren<BagSlot>();
     }
     void Start()
     {
-        for (int i = 0; i < bagSlots.Count; i++)
-        {
-            bagSlots[i].item = bag.items[i];
+        
+    }
+
+    public void UpdateUI()
+    {
+        for (int i = 0; i < bagSlots.Length; i++)
+        {   
+            if(i < bag.items.Count)
+            {
+                bagSlots[i].AddItem(bag.items[i]);
+            }
+            else
+            {
+                bagSlots[i].ClearSlot();
+            }   
         }
     }
 }

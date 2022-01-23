@@ -5,4 +5,14 @@ using UnityEngine;
 public class BagSlot : MonoBehaviour
 {
     public Items item;
+
+    public void AddItem(Items _item)
+    {
+        item = _item;
+    }
+
+    public void ClearSlot()
+    {
+
+    }
 }

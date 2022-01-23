@@ -12,7 +12,15 @@ public class Bag : MonoBehaviour
     {   
         if(items.Count >= space)
         {
-            return false;
+            if(item.stackAble)
+            {
+                if(items.Contains(item) && amount[items.LastIndexOf(item)] < 999)
+                {
+                    amount[items.LastIndexOf(item)]++;
+                    return true;
+                }
+            }       
+            return false;     
         }
         else 
         {
@@ -21,10 +29,12 @@ public class Bag : MonoBehaviour
                 if(items.Contains(item) && amount[items.LastIndexOf(item)] < 999)
                 {
                     amount[items.LastIndexOf(item)]++;
-                    return true;
                 }
-                items.Add(item);
-                amount.Add(1);
+                else
+                {
+                    items.Add(item);
+                    amount.Add(1);
+                }   
             }
             else
             {
