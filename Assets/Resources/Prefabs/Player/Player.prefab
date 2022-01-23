@@ -130,8 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e8ee2e31f09b848aff6105fa9ba110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5252480789958155971}
-  rb: {fileID: 5624540598252706365}
+  bagUI: {fileID: 0}
   attackRange: 0
 --- !u!95 &5624540598252706360
 Animator:
@@ -164,6 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0c2f81cdae911469f1a391d10dc6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onItemChange: {fileID: 11400000, guid: a9f87f2d0717e894d9e47bee8d7462e2, type: 2}
+  space: 20
+  items: []
+  amount: 
 --- !u!50 &5624540598252706365
 Rigidbody2D:
   serializedVersion: 4
@@ -263,5 +266,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e472260560df4b84c94dd60c06799f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 5624540598252706361}
   bag: {fileID: 5624540598252706363}
