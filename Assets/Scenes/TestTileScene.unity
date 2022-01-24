@@ -1740,6 +1740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bag: {fileID: 717645055}
+  bagSlotParent: {fileID: 1477849361}
 --- !u!1001 &1659962865426575081
 PrefabInstance:
   m_ObjectHideFlags: 0

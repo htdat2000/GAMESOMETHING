@@ -8,6 +8,8 @@ public class BagSlot : MonoBehaviour
     public Items item;
     public Image icon;
 
+    private int tapCount = 0;
+
     public void AddItem(Items _item)
     {
         item = _item;
@@ -22,5 +24,47 @@ public class BagSlot : MonoBehaviour
 
         icon.sprite = null;
         icon.enabled = false;
+    }
+
+    public void Use()
+    {
+        if(IsDoubleTap())
+        {
+            if(item != null)
+            {
+                Debug.Log("Use");
+                //item.Use();
+            }
+        }   
+    }
+    bool IsDoubleTap()
+    {
+        IsPress();
+        if(tapCount >= 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void IsPress()
+    {
+        if(tapCount == 0)
+        {
+            tapCount++;
+            Invoke("ResetTapCount", 0.2f);
+        }
+        else //if(tapCount < 2)
+        {
+            tapCount++; 
+        }
+    }
+
+    void ResetTapCount()
+    {
+        tapCount = 0;
     }
 }

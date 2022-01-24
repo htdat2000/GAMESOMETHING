@@ -5,11 +5,12 @@ using UnityEngine;
 public class BagUI : MonoBehaviour
 {
     [SerializeField] private Bag bag;
+    public GameObject bagSlotParent;
     private BagSlot[] bagSlots;
 
     void Awake()
     {
-        bagSlots = GetComponentsInChildren<BagSlot>();
+        bagSlots = bagSlotParent.GetComponentsInChildren<BagSlot>(); 
     }
     void Start()
     {
@@ -27,6 +28,7 @@ public class BagUI : MonoBehaviour
             else
             {
                 bagSlots[i].ClearSlot();
+                
             }   
         }
     }
