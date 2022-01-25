@@ -6,12 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    public GameObject bagUI;
     private bool isLoaded = false;
     private Player player;
     private Rigidbody2D rb;
     public float attackRange = 0f;
-    bool openStatus = false;
-    public List<IInteractables> interactGOs = new List<IInteractables>();
+    private List<IInteractables> interactGOs = new List<IInteractables>();
 
     void Start()
     {
@@ -65,11 +65,7 @@ public class PlayerController : MonoBehaviour
     }*/
     public void OpenInventory()
     {
-        if(openStatus==false)
-            Debug.Log("Inventory Opened");
-        else
-            Debug.Log("Inventory Closed");
-        openStatus = !openStatus;
+        bagUI.SetActive(!bagUI.activeSelf);
     }
     #endregion
 
