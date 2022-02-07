@@ -18,5 +18,5 @@ public abstract class Items : ScriptableObject
     [SerializeField] protected int _sizeX; public int sizeX  { get {return _sizeX;} }
     [SerializeField] protected int _sizeY; public int sizeY { get {return _sizeY;} }
 
-    public abstract void Use();
+    public abstract void Use(Player player);
 }

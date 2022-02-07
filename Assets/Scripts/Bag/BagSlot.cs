@@ -5,10 +5,16 @@ using UnityEngine.UI;
 
 public class BagSlot : MonoBehaviour
 {
+    [Header("Item Area")]
     public Items item;
     public Image icon;
 
+    [Header("Unity Script Setup")]
     private int tapCount = 0;
+
+    [Header("Unity Components")]
+    [SerializeField] private Player player;
+    [SerializeField] private Bag bag;
 
     public void AddItem(Items _item)
     {
@@ -32,8 +38,8 @@ public class BagSlot : MonoBehaviour
         {
             if(item != null)
             {
-                Debug.Log("Use");
-                //item.Use();
+                item.Use(player);
+                bag.RemoveAfterUse(item);
             }
         }   
     }

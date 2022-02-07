@@ -51,7 +51,50 @@ public class Bag : MonoBehaviour
 
     public void RemoveItem(Items item)
     {
-        items.Remove(item);
+        int index = items.LastIndexOf(item);
+        items.RemoveAt(index);
+        amount.RemoveAt(index);
+        onItemChange.Invoke();
+    }
+    
+    public void RemoveAfterUse(Items item)
+    {
+        if(item.stackAble)
+        {
+            
+            if(IsAmountOfItemEqual1(item))
+            {
+                RemoveItem(item);
+            }
+            else
+            {
+                ReduceItemAmount(item);
+            }
+        }
+        else
+        {
+            RemoveItem(item);
+        }
+    }
+
+    private bool IsAmountOfItemEqual1(Items item) //check whether item's amount equal or more than 1
+    {
+        int index = items.LastIndexOf(item);
+        if(amount[index] <= 1)
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
+    private void ReduceItemAmount(Items item)
+    {
+        int index = items.LastIndexOf(item);
+        amount[index]--;
+
         onItemChange.Invoke();
     }
 }

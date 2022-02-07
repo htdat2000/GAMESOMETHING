@@ -7,6 +7,20 @@ using UnityEngine;
 public class Player : Creatures
 {
     public float attackRange = 0f;
+    private float _hunger = 50;
+ 
+    public float hunger 
+    { 
+        get 
+        {
+            return _hunger;
+        } 
+        set 
+        {
+            _hunger += value;
+            _hunger = Mathf.Clamp(_hunger, 0, 100);
+        } 
+    }
 
     [Header("Unity Components")]
     private Bag bag;
