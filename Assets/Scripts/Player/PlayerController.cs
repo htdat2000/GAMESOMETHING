@@ -7,9 +7,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bagUI;
+    
+    [Header("Unity Components")]
     private bool isLoaded = false;
     private Player player;
     private Rigidbody2D rb;
+    
+    [Header("Unity Script Varibles")]
     public float attackRange = 0f;
     private List<IInteractables> interactGOs = new List<IInteractables>();
 

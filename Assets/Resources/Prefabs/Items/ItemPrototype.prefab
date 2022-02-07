@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  spriteRenderer: {fileID: 5986803180693592746}
+  colliderComponent: {fileID: 7386260858697248111}
 --- !u!70 &7386260858697248111
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

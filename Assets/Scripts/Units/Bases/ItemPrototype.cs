@@ -2,12 +2,14 @@
 
 public class ItemPrototype : MonoBehaviour, IInteractables
 {   
-    private bool isLoaded = false;
     public Items item;
-    private SpriteRenderer spriteRenderer;
-    private CapsuleCollider2D colliderComponent;
     private Bag bag;
 
+    [Header("Unity Components")]
+    private bool isLoaded = false;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private CapsuleCollider2D colliderComponent;
+    
     void Awake()
     {
         LoadComponent();

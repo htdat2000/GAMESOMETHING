@@ -2,9 +2,13 @@
 
 public class PlayerInteractCollider : MonoBehaviour
 {   
+    [Header("Unity Varibles")]
+    public Bag bag;
+
+    [Header("Unity Components")]
     bool isLoaded = false;
     private PlayerController playerController;
-    public Bag bag;
+    
 
     void Start()
     {
