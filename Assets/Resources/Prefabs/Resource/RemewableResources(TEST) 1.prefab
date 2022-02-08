@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2760992860699602159}
   - component: {fileID: 6919981060632236089}
   m_Layer: 0
-  m_Name: RemewableResources(TEST)
+  m_Name: RemewableResources(TEST) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   _name: 
   hp: 0
   maxMaterialCanHold: 5
-  materialsHolding: {fileID: 11400000, guid: 81f921259c3b32d4b8593745a861d51d, type: 2}
+  materialsHolding: {fileID: 11400000, guid: b9c95bd364084bc41abc76b39c2e10de, type: 2}
   havingMaterialImg: {fileID: 21300000, guid: d064090a88b93f743a2d9100869b3391, type: 3}
   notHavingMaterialImg: {fileID: 21300000, guid: 32b71c494fdafe6498506b1c4a48cf3f,
     type: 3}
