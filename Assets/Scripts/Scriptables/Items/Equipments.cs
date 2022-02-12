@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Items/Equipment")]
 public class Equipments : Items
 {
-    public override void Use()
+    public override void Use(Player player)
     {
         return;
     }
