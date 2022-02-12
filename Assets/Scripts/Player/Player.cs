@@ -7,12 +7,29 @@ using UnityEngine;
 public class Player : Creatures
 {
     public float attackRange = 0f;
+    private float _hunger = 50;
+ 
+    public float hunger 
+    { 
+        get 
+        {
+            return _hunger;
+        } 
+        set 
+        {
+            _hunger += value;
+            _hunger = Mathf.Clamp(_hunger, 0, 100);
+        } 
+    }
 
-    public Vector2 moveDir;
-    float saveInput;
+    [Header("Unity Components")]
     private Bag bag;
     Animator anim;
     private Rigidbody2D rb;
+
+    [Header("Unity Script Varibles")]
+    [HideInInspector]public Vector2 moveDir;
+    float saveInput;
     
     void Awake()
     {

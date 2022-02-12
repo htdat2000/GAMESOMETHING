@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Game Material", menuName = "Items/Game Material")]
 public class GameMaterials : Items
 {
-    public override void Use()
+    public override void Use(Player player)
     {
         return;
     }
