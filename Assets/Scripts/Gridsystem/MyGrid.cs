@@ -42,6 +42,10 @@ public class MyGrid<TGridObject>
         Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 200f);
                 
     }
+    public float GetCellSize()
+    {
+        return cellSize;
+    }
     private Vector3 GetWorldPosition(int x, int y)
     {
         return new Vector3(x,y) * cellSize + originPosition;
