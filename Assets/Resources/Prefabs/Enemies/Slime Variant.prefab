@@ -61,12 +61,12 @@ PrefabInstance:
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.82
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.84
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
@@ -144,6 +144,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5577621808544187596, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 5598202969388060342, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_Controller
@@ -152,7 +157,7 @@ PrefabInstance:
     - target: {fileID: 7046723784898012941, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_Name
-      value: Slime Variant
+      value: Slime
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a25d3f466fb5c40be50e6e1cad5388, type: 3}
