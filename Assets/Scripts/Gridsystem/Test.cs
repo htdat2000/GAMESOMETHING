@@ -15,11 +15,12 @@ public class Test : MonoBehaviour
     }
     void Update() 
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetKeyDown("space"))
         {
             Vector3 mouseWorldPosition = UtilsClass.GetMouseWorldPosition();
             pathfinding.GetMyGrid().GetXY(mouseWorldPosition, out int x, out int y);
-            List<PathNode> path = pathfinding.FindPath(0,0,x,y);
+            pathfinding.GetMyGrid().GetXY(slime.gameObject.transform.position, out int t, out int s);
+            List<PathNode> path = pathfinding.FindPath(t,s,x,y);
             if(path != null)
             {
                 for(int i = 0; i < path.Count - 1; i++)

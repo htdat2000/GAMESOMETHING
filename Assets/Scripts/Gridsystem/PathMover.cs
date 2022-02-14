@@ -17,11 +17,15 @@ public class PathMover : MonoBehaviour
     {
         return transform.position;
     }
+    public void Update()
+    {
+        HandleMovement();
+    }
     private void HandleMovement()
     {
         if(pathVectorList != null)
         {
-            Vector3 targetPosition = pathVectorList[currentPathIndex];
+            Vector3 targetPosition = pathVectorList[currentPathIndex] ; //+ new Vector3(Pathfinding.Instance.GetMyGrid().GetCellSize()/2, Pathfinding.Instance.GetMyGrid().GetCellSize()/2, 0)
             if(Vector3.Distance(transform.position, targetPosition) > 1f)
             {
                 Vector3 moveDir = (targetPosition -transform.position).normalized;
