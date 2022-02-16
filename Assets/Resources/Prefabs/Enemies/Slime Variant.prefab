@@ -157,7 +157,7 @@ PrefabInstance:
     - target: {fileID: 7046723784898012941, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_Name
-      value: Slime
+      value: Slime Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a25d3f466fb5c40be50e6e1cad5388, type: 3}

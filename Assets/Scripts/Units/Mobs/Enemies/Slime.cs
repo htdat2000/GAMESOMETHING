@@ -5,16 +5,18 @@ using UnityEngine;
 public class Slime : Enemies
 {
     private Vector2 randomPoint;
+    private PathMover pathMover;
     private void Start() 
     {
         InvokeRepeating("ChoseRandomDir", 0f, 3f);
+        pathMover = GetComponent<PathMover>();
     }
     private void Update() 
     {
-        if(!target)
+        if(pathMover.GetChasing() == false)
+        {
             Move();
-        else
-            Chase();
+        }
     }
     #region Override
     override public void Move()
@@ -41,7 +43,11 @@ public class Slime : Enemies
     #endregion
     protected void Chase()
     {
-        return;
+        pathMover.Chase();
+    }
+    protected void StopChasing()
+    {
+        pathMover.StopChasing();
     }
     private void ChoseRandomDir()
     {
