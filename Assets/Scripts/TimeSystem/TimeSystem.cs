@@ -14,8 +14,11 @@ public class TimeSystem : MonoBehaviour
 
     [Header("Day and Night Setup")]
     [SerializeField] private Light2D globalLight;
-    [SerializeField] private Color dayColorLight; // = new Color(255, 255, 255);
-    [SerializeField] private Color nightColorLight; // = new Color(126, 126, 126);
+    [SerializeField] private Color whiteColorLight; // = new Color(255, 255, 255);
+    [SerializeField] private Color yellowColorLight; // = new Color(242, 248, 174);
+    [SerializeField] private Color orangeColorLight; // = new Color(240, 217, 163);
+    [SerializeField] private Color softNightColorLight; // = new Color(186, 186, 186);
+    [SerializeField] private Color darkNightColorLight; // = new Color(126, 126, 126);
 
     #region Time Properties
     public int day {get {return _day;} private set {_day = value;}}
@@ -68,13 +71,29 @@ public class TimeSystem : MonoBehaviour
 
     public void DayAndNightController()
     {
-        if (hour <= 17 && hour >= 6)
+        if (0 <= hour && hour < 4)
         {
-            globalLight.color = dayColorLight;
+            globalLight.color = darkNightColorLight;
         }
-        else
+        else if(4 <= hour && hour < 5)
         {
-            globalLight.color = nightColorLight;
+            globalLight.color = softNightColorLight;
+        }
+        else if(5 <= hour && hour < 12)
+        {
+            globalLight.color = whiteColorLight;
+        }
+        else if(12 <= hour && hour < 16)
+        {
+            globalLight.color = yellowColorLight;
+        }
+        else if(16 <= hour && hour < 18)
+        {
+            globalLight.color = orangeColorLight;
+        }
+        else if(18 <= hour && hour < 24)
+        {
+            globalLight.color = darkNightColorLight;
         }
     }
 }
