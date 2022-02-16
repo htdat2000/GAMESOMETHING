@@ -7,12 +7,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bagUI;
-    
+
     [Header("Unity Components")]
     private bool isLoaded = false;
     private Player player;
     private Rigidbody2D rb;
-    
+
     [Header("Unity Script Varibles")]
     public float attackRange = 0f;
     private List<IInteractables> interactGOs = new List<IInteractables>();
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        
         Move();
         if(Input.GetKeyDown(KeyCode.T))
         {
@@ -41,16 +42,22 @@ public class PlayerController : MonoBehaviour
     #region Player controller method
     public void Move()
     {
+       
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        Vector2 moveAmount = moveInput.normalized;
-        player.moveDir = moveAmount;
-        
+        if(Input.GetKey(KeyCode.LeftShift)){
+            Vector2 moveAmount = moveInput.normalized*2;
+            player.moveDir = moveAmount;
+        }
+        else{
+            Vector2 moveAmount = moveInput.normalized;
+            player.moveDir = moveAmount;
+        }
         /*if(Input.GetKeyDown(KeyCode.Q))
         {
             Roll(moveAmount);
         }*/
     }
-
+   
     public void Attack()
     {
         player.Attack();
