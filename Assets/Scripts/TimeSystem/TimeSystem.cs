@@ -5,7 +5,7 @@ public class TimeSystem : MonoBehaviour
 {   
     TimeSystem timeSystem;
 
-    [Header("Time Varibles")]
+    [Header("Time Variables")]
     private int _day;
     private int _hour;
     private int _minute;
