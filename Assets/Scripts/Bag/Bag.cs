@@ -9,6 +9,13 @@ public class Bag : MonoBehaviour
     public List<Items> items = new List<Items>();
     public List<int> amount = new List<int>();
 
+    private Player player;
+
+    void Start()
+    {
+        player = GetComponent<Player>();
+    }
+
     public bool AddItem(Items item)
     {   
         if(items.Count >= space)
@@ -49,38 +56,42 @@ public class Bag : MonoBehaviour
         }
     }
 
-    public void RemoveItem(Items item)
+    public void RemoveItem(int itemIndex)
     {
-        int index = items.LastIndexOf(item);
-        items.RemoveAt(index);
-        amount.RemoveAt(index);
+        items.RemoveAt(itemIndex);
+        amount.RemoveAt(itemIndex);
         onItemChange.Invoke();
     }
     
-    public void RemoveAfterUse(Items item)
+    public void UseItemInList(int itemIndex)
     {
-        if(item.stackAble)
+        items[itemIndex].Use(player);
+        RemoveAfterUse(itemIndex);
+    }
+
+    public void RemoveAfterUse(int itemIndex)
+    {
+        if(items[itemIndex].stackAble)
         {
             
-            if(IsAmountOfItemEqual1(item))
+            if(IsAmountOfItemEqual1(itemIndex))
             {
-                RemoveItem(item);
+                RemoveItem(itemIndex);
             }
             else
             {
-                ReduceItemAmount(item);
+                ReduceItemAmount(itemIndex);
             }
         }
         else
         {
-            RemoveItem(item);
+            RemoveItem(itemIndex);
         }
     }
 
-    private bool IsAmountOfItemEqual1(Items item) //check whether item's amount equal or more than 1
+    private bool IsAmountOfItemEqual1(int itemIndex) //check whether item's amount equal or more than 1
     {
-        int index = items.LastIndexOf(item);
-        if(amount[index] <= 1)
+        if(amount[itemIndex] <= 1)
         {
             return true;
         }
@@ -90,11 +101,9 @@ public class Bag : MonoBehaviour
         }
     }
 
-    private void ReduceItemAmount(Items item)
+    private void ReduceItemAmount(int itemIndex)
     {
-        int index = items.LastIndexOf(item);
-        amount[index]--;
-
+        amount[itemIndex]--;
         onItemChange.Invoke();
     }
 }
