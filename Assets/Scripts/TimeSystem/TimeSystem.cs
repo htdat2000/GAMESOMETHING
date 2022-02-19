@@ -11,7 +11,7 @@ public class TimeSystem : MonoBehaviour
     private int _day;
     private int _hour;
     private int _minute;
-    private float realTimeToMinute = 0.00005f; //"1" second = one minute in game
+    private float realTimeToMinute = 0.0005f; //"1" second = one minute in game
     private float timer;
 
     [Header("Day and Night Setup")]
@@ -126,7 +126,7 @@ public class TimeSystem : MonoBehaviour
             }
         }
 
-        globalLight.color = Color.Lerp(globalLight.color, nextColor, Time.deltaTime / 5f);
+        globalLight.color = Color.Lerp(globalLight.color, nextColor, Time.deltaTime / 1f);
     }
     public void ImmediatelySetLight()
     {

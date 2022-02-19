@@ -21,8 +21,9 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        //Do somthing
+        //Debug thôi
         Debug.Log("Spawnnnnnn");
         Instantiate(enemyId[0], player.transform.position + new Vector3(2f,2f, 0), Quaternion.identity);
+        //sinh như nào thì viết dô đây
     }
 }
