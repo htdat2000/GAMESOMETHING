@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.Universal;
 
 public class TimeSystem : MonoBehaviour
 {   
-    TimeSystem timeSystem;
+    public static TimeSystem timeSystem;
 
     [Header("Time Varibles")]
     private int _day;
     private int _hour;
     private int _minute;
-    private float realTimeToMinute = 1f; //"1" second = one minute in game
+    private float realTimeToMinute = 0.00005f; //"1" second = one minute in game
     private float timer;
 
     [Header("Day and Night Setup")]
@@ -21,6 +22,8 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] private Color[] lightsInDay; 
     [SerializeField] private Text timerTxt; //Debug Object
     private Color nextColor;
+    public UnityEvent on17h;
+    private bool wasRaidInDay = false;
 
     #region Time Properties
     public int day {get {return _day;} private set {_day = value;}}
@@ -35,6 +38,7 @@ public class TimeSystem : MonoBehaviour
             Debug.LogError("More Than 1 TimeSystem In Scene");
             return;
         }
+        
         timeSystem = this;          
     }
     void Start()
@@ -47,6 +51,9 @@ public class TimeSystem : MonoBehaviour
         //need some check before set this current color
         nextColor = nightColorLight;
         ImmediatelySetLight();
+
+        if (on17h == null)
+            on17h = new UnityEvent();
     }
 
     void Update()
@@ -104,10 +111,19 @@ public class TimeSystem : MonoBehaviour
         if (hour > 15 && hour <= 18)
         {
             nextColor = lightsInDay[1];
+            if(!wasRaidInDay && hour == 17)
+            {
+                on17h?.Invoke();
+                wasRaidInDay = true;
+            }
         }
         if (hour > 18 || hour <= 6)
         {
             nextColor = lightsInDay[2];
+            if(wasRaidInDay)
+            {
+                wasRaidInDay = false;
+            }
         }
 
         globalLight.color = Color.Lerp(globalLight.color, nextColor, Time.deltaTime / 5f);
