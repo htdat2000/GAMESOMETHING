@@ -19,11 +19,11 @@ public class Player : Creatures
     private Animator anim;
     private Rigidbody2D rb;
 
-    [Header("Unity Script Varibles")]
+    [Header("Unity Script Variables")]
     [HideInInspector]public Vector2 moveDir;
     float saveInput;
     
-    [Header("Hunger Function Varibles")]
+    [Header("Hunger Function Variables")]
     private float hungerCooldown = 0;
     private float hungerTimer = 2;
     private bool isHunger = false;

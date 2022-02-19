@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private Player player;
     private Rigidbody2D rb;
 
-    [Header("Unity Script Varibles")]
+    [Header("Unity Script Variables")]
     public float attackRange = 0f;
     private List<IInteractables> interactGOs = new List<IInteractables>();
 

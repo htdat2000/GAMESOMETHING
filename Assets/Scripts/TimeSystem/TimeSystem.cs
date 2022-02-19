@@ -7,7 +7,7 @@ public class TimeSystem : MonoBehaviour
 {   
     public static TimeSystem timeSystem;
 
-    [Header("Time Varibles")]
+    [Header("Time Variables")]
     private int _day;
     private int _hour;
     private int _minute;
@@ -23,6 +23,7 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] private Text timerTxt; //Debug Object
     private Color nextColor;
     public UnityEvent on17h;
+    public GameEvent on17hEvent;
     private bool wasRaidInDay = false;
 
     #region Time Properties
@@ -113,7 +114,8 @@ public class TimeSystem : MonoBehaviour
             nextColor = lightsInDay[1];
             if(!wasRaidInDay && hour == 17)
             {
-                on17h?.Invoke();
+                //on17h?.Invoke();
+                on17hEvent.Invoke();
                 wasRaidInDay = true;
             }
         }

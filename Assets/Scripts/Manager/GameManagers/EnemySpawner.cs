@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    void SpawnEnemy()
+    public void SpawnEnemy()
     {
         //Debug thôi
         Debug.Log("Spawnnnnnn");

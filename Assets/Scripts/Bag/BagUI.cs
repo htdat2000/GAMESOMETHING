@@ -11,10 +11,12 @@ public class BagUI : MonoBehaviour
     void Awake()
     {
         bagSlots = bagSlotParent.GetComponentsInChildren<BagSlot>(); 
+        
     }
     void Start()
     {
         UpdateUI();
+        SetIndexForBagSlot();
     }
 
     public void UpdateUI()
@@ -28,8 +30,15 @@ public class BagUI : MonoBehaviour
             else
             {
                 bagSlots[i].ClearSlot();
-                
             }   
+        }
+    }
+
+    void SetIndexForBagSlot()
+    {
+        for (int i = 0; i < bagSlots.Length; i++)
+        {
+            bagSlots[i].slotIndex = i;
         }
     }
 }
