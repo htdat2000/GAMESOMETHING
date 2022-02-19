@@ -30,6 +30,12 @@ public class Player : Creatures
     private float hungerDmgCooldown = 0;
     private float hungerDmgTimer = 1;
     
+    [Header("Effect")]
+    [SerializeField] private GameObject attackEffect;
+
+    [Header("Combat parameter")]
+    [SerializeField] private float attackCooldown;
+    private float lastAttack;
     
     #region Properties
     public float hunger 
@@ -56,6 +62,10 @@ public class Player : Creatures
         hunger = defaultHunger;
         speed = defaultSpeed;
     }
+    void Start()
+    {
+        lastAttack = Time.time;
+    }
 
     void Update()
     {
@@ -66,6 +76,7 @@ public class Player : Creatures
     void FixedUpdate() 
     {
         Move();
+        AttackCheck();
     }
 
     #region Basic Function
@@ -89,21 +100,21 @@ public class Player : Creatures
     {
         return;
     }
-    override public void Attack()
-    {
-        // Vector2 attackPoint = new Vector2(transform.position.x, transform.position.y);
-        // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint, attackRange);
-        // foreach(Collider2D enemy in hitEnemies){
-        //     Debug.Log("Hit");
-        // }
+    // override public void Attack()
+    // {
+    //     // Vector2 attackPoint = new Vector2(transform.position.x, transform.position.y);
+    //     // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint, attackRange);
+    //     // foreach(Collider2D enemy in hitEnemies){
+    //     //     Debug.Log("Hit");
+    //     // }
 
-        if (saveInput>0){
-            Debug.Log("Right");
-        }
-        if (saveInput<0){
-            Debug.Log("Left");
-        }
-    }
+    //     if (saveInput>0){
+    //         Debug.Log("Right");
+    //     }
+    //     if (saveInput<0){
+    //         Debug.Log("Left");
+    //     }
+    // }
     #endregion
     
     #region Animation
@@ -147,6 +158,26 @@ public class Player : Creatures
             hungerCooldown = hungerTimer;
         }
     }
+    #endregion
+
+    #region Player Action Controller
+    void AttackCheck()
+    {
+        if(Input.GetKeyDown("space") && lastAttack > (Time.time + attackCooldown))
+        // if(Input.GetKeyDown("space"))
+        {
+            lastAttack = Time.time;
+            Attack();
+        }
+    }
+    override public void Attack()
+    {
+        // Debug.Log("time: " + Time.time);
+        // Debug.Log("last time: " + lastAttack);
+        // Debug.Log("next attack time: " + (attackCooldown + Time.time));
+        Instantiate(attackEffect, transform.position, Quaternion.identity);
+    }
+
     #endregion
 }
 
