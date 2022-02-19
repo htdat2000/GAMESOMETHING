@@ -205,6 +205,8 @@ MonoBehaviour:
   hp: 0
   speed: 3
   attackRange: 1.5
+  defaultSpeed: 3
+  defaultHp: 0
   moveDir: {x: 0, y: 0}
 --- !u!1 &6588715397567289749
 GameObject:
