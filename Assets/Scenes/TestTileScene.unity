@@ -1965,7 +1965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalLight: {fileID: 521146965}
   dayColorLight: {r: 1, g: 1, b: 1, a: 1}
-  nightColorLight: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 1}
+  nightColorLight: {r: 0, g: 0.2287481, b: 0.41509432, a: 1}
 --- !u!4 &2009806219
 Transform:
   m_ObjectHideFlags: 0

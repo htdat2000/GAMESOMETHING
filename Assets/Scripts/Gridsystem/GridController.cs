@@ -17,7 +17,7 @@ public class GridController : MonoBehaviour
     {
         pathfinding = new Pathfinding(40,40);
         if(!Instance)
-            Instance = this;
+            GridController.Instance = this;
     }
 
     // Update is called once per frame

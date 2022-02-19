@@ -16,6 +16,7 @@ public class TimeSystem : MonoBehaviour
     [SerializeField] private Light2D globalLight;
     [SerializeField] private Color dayColorLight; // = new Color(255, 255, 255);
     [SerializeField] private Color nightColorLight; // = new Color(126, 126, 126);
+    private Color currentColor;
 
     #region Time Properties
     public int day {get {return _day;} private set {_day = value;}}
@@ -38,12 +39,16 @@ public class TimeSystem : MonoBehaviour
         hour = 0;
         minute = 0;
         timer = realTimeToMinute;
+
+        //need some check before set this current color
+        currentColor = nightColorLight;
     }
 
     void Update()
     {
         TimeCalculation();
-        DayAndNightController();
+        // DayAndNightController();
+        MucNewLightController();
     }
 
     void TimeCalculation()
@@ -76,5 +81,15 @@ public class TimeSystem : MonoBehaviour
         {
             globalLight.color = nightColorLight;
         }
+    }
+
+    public void MucNewLightController()
+    {
+        if (globalLight.color == dayColorLight)
+            currentColor = nightColorLight;
+        if (globalLight.color == nightColorLight)
+            currentColor = dayColorLight;
+
+        globalLight.color = Color.Lerp(globalLight.color, currentColor, Time.deltaTime / 60 * 24 * realTimeToMinute);
     }
 }
