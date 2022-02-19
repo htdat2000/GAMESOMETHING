@@ -39,19 +39,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void FixedUpdate() {
+      
+    }
+
     #region Player controller method
     public void Move()
     {
        
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 moveAmount;
         if(Input.GetKey(KeyCode.LeftShift)){
-            Vector2 moveAmount = moveInput.normalized*2;
-            player.moveDir = moveAmount;
+            moveAmount = moveInput.normalized*2;
         }
         else{
-            Vector2 moveAmount = moveInput.normalized;
-            player.moveDir = moveAmount;
+            moveAmount = moveInput.normalized;
         }
+        player.moveDir = moveAmount;
         /*if(Input.GetKeyDown(KeyCode.Q))
         {
             Roll(moveAmount);
