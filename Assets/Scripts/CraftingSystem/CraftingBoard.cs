@@ -12,9 +12,12 @@ public class CraftingBoard : MonoBehaviour
 
     [Header("UI Area")]
     public Image selectedBlueprintIcon;
-    public Image firstMaterialIcon;
-    public Image secondMaterialIcon;
-    public Image thirdMaterialIcon;
+    public Image[] materialIcons;
+
+    [Header("Item Craft & Materials")]
+    private Items itemCraftSelected;
+    private Items[] materials;
+    private int[] amount;
 
     void Start()
     {
@@ -30,18 +33,51 @@ public class CraftingBoard : MonoBehaviour
     void UpdateUI()
     {
         selectedBlueprintIcon.sprite = selectedBlueprint.itemCraft.icon;
-        firstMaterialIcon.sprite = selectedBlueprint.material[1].icon;
-        secondMaterialIcon.sprite = selectedBlueprint.material[2].icon;
-        thirdMaterialIcon.sprite = selectedBlueprint.material[3].icon;
+        for (int i = 0; i < 2; i++)
+        {
+            materials[i] = selectedBlueprint.materials[i];
+            materialIcons[i].sprite = materials[i].icon;
+            amount[i] = selectedBlueprint.amount[i];
+        }
     }
 
     public void Craft()
     {
-        
+        if(CheckBeforeCraft())
+        {
+            Debug.Log("An item has been crafted");
+        }
     }
 
-    void CheckBeforeCraft()
+    bool CheckBeforeCraft()
     {
+        if(CheckMaterialAmount(0) && CheckMaterialAmount(1) && CheckMaterialAmount(2))
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
 
+    bool CheckMaterialAmount(int materialIndex)
+    {
+        if(bag.totalAmount[selectedBlueprint.materials[materialIndex]] >= selectedBlueprint.amount[materialIndex])
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
+    void ReduceMaterial(int materialIndex)
+    {
+        if(bag.totalAmount[selectedBlueprint.materials[materialIndex]] >= selectedBlueprint.amount[materialIndex])
+        {
+
+        }
     }
 }
