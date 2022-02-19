@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Experimental.Rendering.Universal;
 
 public class TimeSystem : MonoBehaviour
@@ -9,14 +10,17 @@ public class TimeSystem : MonoBehaviour
     private int _day;
     private int _hour;
     private int _minute;
-    private float realTimeToMinute = 1; //1 second = 1 minute in game
+    private float realTimeToMinute = 0.00005f; //"1" second = 1 minute in game
     private float timer;
 
     [Header("Day and Night Setup")]
     [SerializeField] private Light2D globalLight;
     [SerializeField] private Color dayColorLight; // = new Color(255, 255, 255);
     [SerializeField] private Color nightColorLight; // = new Color(126, 126, 126);
-    private Color currentColor;
+
+    [SerializeField] private Color[] lightsInDay; 
+    [SerializeField] private Text timerTxt; //Debug Object
+    private Color nextColor;
 
     #region Time Properties
     public int day {get {return _day;} private set {_day = value;}}
@@ -41,7 +45,8 @@ public class TimeSystem : MonoBehaviour
         timer = realTimeToMinute;
 
         //need some check before set this current color
-        currentColor = nightColorLight;
+        nextColor = nightColorLight;
+        ImmediatelySetLight();
     }
 
     void Update()
@@ -49,6 +54,7 @@ public class TimeSystem : MonoBehaviour
         TimeCalculation();
         // DayAndNightController();
         MucNewLightController();
+        timerTxt.text = hour.ToString() + " : " + minute.ToString();
     }
 
     void TimeCalculation()
@@ -86,10 +92,39 @@ public class TimeSystem : MonoBehaviour
     public void MucNewLightController()
     {
         if (globalLight.color == dayColorLight)
-            currentColor = nightColorLight;
+            nextColor = nightColorLight;
         if (globalLight.color == nightColorLight)
-            currentColor = dayColorLight;
+            nextColor = dayColorLight;
 
-        globalLight.color = Color.Lerp(globalLight.color, currentColor, Time.deltaTime / 60 * 24 * realTimeToMinute);
+        // 6 - 15, 15 - 17, 17 - 6
+        if (hour > 6 && hour <= 15)
+        {
+            nextColor = lightsInDay[0];
+        }
+        if (hour > 15 && hour <= 18)
+        {
+            nextColor = lightsInDay[1];
+        }
+        if (hour > 18 || hour <= 6)
+        {
+            nextColor = lightsInDay[2];
+        }
+
+        globalLight.color = Color.Lerp(globalLight.color, nextColor, Time.deltaTime / 0.5f);
+    }
+    public void ImmediatelySetLight()
+    {
+        if (hour > 6 && hour <= 15)
+        {
+            globalLight.color = lightsInDay[0];
+        }
+        if (hour > 15 && hour <= 17)
+        {
+            globalLight.color = lightsInDay[1];
+        }
+        if (hour > 17 || hour <= 6)
+        {
+            globalLight.color = lightsInDay[2];
+        }
     }
 }
