@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 295142321}
   m_Layer: 0
   m_Name: GridController
-  m_TagString: Untagged
+  m_TagString: GridController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2292,12 +2292,12 @@ PrefabInstance:
     - target: {fileID: 1884201607722057271, guid: 1dfb916b68eb3bd49ab2effbd1868310,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.61
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1884201607722057271, guid: 1dfb916b68eb3bd49ab2effbd1868310,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1884201607722057271, guid: 1dfb916b68eb3bd49ab2effbd1868310,
         type: 3}
@@ -2350,6 +2350,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
         type: 3}
+      propertyPath: hp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
+        type: 3}
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
@@ -2367,6 +2372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624540598252706358, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5624540598252706358, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
         type: 3}
