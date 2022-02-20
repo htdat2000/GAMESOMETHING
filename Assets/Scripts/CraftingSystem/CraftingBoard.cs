@@ -16,8 +16,8 @@ public class CraftingBoard : MonoBehaviour
 
     [Header("Item Craft & Materials")]
     private Items itemCraftSelected;
-    private Items[] materials;
-    private int[] amount;
+    private Items[] materials = new Items[3];
+    private int[] amount = new int[3];
 
     void Start()
     {
@@ -45,6 +45,11 @@ public class CraftingBoard : MonoBehaviour
     {
         if(CheckBeforeCraft())
         {
+            for (int i = 0; i < 2; i++)
+            {
+               ReduceMaterial(i); 
+            }
+            bag.AddItem(itemCraftSelected);
             Debug.Log("An item has been crafted");
         }
     }
@@ -63,7 +68,7 @@ public class CraftingBoard : MonoBehaviour
 
     bool CheckMaterialAmount(int materialIndex)
     {
-        if(bag.totalAmount[selectedBlueprint.materials[materialIndex]] >= selectedBlueprint.amount[materialIndex])
+        if(bag.totalAmount[materials[materialIndex]] >= amount[materialIndex])
         {
             return true;
         }
@@ -75,9 +80,13 @@ public class CraftingBoard : MonoBehaviour
 
     void ReduceMaterial(int materialIndex)
     {
-        if(bag.totalAmount[selectedBlueprint.materials[materialIndex]] >= selectedBlueprint.amount[materialIndex])
+        int totalAmount = bag.totalAmount[materials[materialIndex]];
+        int bagLastSlotAmount = bag.ReduceAmountAtLastIndexOfItem(materials[materialIndex], amount[materialIndex]);
+        int remainderValue = amount[materialIndex] - bagLastSlotAmount;
+        if(bagLastSlotAmount != 0)
         {
-
+            bag.ReduceAmountAtLastIndexOfItem(materials[materialIndex], bagLastSlotAmount);
+            bag.ReduceAmountAtLastIndexOfItem(materials[materialIndex], remainderValue);
         }
     }
 }
