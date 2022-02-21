@@ -11,11 +11,12 @@ public class BagSlot : MonoBehaviour
 
     [Header("Unity Script Setup")]
     private int tapCount = 0;
+    public int slotIndex;
 
     [Header("Unity Components")]
-    [SerializeField] private Player player;
     [SerializeField] private Bag bag;
 
+    #region Basic Function (Add, Clear, Use Item)
     public void AddItem(Items _item)
     {
         item = _item;
@@ -38,11 +39,13 @@ public class BagSlot : MonoBehaviour
         {
             if(item != null)
             {
-                item.Use(player);
-                bag.RemoveAfterUse(item);
+                bag.UseItemInList(slotIndex);
             }
         }   
     }
+    #endregion
+
+    #region Check Interact Function
     bool IsDoubleTap()
     {
         IsPress();
@@ -73,4 +76,5 @@ public class BagSlot : MonoBehaviour
     {
         tapCount = 0;
     }
+    #endregion
 }

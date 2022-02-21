@@ -2,7 +2,7 @@
 
 public class PlayerInteractCollider : MonoBehaviour
 {   
-    [Header("Unity Varibles")]
+    [Header("Unity Variables")]
     public Bag bag;
 
     [Header("Unity Components")]

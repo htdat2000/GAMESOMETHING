@@ -2057,6 +2057,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - name: On17h
+    gameEvent: {fileID: 11400000, guid: e568dc71dfa41364bb0de283e7afc023, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1694663661}
+          m_MethodName: SpawnEnemy
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   listeners_float: []
 --- !u!1 &2009806217
 GameObject:
@@ -2098,6 +2114,7 @@ MonoBehaviour:
   on17h:
     m_PersistentCalls:
       m_Calls: []
+  on17hEvent: {fileID: 11400000, guid: e568dc71dfa41364bb0de283e7afc023, type: 2}
 --- !u!4 &2009806219
 Transform:
   m_ObjectHideFlags: 0
