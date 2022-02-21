@@ -9,7 +9,7 @@ public class Bag : MonoBehaviour
     private int maxNumberOfItem = 999;
     public List<Items> items = new List<Items>();
     public List<int> amount = new List<int>();
-    public Dictionary<Items, int> totalAmount = new Dictionary<Items, int>();
+    public Hashtable totalAmount = new Hashtable();
     private Player player;
 
     void Start()
@@ -125,7 +125,8 @@ public class Bag : MonoBehaviour
     {
         if(totalAmount.ContainsKey(item))
         {
-            totalAmount[item]++;
+            int amountValue = (int)totalAmount[item] + 1;
+            totalAmount[item] = amountValue;
         }
         else
         {
@@ -136,23 +137,33 @@ public class Bag : MonoBehaviour
     private void ReduceTotalAmount(int itemIndex, int amountReduce)
     {
         Items itemReduce = items[itemIndex];
-        if(totalAmount[itemReduce] >= amountReduce)
+        int amountValue = (int)totalAmount[itemReduce];
+        if(amountValue >= amountReduce)
         {
-            totalAmount[itemReduce] -= amountReduce;
-            if(totalAmount[itemReduce] == 0)
+            amountValue -= amountReduce;
+            if(amountValue == 0)
             {
                 totalAmount.Remove(itemReduce);
+            }
+            else
+            {
+               totalAmount[itemReduce] = amountValue; 
             }
         }
     }
     private void ReduceTotalAmount(Items item, int amountReduce)
     {   
-        if(totalAmount[item] >= amountReduce)
+        int amountValue = (int)totalAmount[item];
+        if(amountValue >= amountReduce)
         {
-            totalAmount[item] -= amountReduce;
-            if(totalAmount[item] == 0)
+            amountValue -= amountReduce;
+            if(amountValue == 0)
             {
                 totalAmount.Remove(item);
+            }
+            else
+            {
+                totalAmount[item] = amountValue;
             }
         }
     }

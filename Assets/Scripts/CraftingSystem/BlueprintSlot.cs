@@ -19,6 +19,9 @@ public class BlueprintSlot : MonoBehaviour
 
     public void SelectBlueprint()
     {
-        craftingBoard.SelectBlueprint(blueprint);
+        if(blueprint != null)
+        {
+            craftingBoard.SelectBlueprint(blueprint);
+        }
     }
 }
