@@ -222,5 +222,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blueprintIcon: {fileID: 0}
-  blueprint: {fileID: 0}
+  blueprint: {fileID: 11400000, guid: d1dc647fe18823a44838d1e5fcdc3024, type: 2}
   craftingBoard: {fileID: 0}

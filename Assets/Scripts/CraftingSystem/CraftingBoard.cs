@@ -7,8 +7,8 @@ public class CraftingBoard : MonoBehaviour
 {
     private BlueprintSlot[] blueprintSlot;
     [SerializeField] private GameObject blueprintParent;
-    [HideInInspector] public Blueprints selectedBlueprint;
-    private Bag bag;
+    public Blueprints selectedBlueprint = null;
+    [SerializeField] private Bag bag;
 
     [Header("UI Area")]
     public Image selectedBlueprintIcon;
@@ -16,10 +16,10 @@ public class CraftingBoard : MonoBehaviour
 
     [Header("Item Craft & Materials")]
     private Items itemCraftSelected;
-    private Items[] materials;
-    private int[] amount;
+    private Items[] materials = new Items[3];
+    private int[] amount = new int[3];
 
-    void Start()
+    void Awake()
     {
         blueprintSlot = blueprintParent.GetComponentsInChildren<BlueprintSlot>();
     }
@@ -28,16 +28,21 @@ public class CraftingBoard : MonoBehaviour
     {
         selectedBlueprint = _blueprint;
         UpdateUI();
+        Debug.Log(materials[0].name);
     }
 
     void UpdateUI()
     {
-        selectedBlueprintIcon.sprite = selectedBlueprint.itemCraft.icon;
+        //selectedBlueprintIcon.sprite = selectedBlueprint.itemCraft.icon;
+        itemCraftSelected = selectedBlueprint.itemCraft;
         for (int i = 0; i < 2; i++)
         {
-            materials[i] = selectedBlueprint.materials[i];
-            materialIcons[i].sprite = materials[i].icon;
-            amount[i] = selectedBlueprint.amount[i];
+            if(selectedBlueprint.materials[i] != null)
+            {
+                materials[i] = selectedBlueprint.materials[i];
+                //materialIcons[i].sprite = materials[i].icon;
+                amount[i] = selectedBlueprint.amount[i];
+            }
         }
     }
 
@@ -45,7 +50,11 @@ public class CraftingBoard : MonoBehaviour
     {
         if(CheckBeforeCraft())
         {
-            Debug.Log("An item has been crafted");
+            for (int i = 0; i < 2; i++)
+            {
+               ReduceMaterial(i); 
+            }
+            bag.AddItem(itemCraftSelected);
         }
     }
 
@@ -55,29 +64,41 @@ public class CraftingBoard : MonoBehaviour
         {
             return true;
         }
-        else 
+        else
         {
             return false;
         }
     }
 
     bool CheckMaterialAmount(int materialIndex)
-    {
-        if(bag.totalAmount[selectedBlueprint.materials[materialIndex]] >= selectedBlueprint.amount[materialIndex])
+    {  
+        if(materials[materialIndex] != null)
+        {      
+            int totalAmount = (int)bag.totalAmount[materials[materialIndex]];
+            if(totalAmount >= amount[materialIndex])
+            {
+            return true;
+            }
+            else 
+            {
+            return false;
+            }
+        }
+        else
         {
             return true;
-        }
-        else 
-        {
-            return false;
         }
     }
 
     void ReduceMaterial(int materialIndex)
     {
-        if(bag.totalAmount[selectedBlueprint.materials[materialIndex]] >= selectedBlueprint.amount[materialIndex])
+        int totalAmount = (int)bag.totalAmount[materials[materialIndex]];
+        int bagLastSlotAmount = bag.ReduceAmountAtLastIndexOfItem(materials[materialIndex], amount[materialIndex]);
+        int remainderValue = amount[materialIndex] - bagLastSlotAmount;
+        if(bagLastSlotAmount != 0)
         {
-
+            bag.ReduceAmountAtLastIndexOfItem(materials[materialIndex], bagLastSlotAmount);
+            bag.ReduceAmountAtLastIndexOfItem(materials[materialIndex], remainderValue);
         }
     }
 }

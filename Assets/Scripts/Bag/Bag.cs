@@ -6,9 +6,10 @@ public class Bag : MonoBehaviour
 {   
     public GameEvent onItemChange;
     public int space = 20;
+    private int maxNumberOfItem = 999;
     public List<Items> items = new List<Items>();
     public List<int> amount = new List<int>();
-    public Dictionary<Items, int> totalAmount = new Dictionary<Items, int>();
+    public Hashtable totalAmount = new Hashtable();
     private Player player;
 
     void Start()
@@ -22,7 +23,7 @@ public class Bag : MonoBehaviour
         {
             if(item.stackAble)
             {
-                if(items.Contains(item) && amount[items.LastIndexOf(item)] < 999)
+                if(items.Contains(item) && amount[items.LastIndexOf(item)] < maxNumberOfItem)
                 {
                     amount[items.LastIndexOf(item)]++;
                     AddTotalAmount(item);
@@ -37,7 +38,7 @@ public class Bag : MonoBehaviour
         {
             if(item.stackAble)
             {
-                if(items.Contains(item) && amount[items.LastIndexOf(item)] < 999)
+                if(items.Contains(item) && amount[items.LastIndexOf(item)] < maxNumberOfItem)
                 {
                     amount[items.LastIndexOf(item)]++;
                     AddTotalAmount(item);
@@ -60,10 +61,18 @@ public class Bag : MonoBehaviour
         }
     }
 
-    public void RemoveItem(int itemIndex)
+    public void RemoveItem(int itemIndex) //remove by order of item in list
     {
         items.RemoveAt(itemIndex);
         amount.RemoveAt(itemIndex);
+        onItemChange.Invoke();
+    }
+
+    public void RemoveItem(Items item) //remove by type of item
+    {
+        int index = items.LastIndexOf(item);
+        items.RemoveAt(index);
+        amount.RemoveAt(index);
         onItemChange.Invoke();
     }
     
@@ -108,6 +117,7 @@ public class Bag : MonoBehaviour
     private void ReduceItemAmount(int itemIndex)
     {
         amount[itemIndex]--;
+        ReduceTotalAmount(itemIndex, 1);
         onItemChange.Invoke();
     }
 
@@ -115,7 +125,8 @@ public class Bag : MonoBehaviour
     {
         if(totalAmount.ContainsKey(item))
         {
-            totalAmount[item]++;
+            int amountValue = (int)totalAmount[item] + 1;
+            totalAmount[item] = amountValue;
         }
         else
         {
@@ -123,8 +134,54 @@ public class Bag : MonoBehaviour
         }
     }
 
-    public int GetTotalAmount(Items item)
+    private void ReduceTotalAmount(int itemIndex, int amountReduce)
     {
-        return totalAmount[item];
+        Items itemReduce = items[itemIndex];
+        int amountValue = (int)totalAmount[itemReduce];
+        if(amountValue >= amountReduce)
+        {
+            amountValue -= amountReduce;
+            if(amountValue == 0)
+            {
+                totalAmount.Remove(itemReduce);
+            }
+            else
+            {
+               totalAmount[itemReduce] = amountValue; 
+            }
+        }
+    }
+    private void ReduceTotalAmount(Items item, int amountReduce)
+    {   
+        int amountValue = (int)totalAmount[item];
+        if(amountValue >= amountReduce)
+        {
+            amountValue -= amountReduce;
+            if(amountValue == 0)
+            {
+                totalAmount.Remove(item);
+            }
+            else
+            {
+                totalAmount[item] = amountValue;
+            }
+        }
+    }
+
+    public int ReduceAmountAtLastIndexOfItem(Items item, int amountReduce)
+    {   
+        int index = items.LastIndexOf(item);
+        if(amount[index] < amountReduce)
+        {
+            return amount[index];
+        }
+        amount[index] -= amountReduce;
+        ReduceTotalAmount(item, amountReduce);
+        if(amount[index] == 0)
+        {
+            RemoveItem(index);
+        }
+        onItemChange.Invoke();
+        return 0;
     }
 }
