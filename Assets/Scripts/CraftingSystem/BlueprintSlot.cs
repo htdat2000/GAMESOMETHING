@@ -11,7 +11,7 @@ public class BlueprintSlot : MonoBehaviour
 
     void Start()
     {
-        if(blueprintIcon != null)
+        if(blueprintIcon != null && blueprint != null)
         {
             blueprintIcon.sprite = blueprint.itemCraft.icon;
         }
