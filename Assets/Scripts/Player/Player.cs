@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -8,11 +9,15 @@ public class Player : Creatures
 {
     public float attackRange = 0f;
     private float _hunger;
+    private float _stamina;
  
     [Header("Default Value")]
     private float defaultHunger = 100;
     [SerializeField] private float defaultSpeed;
     [SerializeField] private int defaultHp;
+    [SerializeField] private float defaultStamina = 100;
+    private float staminaRefillCooldown = 3f;
+    private float lastRefillStamina = 0f;
 
     [Header("Unity Components")]
     private Bag bag;
@@ -33,9 +38,10 @@ public class Player : Creatures
     [Header("Effect")]
     [SerializeField] private GameObject attackEffect;
 
-    [Header("Combat parameter")]
-    [SerializeField] private float attackCooldown;
-    private float lastAttack;
+    [Header("UI pointer")]
+    [SerializeField] private Slider HPBar;
+    [SerializeField] private Slider SPBar;
+    [SerializeField] private Slider CPBar;
     
     #region Properties
     public float hunger 
@@ -50,6 +56,18 @@ public class Player : Creatures
             _hunger = Mathf.Clamp(_hunger, 0, 100);
         } 
     }
+    public float stamina;
+    // { 
+    //     get 
+    //     {
+    //         return _stamina;
+    //     } 
+    //     set 
+    //     {
+    //         _stamina += value;
+    //         _stamina = Mathf.Clamp(_stamina, 0, 100);
+    //     } 
+    // }
     #endregion
 
     void Awake()
@@ -57,26 +75,23 @@ public class Player : Creatures
         rb = GetComponent<Rigidbody2D>();
         bag = GetComponent<Bag>();
         anim = GetComponent<Animator>();
-
-        hp = defaultHp;
-        hunger = defaultHunger;
-        speed = defaultSpeed;
+        LoadParameter();
     }
     void Start()
     {
-        lastAttack = Time.time;
+        UISetup();
     }
 
     void Update()
     {
         Hunger();
         IsHunger();
+        StaminaRefill();
     }
 
     void FixedUpdate() 
     {
         Move();
-        AttackCheck();
     }
 
     #region Basic Function
@@ -158,26 +173,57 @@ public class Player : Creatures
             hungerCooldown = hungerTimer;
         }
     }
+
+    public void StaminaDecrease(float value)
+    {
+        stamina -= value;
+        SPBar.value = stamina;
+    }
+    public void StaminaIncrease(float value)
+    {
+        stamina += value;
+        SPBar.value = stamina;
+    }
+    void StaminaRefill()
+    {
+        if(lastRefillStamina + staminaRefillCooldown < Time.time)
+        {
+            lastRefillStamina = Time.time;
+            StaminaIncrease(5f);
+            SPBar.value = stamina;
+        }
+    }
+
     #endregion
 
     #region Player Action Controller
-    void AttackCheck()
-    {
-        if(Input.GetKeyDown("space") && lastAttack > (Time.time + attackCooldown))
-        // if(Input.GetKeyDown("space"))
-        {
-            lastAttack = Time.time;
-            Attack();
-        }
-    }
     override public void Attack()
     {
-        // Debug.Log("time: " + Time.time);
-        // Debug.Log("last time: " + lastAttack);
-        // Debug.Log("next attack time: " + (attackCooldown + Time.time));
-        Instantiate(attackEffect, transform.position, Quaternion.identity);
+        if(stamina >= 10f)
+        {
+            Instantiate(attackEffect, transform.position, Quaternion.identity);
+            StaminaDecrease(10f);
+        }
     }
 
+    #endregion
+
+    #region UI Setup
+    void UISetup()
+    {
+        SPBar.maxValue = defaultStamina;
+    }
+    #endregion
+
+    #region Setup
+    void LoadParameter()
+    {
+        lastRefillStamina = Time.time;
+        stamina = defaultStamina;
+        hp = defaultHp;
+        hunger = defaultHunger;
+        speed = defaultSpeed;
+    }
     #endregion
 }
 

@@ -15,11 +15,14 @@ public class PlayerController : MonoBehaviour
 
     [Header("Unity Script Variables")]
     public float attackRange = 0f;
+    private float attackCooldown = 0.5f;
+    private float lastAttack = 0f;
     private List<IInteractables> interactGOs = new List<IInteractables>();
 
     void Start()
     {
         LoadComponent();
+        LoadParameter();
     }
     void Update()
     {
@@ -29,7 +32,7 @@ public class PlayerController : MonoBehaviour
         {
             Interact();
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && CanAttack())
         {
             Attack();
         }
@@ -44,8 +47,9 @@ public class PlayerController : MonoBehaviour
     {
        
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if(Input.GetKey(KeyCode.LeftShift)){
-            Vector2 moveAmount = moveInput.normalized*2;
+        if(Input.GetKey(KeyCode.LeftShift) && player.stamina > 1f && moveInput != Vector2.zero){
+            Vector2 moveAmount = moveInput.normalized * 1.2f;
+            player.StaminaDecrease(0.1f);
             player.moveDir = moveAmount;
         }
         else{
@@ -60,6 +64,7 @@ public class PlayerController : MonoBehaviour
    
     public void Attack()
     {
+        lastAttack = Time.time;
         player.Attack();
     }
     public void Interact()
@@ -107,6 +112,17 @@ public class PlayerController : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
             isLoaded = !isLoaded;
         }
+    }
+    void LoadParameter()
+    {
+        lastAttack = Time.time;
+    }
+    #endregion
+
+    #region Combat System
+    bool CanAttack()
+    {
+        return lastAttack + attackCooldown < Time.time;
     }
     #endregion
 }
