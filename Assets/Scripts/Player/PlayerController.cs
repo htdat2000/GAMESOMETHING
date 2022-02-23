@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if(Input.GetKey(KeyCode.LeftShift) && player.stamina > 1f && moveInput != Vector2.zero){
             Vector2 moveAmount = moveInput.normalized * 1.2f;
-            player.StaminaDecrease(0.1f);
+            player.StaminaDecrease(0.5f);
             player.moveDir = moveAmount;
         }
         else{

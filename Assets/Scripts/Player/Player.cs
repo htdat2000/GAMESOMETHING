@@ -56,18 +56,18 @@ public class Player : Creatures
             _hunger = Mathf.Clamp(_hunger, 0, 100);
         } 
     }
-    public float stamina;
-    // { 
-    //     get 
-    //     {
-    //         return _stamina;
-    //     } 
-    //     set 
-    //     {
-    //         _stamina += value;
-    //         _stamina = Mathf.Clamp(_stamina, 0, 100);
-    //     } 
-    // }
+    public float stamina
+    { 
+        get 
+        {
+            return _stamina;
+        } 
+        set 
+        {
+            _stamina += value;
+            _stamina = Mathf.Clamp(_stamina, 0, 100);
+        } 
+    }
     #endregion
 
     void Awake()
@@ -176,12 +176,12 @@ public class Player : Creatures
 
     public void StaminaDecrease(float value)
     {
-        stamina -= value;
+        stamina = -value;
         SPBar.value = stamina;
     }
     public void StaminaIncrease(float value)
     {
-        stamina += value;
+        stamina = +value;
         SPBar.value = stamina;
     }
     void StaminaRefill()
