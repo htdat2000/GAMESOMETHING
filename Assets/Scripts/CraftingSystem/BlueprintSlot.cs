@@ -11,11 +11,17 @@ public class BlueprintSlot : MonoBehaviour
 
     void Start()
     {
-        blueprintIcon.sprite = blueprint.itemCraft.icon;
+        if(blueprintIcon != null && blueprint != null)
+        {
+            blueprintIcon.sprite = blueprint.itemCraft.icon;
+        }
     }
 
     public void SelectBlueprint()
     {
-        craftingBoard.SelectBlueprint(blueprint);
+        if(blueprint != null)
+        {
+            craftingBoard.SelectBlueprint(blueprint);
+        }
     }
 }

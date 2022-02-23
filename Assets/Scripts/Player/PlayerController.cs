@@ -7,11 +7,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bagUI;
+    public GameObject craftUI;
 
     [Header("Unity Components")]
     private bool isLoaded = false;
     private Player player;
     private Rigidbody2D rb;
+    private CraftingBoard craftingBoard;
+    private Bag bag;
 
     [Header("Unity Script Variables")]
     public float attackRange = 0f;
@@ -39,6 +42,10 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.I))
         {
             OpenInventory();
+        }
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            OpenCraftingBoard();
         }
     }
 
@@ -82,6 +89,20 @@ public class PlayerController : MonoBehaviour
     public void OpenInventory()
     {
         bagUI.SetActive(!bagUI.activeSelf);
+    }
+
+    public void OpenCraftingBoard()
+    {
+        craftUI.SetActive(!craftUI.activeSelf);
+        if(craftingBoard == null)
+        {
+            craftingBoard = craftUI.GetComponentInParent<CraftingBoard>();
+        }
+        if(bag == null)
+        {
+            bag = GetComponent<Bag>();
+        }
+        craftingBoard.SetBagComponent(bag);
     }
     #endregion
 
