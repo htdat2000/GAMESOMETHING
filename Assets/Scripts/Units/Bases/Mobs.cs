@@ -8,7 +8,7 @@ public class ItemDrop
     [SerializeField] private Items item; public Items Item { get {return Item;} }
     [SerializeField] private int dropRate; //percentage 
 
-    public void SpawnItemByDropRate(int randomValue)
+    public bool SpawnItemByDropRate(int randomValue)
     {
         if(randomValue <= dropRate * 10)
         {
@@ -27,7 +27,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     protected GameObject target;
     protected GameObject itemPrototype;
 
-    protected void Start()
+    protected virtual void Start()
     {
         itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
     }

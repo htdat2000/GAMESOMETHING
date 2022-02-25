@@ -10,7 +10,7 @@ public abstract class Resource : DamageableObjects, IAutoSpawn
     [Header("Unity Setup")]
     protected GameObject itemPrototype;
 
-    protected void Start()
+    protected virtual void Start()
     {
         itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
         itemPrototype.GetComponent<ItemPrototype>().item = materialsHolding;

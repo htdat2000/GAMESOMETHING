@@ -8,7 +8,7 @@ public class RenewableResources : Resource
     protected int renewTime;
     protected float cooldown; 
     protected SpriteRenderer spriteRenderer;  
-    override void Start()
+    protected override void Start()
     {   
         base.Start();
         defaultHP = hp;

@@ -4,7 +4,7 @@ public class NonrenewableResources : Resource
 {
     protected int defaultHP;
     [SerializeField] protected Sprite havingMaterialImg;
-    override void Start()
+    protected override void Start()
     {   
         base.Start();
         defaultHP = hp;

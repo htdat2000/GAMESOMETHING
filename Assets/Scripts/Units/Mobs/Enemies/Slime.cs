@@ -6,8 +6,9 @@ public class Slime : Enemies
 {
     private Vector2 randomPoint;
     private PathMover pathMover;
-    private void Start() 
+    protected override void Start() 
     {
+        base.Start();
         InvokeRepeating("ChoseRandomDir", 0f, 3f);
         pathMover = GetComponent<PathMover>();
     }
