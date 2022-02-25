@@ -24,6 +24,7 @@ public class ItemDrop
 public abstract class Mobs : Creatures, IAutoSpawn
 {
     [SerializeField] protected ItemDrop[] itemDrops;
+    protected int defaultHP;
     protected GameObject target;
     protected GameObject itemPrototype;
 
@@ -43,6 +44,28 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         return;
     }
+
+    public override void TakeDmg(int dmg)
+    {
+        hp -= dmg;
+        hp = Mathf.Clamp(hp, 0, defaultHP);
+        HPEqual0();
+    }
+
+    protected override void HPEqual0()
+    {
+        if(hp <= 0)
+        {
+            Die();
+        }  
+    }
+
+    protected override void Die()
+    {
+        DropItem();
+        Destroy(gameObject);
+    }
+
     protected void DropItem()
     {
         int randomValue = Random.Range(1, 1001);

@@ -24,18 +24,6 @@ public class Slime : Enemies
     {
         transform.position += (transform.position - (Vector3)randomPoint).normalized * speed * Time.deltaTime;
     }
-    override protected void Die()
-    {
-        return;
-    }
-    override public void TakeDmg(int dmg)
-    {
-        return;
-    }
-    override protected void HPEqual0()
-    {
-        return;
-    }
     override public void Attack() 
     {
         return;
