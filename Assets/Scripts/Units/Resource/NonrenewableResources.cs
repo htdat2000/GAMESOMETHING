@@ -4,13 +4,11 @@ public class NonrenewableResources : Resource
 {
     protected int defaultHP;
     [SerializeField] protected Sprite havingMaterialImg;
-    void Start()
+    override void Start()
     {   
+        base.Start();
         defaultHP = hp;
         currentMaterialHolding = maxMaterialCanHold;
-
-        itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
-        itemPrototype.GetComponent<ItemPrototype>().item = materialsHolding;
     }
     protected override void SpawnMaterials()
     {
