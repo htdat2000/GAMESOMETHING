@@ -171,6 +171,7 @@ public class Player : Creatures
         {
             hunger = -1;
             hungerCooldown = hungerTimer;
+            CPBar.value = hunger;
         }
     }
 
