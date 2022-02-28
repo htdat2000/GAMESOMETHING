@@ -18,6 +18,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("Unity Script Variables")]
     public float attackRange = 0f;
+    public float moveSpeed;
+
+    public bool hadRolled = false;
+    public float rollCD  = 5;
+    public float rollCDCount;
+    public float rollLength = 25f;
+
     private float attackCooldown = 0.5f;
     private float lastAttack = 0f;
     private List<IInteractables> interactGOs = new List<IInteractables>();
@@ -47,6 +54,10 @@ public class PlayerController : MonoBehaviour
         {
             OpenCraftingBoard();
         }
+        if(rollCDCount >0){
+            rollCDCount -= Time.deltaTime;
+        }
+       
     }
 
     #region Player controller method
@@ -63,12 +74,21 @@ public class PlayerController : MonoBehaviour
             Vector2 moveAmount = moveInput.normalized;
             player.moveDir = moveAmount;
         }
-        /*if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Z))
         {
-            Roll(moveAmount);
-        }*/
+            if(rollCDCount > .1f){
+                Debug.Log("Cooldown");
+            }
+            if(rollCDCount <= .1f){
+                Debug.Log("Roll"+player.moveDir);
+                player.moveDir = moveInput * rollLength;
+                rollCDCount = rollCD;
+            }
+        }
+
+
+        
     }
-   
     public void Attack()
     {
         lastAttack = Time.time;
@@ -79,13 +99,13 @@ public class PlayerController : MonoBehaviour
         if(interactGOs.Count > 0)
         interactGOs[0].Interact();
     }
-    /*public void Roll(Vector2 moveAmount)
-    {
-        Vector2 rollDir = moveAmount * 100;
-        rb.AddForce(rollDir);
-        Debug.Log(rollDir.x);
-        Debug.Log(rollDir.y);
-    }*/
+    // public void Roll(Vector2 moveAmount)
+    // {
+    //     Vector2 rollDir = moveAmount * 100;
+    //     rb.AddForce(rollDir);
+    //     // Debug.Log(rollDir.x);
+    //     // Debug.Log(rollDir.y);
+    // }
     public void OpenInventory()
     {
         bagUI.SetActive(!bagUI.activeSelf);
