@@ -8,17 +8,15 @@ public class RenewableResources : Resource
     protected int renewTime;
     protected float cooldown; 
     protected SpriteRenderer spriteRenderer;  
-    void Start()
+    protected override void Start()
     {   
+        base.Start();
         defaultHP = hp;
         cooldown = renewTime;
         currentMaterialHolding = maxMaterialCanHold;
         
         spriteRenderer = GetComponent<SpriteRenderer>();
-        
-        itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
-        itemPrototype.GetComponent<ItemPrototype>().item = materialsHolding;
-        
+                
         InvokeRepeating("UpdateResourceStatus", 0, 0.5f);
         SpawnMaterials();
         SpawnMaterials();

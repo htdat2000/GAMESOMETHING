@@ -6,8 +6,9 @@ public class Slime : Enemies
 {
     private Vector2 randomPoint;
     private PathMover pathMover;
-    private void Start() 
+    protected override void Start() 
     {
+        base.Start();
         InvokeRepeating("ChoseRandomDir", 0f, 3f);
         pathMover = GetComponent<PathMover>();
     }
@@ -22,18 +23,6 @@ public class Slime : Enemies
     override public void Move()
     {
         transform.position += (transform.position - (Vector3)randomPoint).normalized * speed * Time.deltaTime;
-    }
-    override protected void Die()
-    {
-        return;
-    }
-    override public void TakeDmg(int dmg)
-    {
-        return;
-    }
-    override protected void HPEqual0()
-    {
-        return;
     }
     override public void Attack() 
     {
