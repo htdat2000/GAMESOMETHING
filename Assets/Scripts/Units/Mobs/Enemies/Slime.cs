@@ -6,6 +6,7 @@ public class Slime : Enemies
 {
     private Vector2 randomPoint;
     private PathMover pathMover;
+
     protected override void Start() 
     {
         base.Start();
