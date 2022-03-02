@@ -29,6 +29,15 @@ public class PlayerController : MonoBehaviour
     private float lastAttack = 0f;
     private List<IInteractables> interactGOs = new List<IInteractables>();
 
+    enum State
+    {
+        Normal,
+        Stun,
+        Action
+    }
+
+    private State playerState;
+
     void Start()
     {
         LoadComponent();
@@ -36,34 +45,24 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        
-        Move();
+        if(playerState == State.Normal)
+            Move();
         if(Input.GetKeyDown(KeyCode.T))
-        {
             Interact();
-        }
         if(Input.GetKeyDown(KeyCode.Space) && CanAttack())
-        {
             Attack();
-        }
         if(Input.GetKeyDown(KeyCode.I))
-        {
             OpenInventory();
-        }
         if(Input.GetKeyDown(KeyCode.C))
-        {
             OpenCraftingBoard();
-        }
         if(rollCDCount >0){
             rollCDCount -= Time.deltaTime;
         }
-       
     }
 
     #region Player controller method
     public void Move()
     {
-       
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if(Input.GetKey(KeyCode.LeftShift) && player.stamina > 1f && moveInput != Vector2.zero){
             Vector2 moveAmount = moveInput.normalized * 1.2f;
@@ -85,9 +84,6 @@ public class PlayerController : MonoBehaviour
                 rollCDCount = rollCD;
             }
         }
-
-
-        
     }
     public void Attack()
     {
@@ -157,6 +153,7 @@ public class PlayerController : MonoBehaviour
     void LoadParameter()
     {
         lastAttack = Time.time;
+        playerState = State.Normal;
     }
     #endregion
 
