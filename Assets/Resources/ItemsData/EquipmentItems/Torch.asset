@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1b444e8f54db447b6463a661a3f8a7, type: 3}
   m_Name: Torch
   m_EditorClassIdentifier: 
-  _id: 0
-  _name: 
-  _icon: {fileID: 0}
-  _description: 
-  _stackAble: 0
-  _sizeX: 0
-  _sizeY: 0
+  _id: 301
+  _name: Torch
+  _icon: {fileID: 21300000, guid: 25384fd1e7a17cd43892a807bd661460, type: 3}
+  _description: Everybody want the light
+  _stackAble: 1
+  _sizeX: 5
+  _sizeY: 5

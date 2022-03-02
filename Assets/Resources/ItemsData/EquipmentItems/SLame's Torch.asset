@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1b444e8f54db447b6463a661a3f8a7, type: 3}
   m_Name: SLame's Torch
   m_EditorClassIdentifier: 
-  _id: 0
-  _name: 
-  _icon: {fileID: 0}
-  _description: 
-  _stackAble: 0
-  _sizeX: 0
-  _sizeY: 0
+  _id: 302
+  _name: "SL\xE2me's Torch"
+  _icon: {fileID: 21300000, guid: 9f59a3358a2d75b45b036bbf63ec58bb, type: 3}
+  _description: WTF is that?
+  _stackAble: 1
+  _sizeX: 5
+  _sizeY: 5
