@@ -6,7 +6,7 @@ public abstract class DamageableObjects : MonoBehaviour
     [SerializeField] protected string _name;
     [Header("Attributes")]
     [SerializeField] protected int hp; 
-    [SerializeField] public int dmg { get; }
+    protected int _dmg; public int dmg { get { return _dmg; } set { _dmg = value; } }
 
     public abstract void TakeDmg(int dmg);
     protected abstract void HPEqual0();

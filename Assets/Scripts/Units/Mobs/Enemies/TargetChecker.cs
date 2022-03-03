@@ -19,7 +19,7 @@ public class TargetChecker : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Player"))
             {
-                Debug.Log("here");
+                //Debug.Log("here");
                 this.transform.parent.GetComponent<PathMover>().Chase();
             }
     }

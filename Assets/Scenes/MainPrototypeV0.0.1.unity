@@ -1241,6 +1241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
         type: 3}
+      propertyPath: defaultDmg
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
+        type: 3}
       propertyPath: attackEffect
       value: 
       objectReference: {fileID: 2851542105650535708, guid: ddecf423b2a1fdf43857f034e4def8f3,
@@ -75565,6 +75570,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 960782703}
     m_Modifications:
+    - target: {fileID: 13858666418231347, guid: 6e86d0a6609a8b3448b78ce43758a760,
+        type: 3}
+      propertyPath: hp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 13858666418231347, guid: 6e86d0a6609a8b3448b78ce43758a760,
         type: 3}
       propertyPath: itemList.Array.size

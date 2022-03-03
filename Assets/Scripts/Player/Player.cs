@@ -13,6 +13,7 @@ public class Player : Creatures
  
     [Header("Default Value")]
     private float defaultHunger = 100;
+    [SerializeField] private int defaultDmg;
     [SerializeField] private float defaultSpeed;
     [SerializeField] private int defaultHp;
     [SerializeField] private float defaultStamina = 100;
@@ -23,6 +24,7 @@ public class Player : Creatures
     private Bag bag;
     private Animator anim;
     private Rigidbody2D rb;
+    private AttackEffect attackEffectScript;
 
     [Header("Unity Script Variables")]
     [HideInInspector]public Vector2 moveDir;
@@ -75,6 +77,7 @@ public class Player : Creatures
         rb = GetComponent<Rigidbody2D>();
         bag = GetComponent<Bag>();
         anim = GetComponent<Animator>();
+        attackEffectScript = attackEffect.GetComponent<AttackEffect>();
         LoadParameter();
     }
     void Start()
@@ -219,11 +222,14 @@ public class Player : Creatures
     #region Setup
     void LoadParameter()
     {
+        dmg = defaultDmg;
         lastRefillStamina = Time.time;
         stamina = defaultStamina;
         hp = defaultHp;
         hunger = defaultHunger;
         speed = defaultSpeed;
+
+        attackEffectScript.dmg = dmg;
     }
     #endregion
 }
