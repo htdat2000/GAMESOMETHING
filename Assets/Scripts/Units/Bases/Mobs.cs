@@ -24,13 +24,15 @@ public class ItemDrop
 public abstract class Mobs : Creatures, IAutoSpawn
 {
     [SerializeField] protected ItemDrop[] itemDrops;
-    protected int defaultHP;
+    [SerializeField] protected int defaultHP;
+    [SerializeField] protected int defaultDmg;
     protected GameObject target;
     protected GameObject itemPrototype;
-
+    
     protected virtual void Start()
     {
         itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
+        LoadParameter();
     }
     public void Remove()
     {
@@ -47,6 +49,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
 
     public override void TakeDmg(int dmg)
     {
+        Debug.Log("Take dmg");
         hp -= dmg;
         hp = Mathf.Clamp(hp, 0, defaultHP);
         HPEqual0();
@@ -69,6 +72,10 @@ public abstract class Mobs : Creatures, IAutoSpawn
     protected void DropItem()
     {
         int randomValue = Random.Range(1, 1001);
+        if(itemDrops.Length <= 0)
+        {
+            return;
+        }
         foreach (ItemDrop item in itemDrops)
         {
             if(item.SpawnItemByDropRate(randomValue))
@@ -81,5 +88,11 @@ public abstract class Mobs : Creatures, IAutoSpawn
     protected void SpawnItem(Items item)
     {
         itemPrototype.GetComponent<ItemPrototype>().item = item;
+    }
+
+    protected void LoadParameter()
+    {
+        hp = defaultHP;
+        dmg = defaultDmg;
     }
 }

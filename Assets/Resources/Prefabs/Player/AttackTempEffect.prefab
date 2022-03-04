@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2851542105650535711}
   - component: {fileID: 992177116179237706}
   - component: {fileID: 2640425230542538912}
+  - component: {fileID: 977653488593449869}
   m_Layer: 0
   m_Name: AttackTempEffect
   m_TagString: PlayerAttack
@@ -154,3 +155,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.43
+--- !u!114 &977653488593449869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2851542105650535708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa8b0a61dac1db4aa1aa84329fde10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
