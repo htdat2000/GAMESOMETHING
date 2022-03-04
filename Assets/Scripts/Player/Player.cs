@@ -107,16 +107,21 @@ public class Player : Creatures
     }
     override protected void Die()
     {
+        Debug.Log("The Player has died");
         return;
     }
     override public void TakeDmg(int dmg)
     {
         hp -= dmg;
         hp = Mathf.Clamp(hp, 0, defaultHp);
+        HPEqual0();
     }
     override protected void HPEqual0() 
     {
-        return;
+        if(hp <= 0)
+        {
+            Die();
+        }
     }
     // override public void Attack()
     // {

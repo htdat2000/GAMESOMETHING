@@ -1216,11 +1216,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
         type: 3}
-      propertyPath: hp
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
       propertyPath: CPBar
       value: 
       objectReference: {fileID: 881675629}
@@ -1234,46 +1229,15 @@ PrefabInstance:
       propertyPath: SPBar
       value: 
       objectReference: {fileID: 114944660}
-    - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
-      propertyPath: defaultDmg
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
-      propertyPath: attackEffect
-      value: 
-      objectReference: {fileID: 2851542105650535708, guid: ddecf423b2a1fdf43857f034e4def8f3,
-        type: 3}
-    - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
-      propertyPath: attackCooldown
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5624540598252706356, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
         type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5624540598252706356, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5624540598252706358, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5624540598252706358, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5624540598252706358, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
         type: 3}
@@ -1335,21 +1299,6 @@ PrefabInstance:
       propertyPath: craftUI
       value: 
       objectReference: {fileID: 1636378144}
-    - target: {fileID: 5624540598252706365, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5624540598252706365, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5624540598252706365, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dad04c9ba8e7e740b381cd4c3351a55, type: 3}
 --- !u!114 &385588148 stripped
@@ -1382,32 +1331,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 385588147}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &385588151
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 385588150}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.005724907, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 1.5, y: 1.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.41242218, y: 0.56085587}
-  m_EdgeRadius: 0
 --- !u!1 &405895462
 GameObject:
   m_ObjectHideFlags: 0
@@ -75570,16 +75493,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 960782703}
     m_Modifications:
-    - target: {fileID: 13858666418231347, guid: 6e86d0a6609a8b3448b78ce43758a760,
-        type: 3}
-      propertyPath: hp
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 13858666418231347, guid: 6e86d0a6609a8b3448b78ce43758a760,
-        type: 3}
-      propertyPath: itemList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2201665317175217026, guid: 6e86d0a6609a8b3448b78ce43758a760,
         type: 3}
       propertyPath: m_Name

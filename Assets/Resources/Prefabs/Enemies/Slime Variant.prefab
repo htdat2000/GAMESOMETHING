@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 0
   _name: 
-  hp: 0
   speed: 0.4
   itemDrops:
   - item: {fileID: 11400000, guid: 216330c494a87d64582bc686cc24189c, type: 2}
     dropRate: 70
+  defaultHP: 10
+  defaultDmg: 10
 --- !u!1001 &9171333262124166287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,12 +70,12 @@ PrefabInstance:
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
@@ -89,17 +90,17 @@ PrefabInstance:
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
@@ -175,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 7046723784898012941, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_Name
-      value: Slime Variant
+      value: Slime
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a25d3f466fb5c40be50e6e1cad5388, type: 3}

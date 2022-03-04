@@ -12,4 +12,21 @@ public class Enemies : Mobs
     {
         return;
     }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {   
+            DamageableObjects player;
+            collision.TryGetComponent<DamageableObjects>(out player);
+            player.TakeDmg(dmg);
+            Attack();
+            //do something to knockback player
+        }
+        if(collision.CompareTag("OtherDamageableByEnemies"))
+        {
+            Attack();
+        }
+
+    }
 }
