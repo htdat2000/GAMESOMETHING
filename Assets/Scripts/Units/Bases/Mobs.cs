@@ -28,11 +28,13 @@ public abstract class Mobs : Creatures, IAutoSpawn
     [SerializeField] protected int defaultDmg;
     protected GameObject target;
     protected GameObject itemPrototype;
+    protected Rigidbody2D rigid2D;
     
     protected virtual void Start()
     {
         itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
         LoadParameter();
+        LoadComponent();
     }
     public void Remove()
     {
@@ -49,7 +51,6 @@ public abstract class Mobs : Creatures, IAutoSpawn
 
     public override void TakeDmg(int dmg)
     {
-        Debug.Log("Take dmg");
         hp -= dmg;
         hp = Mathf.Clamp(hp, 0, defaultHP);
         HPEqual0();
@@ -89,10 +90,31 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         itemPrototype.GetComponent<ItemPrototype>().item = item;
     }
-
     protected void LoadParameter()
     {
         hp = defaultHP;
         dmg = defaultDmg;
+    }
+    protected void LoadComponent()
+    {
+        TryGetComponent<Rigidbody2D>(out rigid2D);
+    }
+    public void KnockbackEffect(GameObject attacker)
+    {   
+        Vector2 direction = new Vector2(attacker.transform.position.x - this.gameObject.transform.position.x, attacker.transform.position.y - this.gameObject.transform.position.y);
+        if(rigid2D != null)
+        {
+            rigid2D.AddForce(direction * 2, ForceMode2D.Impulse);
+            StartCoroutine(SetPhysicsRigidbody2D());
+        }
+    }
+
+    IEnumerator SetPhysicsRigidbody2D()
+    {
+        rigid2D.isKinematic = true;
+        
+        //rigid2D.bodyType = RigidbodyType2D.Kinematic;
+        //rigid2D.bodyType = RigidbodyType2D.Dynamic;
+        yield return new WaitForSeconds(1);
     }
 }
