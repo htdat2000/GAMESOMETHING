@@ -8,18 +8,15 @@ public class RenewableResources : Resource
     protected int renewTime;
     protected float cooldown; 
     protected SpriteRenderer spriteRenderer;  
-    protected override void Start()
+    protected override async void Start()
     {   
         base.Start();
         defaultHP = hp;
         cooldown = renewTime;
-        currentMaterialHolding = maxMaterialCanHold;
         
         spriteRenderer = GetComponent<SpriteRenderer>();
                 
         InvokeRepeating("UpdateResourceStatus", 0, 0.5f);
-        SpawnMaterials();
-        SpawnMaterials();
     }
     void Update()
     {
@@ -49,26 +46,32 @@ public class RenewableResources : Resource
         Vector2 spawnPosition = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
         Instantiate(itemPrototype, spawnPosition, Quaternion.identity);
     }
-    protected virtual void GainMaterials()
+    protected virtual async void GainMaterials()
     {
-        if(currentMaterialHolding < maxMaterialCanHold)
+        for(int i = 0; i<currentMaterialHolding.Length; i++)
         {
-            if(cooldown <= 0)
+            if(currentMaterialHolding[i] < maxMaterialCanHold[i])
             {
-                currentMaterialHolding++;
-                cooldown = renewTime;
+                if(cooldown <= 0)
+                {
+                    currentMaterialHolding[i]++;
+                    cooldown = renewTime;
+                }
+                else
+                    cooldown -= Time.deltaTime; 
             }
-            else
-                cooldown -= Time.deltaTime; 
         }
     }
     protected virtual void UpdateResourceStatus()
     {
-        if(currentMaterialHolding <= 0)
+        if(currentMaterialHolding != null)
         {
-            spriteRenderer.sprite = notHavingMaterialImg;
+            if(currentMaterialHolding[0] != null && currentMaterialHolding[0] <= 0) //material thứ 0 là main
+            {
+                spriteRenderer.sprite = notHavingMaterialImg;
+            }
+            else spriteRenderer.sprite = havingMaterialImg;
         }
-        else spriteRenderer.sprite = havingMaterialImg;
     }
     public override void Remove()
     {
@@ -80,11 +83,15 @@ public class RenewableResources : Resource
     }
     public override void TakeDmg(int dmg)
     {
-        if(currentMaterialHolding > 0)
-        {
-        hp -= dmg;
-        HPEqual0();
-        }
+        // for(int i = 0; i<currentMaterialHolding.Length; i++)
+        // {
+        //     if(currentMaterialHolding[i] > 0)
+        //     {
+        //         hp -= dmg;
+        //         HPEqual0();
+        //     }
+        // }
+        SpawnMaterials();
     }
     protected override void HPEqual0()
     {
