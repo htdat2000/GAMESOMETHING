@@ -28,11 +28,22 @@ public abstract class Mobs : Creatures, IAutoSpawn
     [SerializeField] protected int defaultDmg;
     protected GameObject target;
     protected GameObject itemPrototype;
+    private Vector3 spawnPosition;
+    [SerializeField] private float activeRadius = 50f;
     
     protected virtual void Start()
     {
+        spawnPosition = transform.position;
         itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
         LoadParameter();
+    }
+    protected void Update()
+    {
+        if(Vector3.Distance(spawnPosition, transform.position) > activeRadius)
+        {
+            transform.position = spawnPosition;
+            Debug.Log("back to spawn pos");
+        }
     }
     public void Remove()
     {
