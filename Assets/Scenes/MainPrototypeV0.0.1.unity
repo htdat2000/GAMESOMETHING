@@ -75505,6 +75505,11 @@ PrefabInstance:
       propertyPath: activeRadius
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 13858666418231347, guid: 6e86d0a6609a8b3448b78ce43758a760,
+        type: 3}
+      propertyPath: knockbackTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2201665317175217026, guid: 6e86d0a6609a8b3448b78ce43758a760,
         type: 3}
       propertyPath: m_Name
