@@ -106,6 +106,10 @@ public class Player : Creatures
         Hunger();
         IsHunger();
         StaminaRefill();
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            anim.Play("Dance");
+        }
     }
 
     void FixedUpdate() 
