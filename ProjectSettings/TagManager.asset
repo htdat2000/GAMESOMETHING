@@ -9,6 +9,7 @@ TagManager:
   - PlayerAttack
   - OtherDamageableByPlayer
   - OtherDamageableByEnemies
+  - DamageAble
   layers:
   - Default
   - TransparentFX

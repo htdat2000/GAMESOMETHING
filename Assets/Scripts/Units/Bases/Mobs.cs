@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class ItemDrop
-{
-    [SerializeField] private Items item; public Items Item { get {return Item;} }
-    [SerializeField] private int dropRate; //percentage 
+// [System.Serializable]
+// public class ItemDrop
+// {
+//     [SerializeField] private Items item; public Items Item { get {return Item;} }
+//     [SerializeField] private int dropRate; //percentage 
 
-    public bool SpawnItemByDropRate(int randomValue)
-    {
-        if(randomValue <= dropRate * 10)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }        
-    }
-}
+//     public bool SpawnItemByDropRate(int randomValue)
+//     {
+//         if(randomValue <= dropRate * 10)
+//         {
+//             return true;
+//         }
+//         else 
+//         {
+//             return false;
+//         }        
+//     }
+// }
 
 public abstract class Mobs : Creatures, IAutoSpawn
 {
@@ -88,6 +88,8 @@ public abstract class Mobs : Creatures, IAutoSpawn
     protected void SpawnItem(Items item)
     {
         itemPrototype.GetComponent<ItemPrototype>().item = item;
+        Vector2 spawnPosition = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
+        Instantiate(itemPrototype, spawnPosition, Quaternion.identity);
     }
 
     protected void LoadParameter()

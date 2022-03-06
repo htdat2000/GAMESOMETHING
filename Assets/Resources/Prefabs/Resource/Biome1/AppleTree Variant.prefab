@@ -96,14 +96,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
+      propertyPath: itemDrops.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
       propertyPath: notHavingMaterialImg
       value: 
       objectReference: {fileID: 21300000, guid: 32b71c494fdafe6498506b1c4a48cf3f,
         type: 3}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: itemDrops.Array.data[0].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: 1de63d4739c253d40bec4881a8c5548a,
+        type: 2}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: itemDrops.Array.data[0].item
+      value: 
+      objectReference: {fileID: 11400000, guid: 1de63d4739c253d40bec4881a8c5548a,
+        type: 2}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: itemDrops.Array.data[1].Item
+      value: 
+      objectReference: {fileID: 11400000, guid: e1f3cd3ef2c5b5a40a51c6f31fa26c09,
+        type: 2}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: itemDrops.Array.data[1].item
+      value: 
+      objectReference: {fileID: 11400000, guid: e1f3cd3ef2c5b5a40a51c6f31fa26c09,
+        type: 2}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: maxMaterialCanHold.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: itemDrops.Array.data[0].dropRate
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: itemDrops.Array.data[1].dropRate
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: maxMaterialCanHold.Array.data[0]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: maxMaterialCanHold.Array.data[1]
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1669070084763872279, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_Name
-      value: AppleTree
+      value: AppleTree Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2760992860699602159, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
@@ -115,6 +169,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.31660175
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.23640537
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0036349297
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3817973
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3e32f63b1ac1d14c84236cfeb572c67, type: 3}

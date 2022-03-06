@@ -11,7 +11,7 @@ public class AttackEffect : MonoBehaviour
         collision.TryGetComponent<DamageableObjects>(out objectToAttack);
         if(objectToAttack != null)
         {
-            if(objectToAttack.gameObject.CompareTag("Enemies"))
+            if(objectToAttack.gameObject.CompareTag("Enemies") || objectToAttack.gameObject.CompareTag("DamageAble"))
             {
                 objectToAttack.TakeDmg(dmg);
             }
