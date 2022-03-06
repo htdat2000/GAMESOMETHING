@@ -10,12 +10,13 @@ public class Player : Creatures
     public float attackRange = 0f;
     private float _hunger;
     private float _stamina;
+    private int _hp;
  
     [Header("Default Value")]
     private float defaultHunger = 100;
     [SerializeField] private int defaultDmg;
     [SerializeField] private float defaultSpeed;
-    [SerializeField] private int defaultHp;
+    [SerializeField] private int defaultHp = 100;
     [SerializeField] private float defaultStamina = 100;
     private float staminaRefillCooldown = 3f;
     private float lastRefillStamina = 0f;
@@ -55,7 +56,7 @@ public class Player : Creatures
         set 
         {
             _hunger += value;
-            _hunger = Mathf.Clamp(_hunger, 0, 100);
+            _hunger = Mathf.Clamp(_hunger, 0, defaultHunger);
         } 
     }
     public float stamina
@@ -67,7 +68,22 @@ public class Player : Creatures
         set 
         {
             _stamina += value;
-            _stamina = Mathf.Clamp(_stamina, 0, 100);
+            _stamina = Mathf.Clamp(_stamina, 0, defaultStamina);
+            SPBar.value = stamina;
+        } 
+    }
+
+    protected int hp
+    {
+        get 
+        {
+            return _hp;
+        } 
+        set 
+        {
+            _hp += value;
+            _hp = Mathf.Clamp(_hp, 0, defaultHp);
+            HPBar.value = hp;
         } 
     }
     #endregion
@@ -90,6 +106,10 @@ public class Player : Creatures
         Hunger();
         IsHunger();
         StaminaRefill();
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            anim.Play("Dance");
+        }
     }
 
     void FixedUpdate() 
@@ -186,12 +206,12 @@ public class Player : Creatures
     public void StaminaDecrease(float value)
     {
         stamina = -value;
-        SPBar.value = stamina;
+        // SPBar.value = stamina;
     }
     public void StaminaIncrease(float value)
     {
         stamina = +value;
-        SPBar.value = stamina;
+        // SPBar.value = stamina;
     }
     void StaminaRefill()
     {
@@ -199,7 +219,6 @@ public class Player : Creatures
         {
             lastRefillStamina = Time.time;
             StaminaIncrease(5f);
-            SPBar.value = stamina;
         }
     }
 
@@ -221,6 +240,7 @@ public class Player : Creatures
     void UISetup()
     {
         SPBar.maxValue = defaultStamina;
+        HPBar.maxValue = defaultHp;
     }
     #endregion
 

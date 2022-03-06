@@ -15,6 +15,7 @@ public class Slime : Enemies
     }
     private void Update() 
     {
+        base.Update();
         if(pathMover.GetChasing() == false)
         {
             Move();

@@ -8,17 +8,6 @@ public class NonrenewableResources : Resource
     {   
         base.Start();
         defaultHP = hp;
-        currentMaterialHolding = maxMaterialCanHold;
-    }
-    protected override void SpawnMaterials()
-    {
-        currentMaterialHolding--;
-        Vector2 spawnPosition = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
-        Instantiate(itemPrototype, spawnPosition, Quaternion.identity);
-        if(currentMaterialHolding <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
     public override void Remove()
     {
@@ -30,8 +19,9 @@ public class NonrenewableResources : Resource
     }
     public override void TakeDmg(int dmg)
     {
-        hp -= dmg;
-        HPEqual0();
+        // hp -= dmg;
+        // HPEqual0();
+        SpawnMaterials();
     }
     protected override void HPEqual0()
     {

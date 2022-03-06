@@ -43,6 +43,7 @@ public class PathMover : MonoBehaviour
                 float distanceBefore = Vector3.Distance(transform.position, targetPosition);
                 //animate
                 transform.position = transform.position + moveDir * speed * Time.deltaTime;
+                // transform.position = Vector3.Cross(transform.position, new Vector3(1f, 1f, 0f));
             }
             else
             {

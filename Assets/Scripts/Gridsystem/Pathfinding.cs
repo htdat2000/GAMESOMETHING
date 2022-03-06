@@ -16,12 +16,12 @@ public class Pathfinding
     public Pathfinding(int width, int height)
     {
         Instance = this;
-        grid = new MyGrid<PathNode>(width, height, 0.5f, Vector3.zero, (MyGrid<PathNode> g, int x, int y) => new PathNode(g, x, y));
+        grid = new MyGrid<PathNode>(width, height, 0.25f, Vector3.zero, (MyGrid<PathNode> g, int x, int y) => new PathNode(g, x, y));
     }
     public Pathfinding(int width, int height, Vector3 BottomLeftCorner)
     {
         Instance = this;
-        grid = new MyGrid<PathNode>(width, height, 0.5f, BottomLeftCorner, (MyGrid<PathNode> g, int x, int y) => new PathNode(g, x, y));
+        grid = new MyGrid<PathNode>(width, height, 0.25f, BottomLeftCorner, (MyGrid<PathNode> g, int x, int y) => new PathNode(g, x, y));
     }
     public MyGrid<PathNode> GetMyGrid()
     {
@@ -42,7 +42,7 @@ public class Pathfinding
             List<Vector3> vectorPath = new List<Vector3>();
             foreach (PathNode pathNode in path)
             {
-                vectorPath.Add(new Vector3(pathNode.x, pathNode.y) * grid.GetCellSize() + Vector3.one * grid.GetCellSize() * 0.5f);
+                vectorPath.Add(new Vector3(pathNode.x, pathNode.y) * grid.GetCellSize() + new Vector3(1f,1f,0f) * grid.GetCellSize() * 0.5f);
             }
             return vectorPath;
         }
