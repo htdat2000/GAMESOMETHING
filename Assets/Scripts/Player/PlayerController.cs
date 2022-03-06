@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
     {
         if(interactGOs.Count > 0)
         interactGOs[0].Interact();
+        // Debug.Log("Interact");
     }
     // public void Roll(Vector2 moveAmount)
     // {

@@ -9,12 +9,14 @@ public abstract class Resource : DamageableObjects, IAutoSpawn
     [Header("Unity Setup")]
     protected GameObject itemPrototype;
     [SerializeField] protected ItemDrop[] itemDrops;
+    private Animator anim;
 
     protected virtual void Start()
     {
         currentMaterialHolding = new int[itemDrops.Length];
         SetupMaterial();
         itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
+        anim = GetComponent<Animator>();
     }
     // protected abstract void SpawnMaterials();
     public abstract void Remove();
@@ -41,6 +43,7 @@ public abstract class Resource : DamageableObjects, IAutoSpawn
                 SpawnItem(item.Item);
             }
         }
+        anim.Play("Attacked");
     }
     protected void SpawnItem(Items item)
     {
