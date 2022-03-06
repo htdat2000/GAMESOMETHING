@@ -12,10 +12,11 @@ public class GridController : MonoBehaviour
     public GameObject player;
 
     public static GridController Instance;
+    [SerializeField] int pathSize;
     // Start is called before the first frame update
     void Start()
     {
-        pathfinding = new Pathfinding(40,40);
+        pathfinding = new Pathfinding(pathSize,pathSize);
         if(!Instance)
             GridController.Instance = this;
     }
