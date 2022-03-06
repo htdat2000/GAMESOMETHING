@@ -1229,6 +1229,11 @@ PrefabInstance:
       propertyPath: SPBar
       value: 
       objectReference: {fileID: 114944660}
+    - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
+        type: 3}
+      propertyPath: defaultHp
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5624540598252706356, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
         type: 3}
       propertyPath: m_Name
