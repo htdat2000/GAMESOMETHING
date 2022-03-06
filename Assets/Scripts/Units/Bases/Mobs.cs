@@ -30,14 +30,23 @@ public abstract class Mobs : Creatures, IAutoSpawn
     protected GameObject itemPrototype;
     private Vector3 spawnPosition;
     [SerializeField] private float activeRadius = 50f;
+    Rigidbody2D rigid2D;
+
+    protected enum State
+    {
+        Normal,
+        Attacked,
+    }
+    protected State mobState = State.Normal; 
     
     protected virtual void Start()
     {
         spawnPosition = transform.position;
         itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
         LoadParameter();
+        LoadComponent();
     }
-    protected void Update()
+    protected virtual void Update()
     {
         if(Vector3.Distance(spawnPosition, transform.position) > activeRadius)
         {
@@ -60,10 +69,15 @@ public abstract class Mobs : Creatures, IAutoSpawn
 
     public override void TakeDmg(int dmg)
     {
-        Debug.Log("Take dmg");
-        hp -= dmg;
-        hp = Mathf.Clamp(hp, 0, defaultHP);
-        HPEqual0();
+        if(mobState == State.Normal)
+        {
+            Debug.Log("Take dmg");
+            mobState = State.Attacked;
+            StartCoroutine(ResetMobState());
+            hp -= dmg;
+            hp = Mathf.Clamp(hp, 0, defaultHP);
+            HPEqual0();
+        } 
     }
 
     protected override void HPEqual0()
@@ -80,7 +94,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
         Destroy(gameObject);
     }
 
-    protected void DropItem()
+    protected virtual void DropItem()
     {
         int randomValue = Random.Range(1, 1001);
         if(itemDrops.Length <= 0)
@@ -96,16 +110,35 @@ public abstract class Mobs : Creatures, IAutoSpawn
         }
     }
 
-    protected void SpawnItem(Items item)
+    protected virtual void SpawnItem(Items item)
     {
         itemPrototype.GetComponent<ItemPrototype>().item = item;
         Vector2 spawnPosition = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
         Instantiate(itemPrototype, spawnPosition, Quaternion.identity);
     }
 
-    protected void LoadParameter()
+    protected virtual void LoadParameter()
     {
         hp = defaultHP;
         dmg = defaultDmg;
     }
+
+    protected virtual void LoadComponent()
+    {
+        TryGetComponent<Rigidbody2D>(out rigid2D);
+    }
+    public virtual void KnockbackEffect(GameObject attacker)
+    {   
+        if(rigid2D != null && mobState == State.Attacked)
+        {
+            Debug.Log("Knockback");
+            rigid2D.velocity = new Vector2 (0, 1);       
+        }
+    }
+
+    IEnumerator ResetMobState()
+    {
+        mobState = State.Normal;
+        yield return new WaitForSeconds(2);
+    } 
 }
