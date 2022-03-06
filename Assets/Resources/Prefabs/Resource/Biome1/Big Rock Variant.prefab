@@ -150,7 +150,12 @@ PrefabInstance:
     - target: {fileID: 4131458798485007401, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_Name
-      value: Big Rock Variant
+      value: Big Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131458798485007401, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
+        type: 3}
+      propertyPath: m_TagString
+      value: OtherDamageableByPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
@@ -160,12 +165,12 @@ PrefabInstance:
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.74
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.17
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
@@ -180,17 +185,17 @@ PrefabInstance:
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}

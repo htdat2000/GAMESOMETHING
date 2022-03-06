@@ -132,13 +132,14 @@ public abstract class Mobs : Creatures, IAutoSpawn
         if(rigid2D != null && mobState == State.Attacked)
         {
             Debug.Log("Knockback");
-            rigid2D.velocity = new Vector2 (0, 1);       
+            Vector3 direction = new Vector3 (0, 1, 0);
+                 
         }
     }
 
-    IEnumerator ResetMobState()
+    protected IEnumerator ResetMobState()
     {
         mobState = State.Normal;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
     } 
 }

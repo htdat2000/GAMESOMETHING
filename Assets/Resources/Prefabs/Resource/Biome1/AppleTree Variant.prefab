@@ -15,12 +15,12 @@ PrefabInstance:
     - target: {fileID: 389618739468261474, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.26
+      value: 10.25
       objectReference: {fileID: 0}
     - target: {fileID: 389618739468261474, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 389618739468261474, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
@@ -35,17 +35,17 @@ PrefabInstance:
     - target: {fileID: 389618739468261474, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 389618739468261474, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 389618739468261474, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 389618739468261474, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
@@ -157,7 +157,12 @@ PrefabInstance:
     - target: {fileID: 1669070084763872279, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_Name
-      value: AppleTree Variant
+      value: AppleTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669070084763872279, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_TagString
+      value: OtherDamageableByPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 2760992860699602159, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}

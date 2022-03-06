@@ -15,5 +15,11 @@ public class AttackEffect : MonoBehaviour
             mobsToAttack.TakeDmg(dmg);
             mobsToAttack.KnockbackEffect(gameObject);
         }
+        else if(collision.CompareTag("OtherDamageableByPlayer"))
+        {
+            DamageableObjects objectToAttack;
+            collision.TryGetComponent<DamageableObjects>(out objectToAttack);
+            objectToAttack.TakeDmg(dmg);
+        }
     }
 }

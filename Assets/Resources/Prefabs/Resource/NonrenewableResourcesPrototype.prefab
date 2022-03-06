@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5573765747192569518}
   m_Layer: 0
   m_Name: NonrenewableResourcesPrototype
-  m_TagString: DamageAble
+  m_TagString: OtherDamageableByPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
