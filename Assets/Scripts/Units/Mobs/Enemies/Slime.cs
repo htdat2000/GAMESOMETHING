@@ -13,10 +13,10 @@ public class Slime : Enemies
         InvokeRepeating("ChoseRandomDir", 0f, 3f);
         pathMover = GetComponent<PathMover>();
     }
-    private void Update() 
+    protected override void Update() 
     {
         base.Update();
-        if(pathMover.GetChasing() == false)
+        if(pathMover.GetChasing() == false && mobState == State.Normal)
         {
             Move();
         }

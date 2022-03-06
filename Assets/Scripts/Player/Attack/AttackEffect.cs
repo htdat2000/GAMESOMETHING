@@ -5,16 +5,21 @@ using UnityEngine;
 public class AttackEffect : MonoBehaviour
 {
     public int dmg;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        DamageableObjects objectToAttack; 
-        collision.TryGetComponent<DamageableObjects>(out objectToAttack);
-        if(objectToAttack != null)
+        if(collision.CompareTag("Enemies"))
         {
-            if(objectToAttack.gameObject.CompareTag("Enemies") || objectToAttack.gameObject.CompareTag("DamageAble"))
-            {
-                objectToAttack.TakeDmg(dmg);
-            }
+            Mobs mobsToAttack; 
+            collision.TryGetComponent<Mobs>(out mobsToAttack);
+            mobsToAttack.TakeDmg(dmg);
+            mobsToAttack.KnockbackEffect(gameObject);
+        }
+        else if(collision.CompareTag("OtherDamageableByPlayer"))
+        {
+            DamageableObjects objectToAttack;
+            collision.TryGetComponent<DamageableObjects>(out objectToAttack);
+            objectToAttack.TakeDmg(dmg);
         }
     }
 }

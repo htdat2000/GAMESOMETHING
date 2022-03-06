@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemies
-  - GridController
-  - PlayerAttack
-  - OtherDamageableByPlayer
-  - OtherDamageableByEnemies
   - DamageAble
+  - GridController
+  - Enemies
+  - PlayerAttack
+  - OtherDamageableByEnemies
+  - OtherDamageableByPlayer
   layers:
   - Default
   - TransparentFX
