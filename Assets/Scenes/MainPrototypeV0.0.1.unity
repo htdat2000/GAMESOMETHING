@@ -1555,6 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OriginalPosition: {x: -10, y: -10, z: 0}
   player: {fileID: 385588150}
+  pathSize: 100
 --- !u!4 &440134093
 Transform:
   m_ObjectHideFlags: 0
