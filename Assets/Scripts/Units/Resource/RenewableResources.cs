@@ -27,9 +27,27 @@ public class RenewableResources : Resource
     }
     protected override void SpawnMaterials()
     {   
+
+        // currentMaterialHolding--;
+        int randomValue = Random.Range(1, 1001);
+        Debug.Log("Drop");
+        if(itemDrops.Length <= 0)
+        {
+            return;
+        }
+        foreach (ItemDrop item in itemDrops)
+        {
+            if(item.SpawnItemByDropRate(randomValue))
+            {
+                SpawnItem(item.Item);
+            }
+        }
+    }
+    protected void SpawnItem(Items item)
+    {
+        itemPrototype.GetComponent<ItemPrototype>().item = item;
         Vector2 spawnPosition = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
         Instantiate(itemPrototype, spawnPosition, Quaternion.identity);
-        currentMaterialHolding--;
     }
     protected virtual void GainMaterials()
     {
