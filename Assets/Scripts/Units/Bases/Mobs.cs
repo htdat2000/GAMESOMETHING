@@ -31,11 +31,13 @@ public abstract class Mobs : Creatures, IAutoSpawn
     private Vector3 spawnPosition;
     [SerializeField] private float activeRadius = 50f;
     Rigidbody2D rigid2D;
+    private float lastAttackedTime;
+    [SerializeField] float knockbackTime;
 
     protected enum State
     {
         Normal,
-        Attacked,
+        Attacked
     }
     protected State mobState = State.Normal; 
     
@@ -52,6 +54,10 @@ public abstract class Mobs : Creatures, IAutoSpawn
         {
             transform.position = spawnPosition;
             Debug.Log("back to spawn pos");
+        }
+        if (lastAttackedTime + knockbackTime <= Time.time)
+        {
+            KnockBackOff();
         }
     }
     public void Remove()
@@ -71,9 +77,10 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         if(mobState == State.Normal)
         {
-            Debug.Log("Take dmg");
             mobState = State.Attacked;
-            StartCoroutine(ResetMobState());
+            Debug.Log("Take dmg and change to Attacked state: " + mobState);
+            // StartCoroutine(ResetMobState());
+            KnockbackEffect();
             hp -= dmg;
             hp = Mathf.Clamp(hp, 0, defaultHP);
             HPEqual0();
@@ -121,22 +128,29 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         hp = defaultHP;
         dmg = defaultDmg;
+        lastAttackedTime = Time.time;
     }
 
     protected virtual void LoadComponent()
     {
         TryGetComponent<Rigidbody2D>(out rigid2D);
     }
-    public virtual void KnockbackEffect(GameObject attacker)
+    public virtual void KnockbackEffect()
     {   
         if(rigid2D != null && mobState == State.Attacked)
         {
+            lastAttackedTime = Time.time;
             Debug.Log("Knockback");
-            Vector3 direction = new Vector3 (0, 1, 0);
-                 
+            Vector3 direction = new Vector3 (0, 3, 0);
+            rigid2D.velocity = direction;
         }
     }
-
+    public virtual void KnockBackOff()
+    {
+        mobState = State.Normal;
+        rigid2D.velocity = Vector3.zero;
+        Debug.Log("My velocity: " + rigid2D.velocity);
+    }
     protected IEnumerator ResetMobState()
     {
         mobState = State.Normal;
