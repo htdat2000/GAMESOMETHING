@@ -21,6 +21,17 @@ public class Player : Creatures
     private float staminaRefillCooldown = 3f;
     private float lastRefillStamina = 0f;
 
+    [Header("PlayerState")]
+    private State playerState = State.Normal;
+    enum State
+    {
+        Normal,
+        Attacked,
+        Stun,
+        Action
+    }
+    
+
     [Header("Unity Components")]
     private Bag bag;
     private Animator anim;
@@ -45,6 +56,9 @@ public class Player : Creatures
     [SerializeField] private Slider HPBar;
     [SerializeField] private Slider SPBar;
     [SerializeField] private Slider CPBar;
+
+    [Header("Player Effect Cooldown")]
+    protected const float KNOCKBACK_TIME = 0.5f;
     
     #region Properties
     public float hunger 
@@ -120,10 +134,13 @@ public class Player : Creatures
     #region Basic Function
     override public void Move()
     {
-        if(moveDir.x != 0)
+        if(playerState == State.Normal)
+        {
+            if(moveDir.x != 0) 
             saveInput = moveDir.x;
         rb.velocity = moveDir * speed;
         MoveAnimationUpdate(moveDir);
+        }
     }
     override protected void Die()
     {
@@ -132,9 +149,16 @@ public class Player : Creatures
     }
     override public void TakeDmg(int dmg)
     {
-        hp -= dmg;
-        hp = Mathf.Clamp(hp, 0, defaultHp);
-        HPEqual0();
+        if(playerState == State.Normal)
+        {
+            Debug.Log("Player being attacked");
+            playerState = State.Attacked;
+            KnockbackEffect();
+            StartCoroutine(KnockBackOff());
+            hp -= dmg;
+            hp = Mathf.Clamp(hp, 0, defaultHp);
+            HPEqual0();
+        }      
     }
     override protected void HPEqual0() 
     {
@@ -255,6 +279,25 @@ public class Player : Creatures
         speed = defaultSpeed;
 
         attackEffectScript.dmg = dmg;
+    }
+    #endregion
+
+    #region Player Effect
+    void KnockbackEffect()
+    {
+        if(playerState == State.Attacked)
+        {
+            rb.velocity = new Vector2(0, 2);
+            Debug.Log("Player being knocked back" + rb.velocity);
+
+        }
+    }
+
+    protected IEnumerator KnockBackOff()
+    {
+        yield return new WaitForSeconds(KNOCKBACK_TIME);
+        playerState = State.Normal;
+        rb.velocity = Vector2.zero;
     }
     #endregion
 }

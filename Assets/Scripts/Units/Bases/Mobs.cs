@@ -31,8 +31,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     private Vector3 spawnPosition;
     [SerializeField] private float activeRadius = 50f;
     Rigidbody2D rigid2D;
-    private float lastAttackedTime;
-    [SerializeField] float knockbackTime;
+    const float KNOCKBACK_TIME = 0.5f;
 
     protected enum State
     {
@@ -55,10 +54,6 @@ public abstract class Mobs : Creatures, IAutoSpawn
             transform.position = spawnPosition;
             Debug.Log("back to spawn pos");
         }
-        if (lastAttackedTime + knockbackTime <= Time.time)
-        {
-            KnockBackOff();
-        }
     }
     public void Remove()
     {
@@ -78,8 +73,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
         if(mobState == State.Normal)
         {
             mobState = State.Attacked;
-            Debug.Log("Take dmg and change to Attacked state: " + mobState);
-            // StartCoroutine(ResetMobState());
+            StartCoroutine(KnockBackOff());
             KnockbackEffect();
             hp -= dmg;
             hp = Mathf.Clamp(hp, 0, defaultHP);
@@ -128,7 +122,6 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         hp = defaultHP;
         dmg = defaultDmg;
-        lastAttackedTime = Time.time;
     }
 
     protected virtual void LoadComponent()
@@ -139,21 +132,14 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {   
         if(rigid2D != null && mobState == State.Attacked)
         {
-            lastAttackedTime = Time.time;
-            Debug.Log("Knockback");
-            Vector3 direction = new Vector3 (0, 3, 0);
+            Vector2 direction = new Vector2 (0, 2);
             rigid2D.velocity = direction;
         }
     }
-    public virtual void KnockBackOff()
+    public virtual IEnumerator KnockBackOff()
     {
+        yield return new WaitForSeconds(KNOCKBACK_TIME);
         mobState = State.Normal;
-        rigid2D.velocity = Vector3.zero;
-        Debug.Log("My velocity: " + rigid2D.velocity);
+        rigid2D.velocity = Vector2.zero;
     }
-    protected IEnumerator ResetMobState()
-    {
-        mobState = State.Normal;
-        yield return new WaitForSeconds(2f);
-    } 
 }
