@@ -43,12 +43,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2
 --- !u!50 &5879497217321227724
 Rigidbody2D:
   serializedVersion: 4
@@ -129,7 +129,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6247778
 --- !u!50 &5457172991997804927
 Rigidbody2D:
   serializedVersion: 4
@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: -7962456468525581046}
   - component: {fileID: 4807701446467447293}
   - component: {fileID: 8568159115294534300}
+  - component: {fileID: 13858666418231347}
   m_Layer: 0
   m_Name: EnemiesSkeleton
   m_TagString: Enemies
@@ -227,15 +228,16 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -7282886668606283007, guid: bd5de899eec9e8948ad3f4fe05457eab,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &5598202969388060342
@@ -248,7 +250,7 @@ Animator:
   m_GameObject: {fileID: 7046723784898012941}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1daf12c5b5956041b524526848de092, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -267,10 +269,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.016419888}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -281,7 +283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.2493782, y: 0.19136906}
   m_EdgeRadius: 0
 --- !u!50 &4807701446467447293
 Rigidbody2D:
@@ -316,3 +318,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcda39413339a5048807d68c48396b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &13858666418231347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046723784898012941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e2d215b222200438aaf23f524bba0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 0
+  _name: 
+  speed: 0.4
+  itemDrops:
+  - Item: {fileID: 11400000, guid: 216330c494a87d64582bc686cc24189c, type: 2}
+    dropRate: 70
+  defaultHP: 10
+  defaultDmg: 10
+  activeRadius: 50
+  knockbackTime: 0

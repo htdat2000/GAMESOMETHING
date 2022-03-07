@@ -32,10 +32,10 @@ public class PlayerController : MonoBehaviour
     enum State
     {
         Normal,
+        Attacked,
         Stun,
         Action
     }
-
     private State playerState;
 
     void Start()
