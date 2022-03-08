@@ -94,15 +94,8 @@ public class PlayerController : MonoBehaviour
     {
         if(interactGOs.Count > 0)
         interactGOs[0].Interact();
-        // Debug.Log("Interact");
+        
     }
-    // public void Roll(Vector2 moveAmount)
-    // {
-    //     Vector2 rollDir = moveAmount * 100;
-    //     rb.AddForce(rollDir);
-    //     // Debug.Log(rollDir.x);
-    //     // Debug.Log(rollDir.y);
-    // }
     public void OpenInventory()
     {
         bagUI.SetActive(!bagUI.activeSelf);

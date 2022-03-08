@@ -40,7 +40,6 @@ public class Player : Creatures
 
     [Header("Unity Script Variables")]
     [HideInInspector]public Vector2 moveDir;
-    float saveInput;
     
     [Header("Hunger Function Variables")]
     private float hungerCooldown = 0;
@@ -136,11 +135,9 @@ public class Player : Creatures
     override public void Move()
     {
         if(playerState == State.Normal)
-        {
-            if(moveDir.x != 0) 
-            saveInput = moveDir.x;
-        rb.velocity = moveDir * speed;
-        MoveAnimationUpdate(moveDir);
+        {  
+            rb.velocity = moveDir * speed;
+            MoveAnimationUpdate(moveDir);
         }
     }
     override protected void Die()
@@ -154,9 +151,7 @@ public class Player : Creatures
         {
             playerState = State.Attacked;
             StartCoroutine(AttackedOff());
-            //KnockbackEffect();
             Hp = -dmg;
-
             HPEqual0();
         }      
     }
@@ -167,21 +162,6 @@ public class Player : Creatures
             Die();
         }
     }
-    // override public void Attack()
-    // {
-    //     // Vector2 attackPoint = new Vector2(transform.position.x, transform.position.y);
-    //     // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint, attackRange);
-    //     // foreach(Collider2D enemy in hitEnemies){
-    //     //     Debug.Log("Hit");
-    //     // }
-
-    //     if (saveInput>0){
-    //         Debug.Log("Right");
-    //     }
-    //     if (saveInput<0){
-    //         Debug.Log("Left");
-    //     }
-    // }
     #endregion
     
     #region Animation
