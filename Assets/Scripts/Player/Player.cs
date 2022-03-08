@@ -156,6 +156,7 @@ public class Player : Creatures
             StartCoroutine(AttackedOff());
             //KnockbackEffect();
             Hp = -dmg;
+
             HPEqual0();
         }      
     }
@@ -304,6 +305,7 @@ public class Player : Creatures
     {
         yield return new WaitForSeconds(ATTACKED_TIME);
         playerState = State.Normal;
+
     }
     #endregion
 }

@@ -35,6 +35,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     protected const float KNOCKBACK_TIME = 0.5f;
     protected const float ATTACKED_TIME = 1;
 
+
     protected enum State
     {
         Normal,
@@ -77,6 +78,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
             mobState = State.Attacked;
             StartCoroutine(AttackedOff());
             //KnockbackEffect();
+
             hp -= dmg;
             hp = Mathf.Clamp(hp, 0, defaultHP);
             HPEqual0();
@@ -135,6 +137,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {   
         if(rigid2D != null && mobState == State.Attacked)
         {
+
             StartCoroutine(KnockBackOff());
             Vector3 direction = this.gameObject.transform.position - attacker.transform.position;
             rigid2D.velocity = direction.normalized * 2;
@@ -152,4 +155,5 @@ public abstract class Mobs : Creatures, IAutoSpawn
         rigid2D.velocity = Vector2.zero;
     }
     #endregion
+
 }
