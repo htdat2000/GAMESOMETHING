@@ -152,10 +152,9 @@ public class Player : Creatures
     {
         if(playerState == State.Normal)
         {
-            Debug.Log("Player being attacked");
             playerState = State.Attacked;
             StartCoroutine(AttackedOff());
-            KnockbackEffect();
+            //KnockbackEffect();
             hp -= dmg;
             hp = Mathf.Clamp(hp, 0, defaultHp);
             HPEqual0();
@@ -284,14 +283,13 @@ public class Player : Creatures
     #endregion
 
     #region Player Effect
-    void KnockbackEffect()
+    public void KnockbackEffect(GameObject attacker)
     {
         if(playerState == State.Attacked)
         {
             StartCoroutine(KnockBackOff());
-            rb.velocity = new Vector2(0, 2);
-            Debug.Log("Player being knocked back" + rb.velocity);
-
+            Vector3 direction = this.gameObject.transform.position - attacker.transform.position;
+            rb.velocity = direction.normalized * 2;
         }
     }
     #endregion

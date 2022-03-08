@@ -76,7 +76,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
         {
             mobState = State.Attacked;
             StartCoroutine(AttackedOff());
-            KnockbackEffect();
+            //KnockbackEffect();
             hp -= dmg;
             hp = Mathf.Clamp(hp, 0, defaultHP);
             HPEqual0();
@@ -131,13 +131,13 @@ public abstract class Mobs : Creatures, IAutoSpawn
         TryGetComponent<Rigidbody2D>(out rigid2D);
     }
 
-    public virtual void KnockbackEffect()
+    public virtual void KnockbackEffect(GameObject attacker)
     {   
         if(rigid2D != null && mobState == State.Attacked)
         {
             StartCoroutine(KnockBackOff());
-            Vector2 direction = new Vector2 (0, 2);
-            rigid2D.velocity = direction;
+            Vector3 direction = this.gameObject.transform.position - attacker.transform.position;
+            rigid2D.velocity = direction.normalized * 2;
         }
     }
     #region Turn Off Effect And State Method

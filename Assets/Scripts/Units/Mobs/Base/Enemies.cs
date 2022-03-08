@@ -17,10 +17,10 @@ public class Enemies : Mobs
     {
         if(collision.CompareTag("Player"))
         {   
-            DamageableObjects player;
-            collision.TryGetComponent<DamageableObjects>(out player);
+            Player player;
+            collision.TryGetComponent<Player>(out player);
             player.TakeDmg(dmg);
-            Attack();
+            player.KnockbackEffect(this.gameObject);
             //do something to knockback player
         }
         if(collision.CompareTag("OtherDamageableByEnemies"))
