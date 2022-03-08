@@ -57,8 +57,9 @@ public class Player : Creatures
     [SerializeField] private Slider SPBar;
     [SerializeField] private Slider CPBar;
 
-    [Header("Player Effect Cooldown")]
+    [Header("Const")]
     protected const float KNOCKBACK_TIME = 0.5f;
+    protected const float ATTACKED_TIME = 1;
     
     #region Properties
     public float hunger 
@@ -87,16 +88,16 @@ public class Player : Creatures
         } 
     }
 
-    protected int hp
+    protected int Hp
     {
         get 
         {
-            return _hp;
+            return hp;
         } 
         set 
         {
-            _hp += value;
-            _hp = Mathf.Clamp(_hp, 0, defaultHp);
+            hp += value;
+            hp = Mathf.Clamp(hp, 0, defaultHp);
             HPBar.value = hp;
         } 
     }
@@ -151,18 +152,17 @@ public class Player : Creatures
     {
         if(playerState == State.Normal)
         {
-            Debug.Log("Player being attacked");
             playerState = State.Attacked;
-            KnockbackEffect();
-            StartCoroutine(KnockBackOff());
-            hp -= dmg;
-            hp = Mathf.Clamp(hp, 0, defaultHp);
+            StartCoroutine(AttackedOff());
+            //KnockbackEffect();
+            Hp = -dmg;
+
             HPEqual0();
         }      
     }
     override protected void HPEqual0() 
     {
-        if(hp <= 0)
+        if(Hp <= 0)
         {
             Die();
         }
@@ -210,7 +210,7 @@ public class Player : Creatures
             hungerDmgCooldown -= Time.deltaTime;
             if(isHunger && hungerDmgCooldown <= 0)
             {
-                TakeDmg(1);
+                Hp = -1;
                 hungerDmgCooldown = hungerDmgTimer;
             }
         }
@@ -283,21 +283,29 @@ public class Player : Creatures
     #endregion
 
     #region Player Effect
-    void KnockbackEffect()
+    public void KnockbackEffect(GameObject attacker)
     {
         if(playerState == State.Attacked)
         {
-            rb.velocity = new Vector2(0, 2);
-            Debug.Log("Player being knocked back" + rb.velocity);
-
+            StartCoroutine(KnockBackOff());
+            Vector3 direction = this.gameObject.transform.position - attacker.transform.position;
+            rb.velocity = direction.normalized * 2;
         }
     }
+    #endregion
 
+    #region Turn Off Effect And Status
     protected IEnumerator KnockBackOff()
     {
         yield return new WaitForSeconds(KNOCKBACK_TIME);
-        playerState = State.Normal;
         rb.velocity = Vector2.zero;
+    }
+
+    protected IEnumerator AttackedOff()
+    {
+        yield return new WaitForSeconds(ATTACKED_TIME);
+        playerState = State.Normal;
+
     }
     #endregion
 }

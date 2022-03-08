@@ -28,10 +28,13 @@ public abstract class Mobs : Creatures, IAutoSpawn
     [SerializeField] protected int defaultDmg;
     protected GameObject target;
     protected GameObject itemPrototype;
-    private Vector3 spawnPosition;
+    protected Vector3 spawnPosition;
     [SerializeField] private float activeRadius = 50f;
     Rigidbody2D rigid2D;
-    const float KNOCKBACK_TIME = 0.5f;
+    [Header("Const")]
+    protected const float KNOCKBACK_TIME = 0.5f;
+    protected const float ATTACKED_TIME = 1;
+
 
     protected enum State
     {
@@ -73,8 +76,9 @@ public abstract class Mobs : Creatures, IAutoSpawn
         if(mobState == State.Normal)
         {
             mobState = State.Attacked;
-            StartCoroutine(KnockBackOff());
-            KnockbackEffect();
+            StartCoroutine(AttackedOff());
+            //KnockbackEffect();
+
             hp -= dmg;
             hp = Mathf.Clamp(hp, 0, defaultHP);
             HPEqual0();
@@ -128,18 +132,28 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         TryGetComponent<Rigidbody2D>(out rigid2D);
     }
-    public virtual void KnockbackEffect()
+
+    public virtual void KnockbackEffect(GameObject attacker)
     {   
         if(rigid2D != null && mobState == State.Attacked)
         {
-            Vector2 direction = new Vector2 (0, 2);
-            rigid2D.velocity = direction;
+
+            StartCoroutine(KnockBackOff());
+            Vector3 direction = this.gameObject.transform.position - attacker.transform.position;
+            rigid2D.velocity = direction.normalized * 2;
         }
     }
-    public virtual IEnumerator KnockBackOff()
+    #region Turn Off Effect And State Method
+    protected virtual IEnumerator AttackedOff()
     {
-        yield return new WaitForSeconds(KNOCKBACK_TIME);
+        yield return new WaitForSeconds(ATTACKED_TIME);
         mobState = State.Normal;
+    }
+    protected virtual IEnumerator KnockBackOff()
+    {
+        yield return new WaitForSeconds(KNOCKBACK_TIME); 
         rigid2D.velocity = Vector2.zero;
     }
+    #endregion
+
 }
