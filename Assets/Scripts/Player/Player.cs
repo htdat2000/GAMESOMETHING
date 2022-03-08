@@ -57,8 +57,9 @@ public class Player : Creatures
     [SerializeField] private Slider SPBar;
     [SerializeField] private Slider CPBar;
 
-    [Header("Player Effect Cooldown")]
+    [Header("Const")]
     protected const float KNOCKBACK_TIME = 0.5f;
+    protected const float ATTACKED_TIME = 1;
     
     #region Properties
     public float hunger 
@@ -153,8 +154,8 @@ public class Player : Creatures
         {
             Debug.Log("Player being attacked");
             playerState = State.Attacked;
+            StartCoroutine(AttackedOff());
             KnockbackEffect();
-            StartCoroutine(KnockBackOff());
             hp -= dmg;
             hp = Mathf.Clamp(hp, 0, defaultHp);
             HPEqual0();
@@ -287,17 +288,25 @@ public class Player : Creatures
     {
         if(playerState == State.Attacked)
         {
+            StartCoroutine(KnockBackOff());
             rb.velocity = new Vector2(0, 2);
             Debug.Log("Player being knocked back" + rb.velocity);
 
         }
     }
+    #endregion
 
+    #region Turn Off Effect And Status
     protected IEnumerator KnockBackOff()
     {
         yield return new WaitForSeconds(KNOCKBACK_TIME);
-        playerState = State.Normal;
         rb.velocity = Vector2.zero;
+    }
+
+    protected IEnumerator AttackedOff()
+    {
+        yield return new WaitForSeconds(ATTACKED_TIME);
+        playerState = State.Normal;
     }
     #endregion
 }
