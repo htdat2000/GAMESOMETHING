@@ -21,12 +21,12 @@ public class Enemies : Mobs
             collision.TryGetComponent<Player>(out player);
             player.TakeDmg(dmg);
             player.KnockbackEffect(this.gameObject);
-            //do something to knockback player
         }
         if(collision.CompareTag("OtherDamageableByEnemies"))
         {
-            Attack();
+            DamageableObjects attackedObject;
+            collision.TryGetComponent<DamageableObjects>(out attackedObject);
+            attackedObject.TakeDmg(dmg);
         }
-
     }
 }
