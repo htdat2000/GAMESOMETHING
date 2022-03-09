@@ -79,15 +79,8 @@ public class CraftingBoard : MonoBehaviour
                 {
                     return true;
                 }
-                else 
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            }            
+            return false;
         }
         else
         {

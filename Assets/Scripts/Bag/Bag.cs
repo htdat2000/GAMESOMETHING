@@ -41,21 +41,19 @@ public class Bag : MonoBehaviour
                 if(items.Contains(item) && amount[items.LastIndexOf(item)] < maxNumberOfItem)
                 {
                     amount[items.LastIndexOf(item)]++;
-                    AddTotalAmount(item);
                 }
                 else
                 {
                     items.Add(item);
-                    amount.Add(1);
-                    AddTotalAmount(item);
+                    amount.Add(1);    
                 }   
             }
             else
             {
                 items.Add(item);
                 amount.Add(1);
-                AddTotalAmount(item);
             }
+            AddTotalAmount(item);
             onItemChange.Invoke();
             return true;
         }
