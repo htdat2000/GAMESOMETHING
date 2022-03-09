@@ -40,7 +40,7 @@ public class ItemPrototype : MonoBehaviour, IInteractables
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
        PlayerInteractCollider player; 
        collision.TryGetComponent<PlayerInteractCollider>(out player);
