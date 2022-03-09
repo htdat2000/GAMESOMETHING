@@ -93,8 +93,9 @@ public class PlayerController : MonoBehaviour
     public void Interact()
     {
         if(interactGOs.Count > 0)
-        interactGOs[0].Interact();
-        
+        {
+            interactGOs[0].Interact();
+        }        
     }
     public void OpenInventory()
     {

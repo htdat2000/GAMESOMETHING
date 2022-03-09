@@ -15,7 +15,7 @@ public class PlayerInteractCollider : MonoBehaviour
         LoadComponent();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
         IInteractables interactGO;
         collision.TryGetComponent<IInteractables>(out interactGO);
