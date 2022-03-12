@@ -29,15 +29,6 @@ public class PlayerController : MonoBehaviour
     private float lastAttack = 0f;
     private List<IInteractables> interactGOs = new List<IInteractables>();
 
-    enum State
-    {
-        Normal,
-        Attacked,
-        Stun,
-        Action
-    }
-    private State playerState;
-
     void Start()
     {
         LoadComponent();
@@ -45,7 +36,6 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if(playerState == State.Normal)
             Move();
         if(Input.GetKeyDown(KeyCode.T))
             Interact();
@@ -148,7 +138,6 @@ public class PlayerController : MonoBehaviour
     void LoadParameter()
     {
         lastAttack = Time.time;
-        playerState = State.Normal;
     }
     #endregion
 
