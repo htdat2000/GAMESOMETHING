@@ -231,7 +231,7 @@ public class Player : Creatures
     #region Player Action Controller
     override public void Attack()
     {
-        if(stamina >= 10f)
+        if(stamina >= 10f && playerState == State.Normal)
         {
             Instantiate(attackEffect, transform.position, Quaternion.identity);
             StaminaDecrease(10f);
