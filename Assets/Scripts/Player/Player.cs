@@ -142,8 +142,8 @@ public class Player : Creatures
     }
     override protected void Die()
     {
+        CheckPointManager.instance.RespawnPlayer(this.gameObject);
         Debug.Log("The Player has died");
-        return;
     }
     override public void TakeDmg(int dmg)
     {
