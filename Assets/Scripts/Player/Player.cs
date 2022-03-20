@@ -272,9 +272,10 @@ public class Player : Creatures
             rb.velocity = direction.normalized * 2;
         }
     }
-    public void Roll()
+    public bool Roll()
     {
-        if(stamina >= 10f && playerState == State.Normal)
+        bool canRoll = stamina >= 10f && playerState == State.Normal;
+        if(canRoll)
         {
             ChangeStatus("Action");
             StartCoroutine(RollEnd());
@@ -282,6 +283,7 @@ public class Player : Creatures
             rb.velocity = direction.normalized * ROLL_FORCE;
             StaminaDecrease(10f);
         }
+        return canRoll;
     }
     #endregion
     #region Status Field
