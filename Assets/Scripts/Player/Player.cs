@@ -18,7 +18,7 @@ public class Player : Creatures
     [SerializeField] private float defaultSpeed;
     [SerializeField] private int defaultHp = 100;
     [SerializeField] private float defaultStamina = 100;
-    private float staminaRefillCooldown = 3f;
+    private float staminaRefillCooldown = 0.5f;
     private float lastRefillStamina = 0f;
 
     [Header("PlayerState")]
@@ -222,7 +222,7 @@ public class Player : Creatures
         if(lastRefillStamina + staminaRefillCooldown < Time.time)
         {
             lastRefillStamina = Time.time;
-            StaminaIncrease(5f);
+            StaminaIncrease(3f);
         }
     }
 
