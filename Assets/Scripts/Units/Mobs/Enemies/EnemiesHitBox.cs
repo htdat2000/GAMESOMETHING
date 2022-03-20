@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemiesHitBox : MonoBehaviour
 {
-    private Mobs thisMob;
     private int dmg;
-    void Start() {
-        thisMob = GetComponentInParent<Mobs>();
-        dmg = thisMob.dmg;
+
+    public void SetDmg(int amount)
+    {
+        dmg = amount;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
