@@ -39,6 +39,21 @@ public abstract class Mobs : Creatures, IAutoSpawn
             Debug.Log("back to spawn pos");
         }
     }
+    public bool IsState(string state)
+    {
+        switch (state)
+        {
+            case "Normal":
+                return mobState == State.Normal;
+                break;
+            case "Attacked":
+                return mobState == State.Attacked;
+                break;
+            default:
+                return false;
+                break;
+        }
+    }
     public void Remove()
     {
         return;
@@ -118,7 +133,6 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {   
         if(rigid2D != null && mobState == State.Attacked)
         {
-
             StartCoroutine(KnockBackOff());
             Vector3 direction = this.gameObject.transform.position - attacker.transform.position;
             rigid2D.velocity = direction.normalized * 2;
