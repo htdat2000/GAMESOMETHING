@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2118000784289534125}
   - component: {fileID: 3892221802745367008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6707266588166985712}
   - component: {fileID: 1796665929341101248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5624540597338432764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Attack_point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 717645059}
   - component: {fileID: 385588151}
   - component: {fileID: 1646549512499142143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 5146154195734720442}
   - component: {fileID: 456442942618890907}
   - component: {fileID: 2044782524037050025}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Interact_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

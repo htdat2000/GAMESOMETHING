@@ -10,6 +10,7 @@ TagManager:
   - PlayerAttack
   - OtherDamageableByEnemies
   - OtherDamageableByPlayer
+  - EnemiesHurtBox
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - Enemies
   - 
   - 
   - 

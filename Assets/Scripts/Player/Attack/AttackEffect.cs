@@ -8,10 +8,10 @@ public class AttackEffect : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Enemies"))
+        if(collision.CompareTag("EnemiesHurtBox"))
         {
             Mobs mobsToAttack; 
-            collision.TryGetComponent<Mobs>(out mobsToAttack);
+            mobsToAttack = collision.GetComponentInParent<Mobs>();
             mobsToAttack.TakeDmg(dmg);
             mobsToAttack.KnockbackEffect(this.gameObject);
         }
