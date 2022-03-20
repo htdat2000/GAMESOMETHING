@@ -13,19 +13,19 @@ public class Enemies : Mobs
         return;
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player"))
         {   
             Player player;
-            collision.TryGetComponent<Player>(out player);
+            collision.gameObject.TryGetComponent<Player>(out player);
             player.TakeDmg(dmg);
             player.KnockbackEffect(this.gameObject);
         }
-        if(collision.CompareTag("OtherDamageableByEnemies"))
+        if(collision.gameObject.CompareTag("OtherDamageableByEnemies"))
         {
             DamageableObjects attackedObject;
-            collision.TryGetComponent<DamageableObjects>(out attackedObject);
+            collision.gameObject.TryGetComponent<DamageableObjects>(out attackedObject);
             attackedObject.TakeDmg(dmg);
         }
     }

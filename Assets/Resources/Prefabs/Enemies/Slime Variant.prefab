@@ -7,6 +7,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7962456468525581046, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442535075301533100, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442535075301533100, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442535075301533100, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cc3ef8ce0db7c5344bf55aca4e7b72d6,
+        type: 3}
+    - target: {fileID: 2442535075301533100, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442535075301533100, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_RootOrder
@@ -62,10 +93,79 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4630124308028495551, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.7689214
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630124308028495551, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5240481336396468608, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074909347146614477, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615833237346273750, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: notiAnim
+      value: 
+      objectReference: {fileID: 561395454679915192}
     - target: {fileID: 7046723784898012941, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_Name
       value: Slime Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7661208091150436522, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661208091150436522, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661208091150436522, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7282886668606283007, guid: bd5de899eec9e8948ad3f4fe05457eab,
+        type: 3}
+    - target: {fileID: 7661208091150436522, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568159115294534300, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: subject
+      value: 
+      objectReference: {fileID: 9184567388199843004}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a25d3f466fb5c40be50e6e1cad5388, type: 3}
+--- !u!114 &9184567388199843004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 13858666418231347, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+    type: 3}
+  m_PrefabInstance: {fileID: 9171333262124166287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e2d215b222200438aaf23f524bba0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &561395454679915192 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8686710528587183671, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+    type: 3}
+  m_PrefabInstance: {fileID: 9171333262124166287}
+  m_PrefabAsset: {fileID: 0}

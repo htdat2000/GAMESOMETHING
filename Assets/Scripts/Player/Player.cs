@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
+// [RequireComponent(typeof(Animator))]
 public class Player : Creatures
 {
     public float attackRange = 0f;
@@ -34,7 +34,8 @@ public class Player : Creatures
 
     [Header("Unity Components")]
     private Bag bag;
-    private Animator anim;
+    // private Animator anim;
+    private PlayerController playerController;
     private Rigidbody2D rb;
     private AttackEffect attackEffectScript;
 
@@ -59,6 +60,8 @@ public class Player : Creatures
     [Header("Const")]
     protected const float KNOCKBACK_TIME = 0.5f;
     protected const float ATTACKED_TIME = 1;
+    protected const float ROLL_FORCE = 10;
+    protected const float ROLL_TIME = 0.2f;
     
     #region Properties
     public float hunger 
@@ -106,7 +109,8 @@ public class Player : Creatures
     {
         rb = GetComponent<Rigidbody2D>();
         bag = GetComponent<Bag>();
-        anim = GetComponent<Animator>();
+        // anim = GetComponent<Animator>();
+        playerController = GetComponent<PlayerController>();
         attackEffectScript = attackEffect.GetComponent<AttackEffect>();
         LoadParameter();
     }
@@ -120,10 +124,6 @@ public class Player : Creatures
         Hunger();
         IsHunger();
         StaminaRefill();
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            anim.Play("Dance");
-        }
     }
 
     void FixedUpdate() 
@@ -137,7 +137,7 @@ public class Player : Creatures
         if(playerState == State.Normal)
         {  
             rb.velocity = moveDir * speed;
-            MoveAnimationUpdate(moveDir);
+            playerController.MoveAnimationUpdate(moveDir);
         }
     }
     override protected void Die()
@@ -164,19 +164,19 @@ public class Player : Creatures
     }
     #endregion
     
-    #region Animation
-    void MoveAnimationUpdate(Vector2 _moveDir)
-    {
-        if(_moveDir == Vector2.zero)
-        {
-            anim.SetBool("IsRunning", false);
-        }
-        else
-        {
-            anim.SetBool("IsRunning", true);
-        }
-    }
-    #endregion
+    // #region Animation
+    // void MoveAnimationUpdate(Vector2 _moveDir)
+    // {
+    //     if(_moveDir == Vector2.zero)
+    //     {
+    //         anim.SetBool("IsRunning", false);
+    //     }
+    //     else
+    //     {
+    //         anim.SetBool("IsRunning", true);
+    //     }
+    // }
+    // #endregion
 
     #region Player Status Controller
     void Hunger()
@@ -272,9 +272,21 @@ public class Player : Creatures
             rb.velocity = direction.normalized * 2;
         }
     }
+    public bool Roll()
+    {
+        bool canRoll = stamina >= 10f && playerState == State.Normal;
+        if(canRoll)
+        {
+            ChangeStatus("Action");
+            StartCoroutine(RollEnd());
+            Vector3 direction = new Vector3(moveDir.x,moveDir.y,0f);
+            rb.velocity = direction.normalized * ROLL_FORCE;
+            StaminaDecrease(10f);
+        }
+        return canRoll;
+    }
     #endregion
-
-    #region Turn Off Effect And Status
+    #region Status Field
     protected IEnumerator KnockBackOff()
     {
         yield return new WaitForSeconds(KNOCKBACK_TIME);
@@ -285,7 +297,35 @@ public class Player : Creatures
     {
         yield return new WaitForSeconds(ATTACKED_TIME);
         playerState = State.Normal;
+    }
 
+    protected IEnumerator RollEnd()
+    {
+        yield return new WaitForSeconds(ROLL_TIME);
+        rb.velocity = Vector2.zero;
+        playerState = State.Normal;
+    }
+
+    public void ChangeStatus(string status)
+    {
+        switch (status)
+        {
+            case "Action":
+                playerState = State.Action;
+                break;
+            case "Attacked":
+                playerState = State.Attacked;
+                break;
+            case "Normal":
+                playerState = State.Normal;
+                break;
+            case "Stun":
+                playerState = State.Stun;
+                break;
+            default:
+                playerState = State.Normal;
+                break;
+        }
     }
     #endregion
 }
