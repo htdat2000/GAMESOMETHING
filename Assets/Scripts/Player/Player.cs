@@ -274,10 +274,14 @@ public class Player : Creatures
     }
     public void Roll()
     {
-        ChangeStatus("Action");
-        StartCoroutine(RollEnd());
-        Vector3 direction = new Vector3(moveDir.x,moveDir.y,0f);
-        rb.velocity = direction.normalized * ROLL_FORCE;
+        if(stamina >= 10f && playerState == State.Normal)
+        {
+            ChangeStatus("Action");
+            StartCoroutine(RollEnd());
+            Vector3 direction = new Vector3(moveDir.x,moveDir.y,0f);
+            rb.velocity = direction.normalized * ROLL_FORCE;
+            StaminaDecrease(10f);
+        }
     }
     #endregion
     #region Status Field
