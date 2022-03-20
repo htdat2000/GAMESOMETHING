@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TargetChecker : MonoBehaviour
 {
+    [SerializeField] private Animator notiAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,17 +16,21 @@ public class TargetChecker : MonoBehaviour
     {
         
     }
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Player"))
             {
                 //Debug.Log("here");
                 this.transform.parent.GetComponent<PathMover>().Chase();
+                notiAnim.Play("Show");
             }
     }
     void OnTriggerExit2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Player"))
+        {
             this.transform.parent.GetComponent<PathMover>().StopChasing();
+            notiAnim.Play("Hide");
+        }
     }
 }
