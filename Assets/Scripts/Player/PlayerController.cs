@@ -20,11 +20,6 @@ public class PlayerController : MonoBehaviour
     public float attackRange = 0f;
     public float moveSpeed;
 
-    // public bool hadRolled = false;
-    // public float rollCD  = 5;
-    // public float rollCDCount;
-    // public float rollLength = 25f;
-
     private float attackCooldown = 0.5f;
     private float lastAttack = 0f;
 
@@ -56,9 +51,6 @@ public class PlayerController : MonoBehaviour
         {
             anim.Play("Dance");
         }
-        // if(rollCDCount >0){
-        //     rollCDCount -= Time.deltaTime;
-        // }
     }
 
     #region Player controller method
@@ -74,17 +66,6 @@ public class PlayerController : MonoBehaviour
             Vector2 moveAmount = moveInput.normalized;
             player.moveDir = moveAmount;
         }
-        // if(Input.GetKeyDown(KeyCode.Z))
-        // {
-        //     if(rollCDCount > .1f){
-        //         Debug.Log("Cooldown");
-        //     }
-        //     if(rollCDCount <= .1f){
-        //         Debug.Log("Roll"+player.moveDir);
-        //         player.moveDir = moveInput * rollLength;
-        //         rollCDCount = rollCD;
-        //     }
-        // }
     }
     public void Attack()
     {
@@ -93,9 +74,11 @@ public class PlayerController : MonoBehaviour
     }
     private void Roll()
     {
-        lastRoll = Time.time;
-        player.Roll();
-        anim.Play("Roll");
+        if(player.Roll())
+        {
+            lastRoll = Time.time;
+            anim.Play("Roll");
+        }
     }
     public void Interact()
     {
