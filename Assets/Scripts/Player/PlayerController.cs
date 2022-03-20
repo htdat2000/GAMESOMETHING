@@ -20,13 +20,18 @@ public class PlayerController : MonoBehaviour
     public float attackRange = 0f;
     public float moveSpeed;
 
-    public bool hadRolled = false;
-    public float rollCD  = 5;
-    public float rollCDCount;
-    public float rollLength = 25f;
+    // public bool hadRolled = false;
+    // public float rollCD  = 5;
+    // public float rollCDCount;
+    // public float rollLength = 25f;
 
     private float attackCooldown = 0.5f;
     private float lastAttack = 0f;
+
+    private float lastRoll = 0f;
+    [SerializeField] float rollCooldown = 1f;
+
+    private Animator anim;
     private List<IInteractables> interactGOs = new List<IInteractables>();
 
     void Start()
@@ -36,7 +41,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-            Move();
+        Move();
         if(Input.GetKeyDown(KeyCode.T))
             Interact();
         if(Input.GetKeyDown(KeyCode.Space) && CanAttack())
@@ -45,9 +50,15 @@ public class PlayerController : MonoBehaviour
             OpenInventory();
         if(Input.GetKeyDown(KeyCode.C))
             OpenCraftingBoard();
-        if(rollCDCount >0){
-            rollCDCount -= Time.deltaTime;
+        if(Input.GetKeyDown(KeyCode.Z) && CanRoll())
+            Roll();
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            anim.Play("Dance");
         }
+        // if(rollCDCount >0){
+        //     rollCDCount -= Time.deltaTime;
+        // }
     }
 
     #region Player controller method
@@ -63,22 +74,28 @@ public class PlayerController : MonoBehaviour
             Vector2 moveAmount = moveInput.normalized;
             player.moveDir = moveAmount;
         }
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            if(rollCDCount > .1f){
-                Debug.Log("Cooldown");
-            }
-            if(rollCDCount <= .1f){
-                Debug.Log("Roll"+player.moveDir);
-                player.moveDir = moveInput * rollLength;
-                rollCDCount = rollCD;
-            }
-        }
+        // if(Input.GetKeyDown(KeyCode.Z))
+        // {
+        //     if(rollCDCount > .1f){
+        //         Debug.Log("Cooldown");
+        //     }
+        //     if(rollCDCount <= .1f){
+        //         Debug.Log("Roll"+player.moveDir);
+        //         player.moveDir = moveInput * rollLength;
+        //         rollCDCount = rollCD;
+        //     }
+        // }
     }
     public void Attack()
     {
         lastAttack = Time.time;
         player.Attack();
+    }
+    private void Roll()
+    {
+        lastRoll = Time.time;
+        player.Roll();
+        anim.Play("Roll");
     }
     public void Interact()
     {
@@ -133,11 +150,13 @@ public class PlayerController : MonoBehaviour
             player = GetComponent<Player>();
             rb = GetComponent<Rigidbody2D>();
             isLoaded = !isLoaded;
+            anim = GetComponent<Animator>();
         }
     }
     void LoadParameter()
     {
         lastAttack = Time.time;
+        lastRoll = Time.time;
     }
     #endregion
 
@@ -145,6 +164,24 @@ public class PlayerController : MonoBehaviour
     bool CanAttack()
     {
         return lastAttack + attackCooldown < Time.time;
+    }
+    bool CanRoll()
+    {
+        return lastRoll + rollCooldown < Time.time;
+    }
+    #endregion
+
+    #region Animation
+    public void MoveAnimationUpdate(Vector2 _moveDir)
+    {
+        if(_moveDir == Vector2.zero)
+        {
+            anim.SetBool("IsRunning", false);
+        }
+        else
+        {
+            anim.SetBool("IsRunning", true);
+        }
     }
     #endregion
 }
