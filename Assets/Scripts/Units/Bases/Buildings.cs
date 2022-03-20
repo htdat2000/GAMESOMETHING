@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Buildings : DamageableObjects, IInteractables
 {
     protected abstract void Broken();
-    public void Interact()
+    public virtual void Interact()
     {
         return;
     }
