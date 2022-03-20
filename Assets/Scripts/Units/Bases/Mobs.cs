@@ -23,13 +23,15 @@ public abstract class Mobs : Creatures, IAutoSpawn
         Attacked
     }
     protected State mobState = State.Normal; 
-    
+    protected virtual void Awake()
+    {
+        LoadParameter();
+        LoadComponent();
+    }
     protected virtual void Start()
     {
         spawnPosition = transform.position;
         itemPrototype = UnityEngine.Resources.Load<GameObject>("Prefabs/Items/ItemPrototype");
-        LoadParameter();
-        LoadComponent();
     }
     protected virtual void Update()
     {
@@ -122,6 +124,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         hp = defaultHP;
         dmg = defaultDmg;
+        GetComponentInChildren<EnemiesHitBox>().SetDmg(dmg);
     }
 
     protected virtual void LoadComponent()

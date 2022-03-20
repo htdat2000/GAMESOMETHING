@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OriginalPosition: {x: -10, y: -10, z: 0}
   player: {fileID: 385588150}
-  pathSize: 100
+  pathSize: 200
 --- !u!4 &440134093
 Transform:
   m_ObjectHideFlags: 0
@@ -75642,7 +75642,7 @@ PrefabInstance:
     - target: {fileID: 4723792779588396404, guid: 6e86d0a6609a8b3448b78ce43758a760,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 4723792779588396404, guid: 6e86d0a6609a8b3448b78ce43758a760,
         type: 3}
@@ -75688,6 +75688,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184567388199843004, guid: 6e86d0a6609a8b3448b78ce43758a760,
+        type: 3}
+      propertyPath: defaultHP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184567388199843004, guid: 6e86d0a6609a8b3448b78ce43758a760,
+        type: 3}
+      propertyPath: itemDrops.Array.data[0].dropRate
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e86d0a6609a8b3448b78ce43758a760, type: 3}
@@ -76092,6 +76102,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1581150026, guid: 0bef680652567c34fbbe40960b97e811, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8207861359228340788, guid: 0bef680652567c34fbbe40960b97e811,
         type: 3}
       propertyPath: m_RootOrder

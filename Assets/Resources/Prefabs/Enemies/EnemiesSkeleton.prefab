@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5219266752537510860}
   - component: {fileID: 4630124308028495551}
-  - component: {fileID: 5879497217321227724}
   - component: {fileID: 6615833237346273750}
   m_Layer: 0
   m_Name: TargetChecker
@@ -49,27 +48,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!50 &5879497217321227724
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859633523084972663}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &6615833237346273750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +61,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notiAnim: {fileID: 0}
+--- !u!1 &1339555658005200847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5405892985215249147}
+  - component: {fileID: 8848983614493247339}
+  - component: {fileID: 7837849932496545077}
+  m_Layer: 0
+  m_Name: HitBox
+  m_TagString: Enemies
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5405892985215249147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339555658005200847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4524243524283615739}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &8848983614493247339
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339555658005200847}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.016419888}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2493782, y: 0.19136906}
+  m_EdgeRadius: 0
+--- !u!114 &7837849932496545077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339555658005200847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b4ec902bbdce484a898ef3640f79c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2165707612671240808
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,9 +140,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5411912438309801728}
-  m_Layer: 0
+  - component: {fileID: 4724036612314484928}
+  - component: {fileID: 52588690703117462}
+  m_Layer: 9
   m_Name: HurtBox
-  m_TagString: Untagged
+  m_TagString: EnemiesHurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,6 +163,44 @@ Transform:
   m_Father: {fileID: 4524243524283615739}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4724036612314484928
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165707612671240808}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.016419888}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2493782, y: 0.19136906}
+  m_EdgeRadius: 0
+--- !u!114 &52588690703117462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165707612671240808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d03f6fa8e523d41807b8edc624aecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5240481336396468608
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +212,7 @@ GameObject:
   - component: {fileID: 6074909347146614477}
   - component: {fileID: 8686710528587183671}
   - component: {fileID: 2442535075301533100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Noti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +312,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3120405372063266664}
   - component: {fileID: 501160883259551294}
-  - component: {fileID: 5457172991997804927}
   m_Layer: 0
   m_Name: WallChecker
   m_TagString: Untagged
@@ -262,27 +349,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6247778
---- !u!50 &5457172991997804927
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6332236745837724835}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &7046723784898012941
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,13 +359,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4524243524283615739}
   - component: {fileID: 5598202969388060342}
-  - component: {fileID: -7962456468525581046}
-  - component: {fileID: 4807701446467447293}
   - component: {fileID: 8568159115294534300}
   - component: {fileID: 13858666418231347}
-  m_Layer: 0
+  - component: {fileID: 6534474512115776802}
+  - component: {fileID: 1967357290423687644}
+  m_Layer: 9
   m_Name: EnemiesSkeleton
-  m_TagString: Enemies
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,6 +386,7 @@ Transform:
   - {fileID: 2649917564825559578}
   - {fileID: 5411912438309801728}
   - {fileID: 6074909347146614477}
+  - {fileID: 5405892985215249147}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -342,53 +409,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &-7962456468525581046
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7046723784898012941}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.016419888}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 0.5, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2493782, y: 0.19136906}
-  m_EdgeRadius: 0
---- !u!50 &4807701446467447293
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7046723784898012941}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!114 &8568159115294534300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,6 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcda39413339a5048807d68c48396b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  subject: {fileID: 0}
 --- !u!114 &13858666418231347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +443,53 @@ MonoBehaviour:
   defaultHP: 10
   defaultDmg: 10
   activeRadius: 50
+--- !u!50 &6534474512115776802
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046723784898012941}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &1967357290423687644
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046723784898012941}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.016419888}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2493782, y: 0.19136906}
+  m_EdgeRadius: 0
 --- !u!1 &9013963267284753911
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2649917564825559578}
   - component: {fileID: 7661208091150436522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
