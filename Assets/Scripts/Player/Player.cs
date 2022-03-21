@@ -20,6 +20,7 @@ public class Player : Creatures
     [SerializeField] private float defaultStamina = 100;
     private float staminaRefillCooldown = 0.5f;
     private float lastRefillStamina = 0f;
+    [SerializeField] private GameEvent onScreenShake;
 
     [Header("PlayerState")]
     private State playerState = State.Normal;
@@ -58,7 +59,7 @@ public class Player : Creatures
 
     [Header("Const")]
     protected const float KNOCKBACK_TIME = 0.5f;
-    protected const float ATTACKED_TIME = 1;
+    protected const float ATTACKED_TIME = 0.5f;
     protected const float ROLL_FORCE = 10;
     protected const float ROLL_TIME = 0.2f;
     
@@ -151,6 +152,7 @@ public class Player : Creatures
             playerState = State.Attacked;
             StartCoroutine(AttackedOff());
             Hp = -dmg;
+            onScreenShake.Invoke();
             HPEqual0();
         }      
     }
