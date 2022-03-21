@@ -16,6 +16,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     protected const float KNOCKBACK_TIME = 0.5f;
     protected const float ATTACKED_TIME = 1;
 
+    [SerializeField] private Animator invAnim;
 
     protected enum State
     {
@@ -76,6 +77,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
             mobState = State.Attacked;
             StartCoroutine(AttackedOff());
             //KnockbackEffect();
+            invAnim.Play("Invisible");
 
             hp -= dmg;
             hp = Mathf.Clamp(hp, 0, defaultHP);
