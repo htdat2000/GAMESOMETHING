@@ -13,6 +13,7 @@ public abstract class Items : ScriptableObject
 
     [Header("Item Setup")]
     [SerializeField] protected bool _stackAble; public bool stackAble  { get {return _stackAble;} }
+    public bool usable;
     
     [Header("Unity Collider Size")]
     [SerializeField] protected int _sizeX; public int sizeX  { get {return _sizeX;} }

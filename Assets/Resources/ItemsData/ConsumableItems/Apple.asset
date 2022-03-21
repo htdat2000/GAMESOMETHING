@@ -17,6 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: d76b83e6b18c11f4a941ccddaef25f9d, type: 3}
   _description: Fresh fruit, yum yum
   _stackAble: 1
+  usable: 1
   _sizeX: 5
   _sizeY: 5
   healthValue: 5

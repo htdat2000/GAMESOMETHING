@@ -37,9 +37,13 @@ public class BagSlot : MonoBehaviour
     {
         if(IsDoubleTap())
         {
-            if(item != null)
+            if(item != null && item.usable == true)
             {
                 bag.UseItemInList(slotIndex);
+            }
+            else
+            {
+                Debug.Log("Can't use this item");
             }
         }   
     }

@@ -17,6 +17,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 4836074d7cad635448a6b6873e458f2a, type: 3}
   _description: How dare you
   _stackAble: 1
+  usable: 1
   _sizeX: 5
   _sizeY: 5
   healthValue: 1
