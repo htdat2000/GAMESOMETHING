@@ -34,7 +34,6 @@ public class Player : Creatures
 
     [Header("Unity Components")]
     private Bag bag;
-    // private Animator anim;
     private PlayerController playerController;
     private Rigidbody2D rb;
     private AttackEffect attackEffectScript;
@@ -109,7 +108,6 @@ public class Player : Creatures
     {
         rb = GetComponent<Rigidbody2D>();
         bag = GetComponent<Bag>();
-        // anim = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
         attackEffectScript = attackEffect.GetComponent<AttackEffect>();
         LoadParameter();
@@ -149,6 +147,7 @@ public class Player : Creatures
     {
         if(playerState == State.Normal)
         {
+            playerController.InvisibleAnimPlay();
             playerState = State.Attacked;
             StartCoroutine(AttackedOff());
             Hp = -dmg;
@@ -163,20 +162,6 @@ public class Player : Creatures
         }
     }
     #endregion
-    
-    // #region Animation
-    // void MoveAnimationUpdate(Vector2 _moveDir)
-    // {
-    //     if(_moveDir == Vector2.zero)
-    //     {
-    //         anim.SetBool("IsRunning", false);
-    //     }
-    //     else
-    //     {
-    //         anim.SetBool("IsRunning", true);
-    //     }
-    // }
-    // #endregion
 
     #region Player Status Controller
     void Hunger()
