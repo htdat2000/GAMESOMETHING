@@ -91,7 +91,7 @@ public class Player : Creatures
         } 
     }
 
-    protected int Hp
+    public int Hp
     {
         get 
         {

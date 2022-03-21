@@ -11,5 +11,6 @@ public class Food : Consumable
     public override void Use(Player player)
     {
         player.hunger = hungerValue;
+        player.Hp = healthValue;
     }
 }
