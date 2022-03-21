@@ -51,6 +51,7 @@ public class Player : Creatures
     
     [Header("Effect")]
     [SerializeField] private GameObject attackEffect;
+    [SerializeField] private GameObject dustEffect;
 
     [Header("UI pointer")]
     [SerializeField] private Slider HPBar;
@@ -264,6 +265,7 @@ public class Player : Creatures
         bool canRoll = stamina >= 10f && playerState == State.Normal;
         if(canRoll)
         {
+            Instantiate(dustEffect, transform.position, Quaternion.identity);
             ChangeStatus("Action");
             StartCoroutine(RollEnd());
             Vector3 direction = new Vector3(moveDir.x,moveDir.y,0f);
