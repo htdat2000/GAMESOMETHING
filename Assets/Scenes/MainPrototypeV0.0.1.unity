@@ -1435,6 +1435,12 @@ PrefabInstance:
       objectReference: {fileID: 114944660}
     - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
         type: 3}
+      propertyPath: dustEffect
+      value: 
+      objectReference: {fileID: 6038764770608151325, guid: bc3cfe970d4595149a1048cf34996494,
+        type: 3}
+    - target: {fileID: 5252480789958155971, guid: 0dad04c9ba8e7e740b381cd4c3351a55,
+        type: 3}
       propertyPath: onScreenShake
       value: 
       objectReference: {fileID: 11400000, guid: 40213aaffdf4139468925465f0602f32,
