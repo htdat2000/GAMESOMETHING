@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     private float lastRoll = 0f;
     [SerializeField] float rollCooldown = 1f;
 
-    private Animator anim;
+    [SerializeField] private Animator anim;
+    [SerializeField] private Animator invAnim;
     private List<IInteractables> interactGOs = new List<IInteractables>();
 
     void Start()
@@ -133,7 +134,8 @@ public class PlayerController : MonoBehaviour
             player = GetComponent<Player>();
             rb = GetComponent<Rigidbody2D>();
             isLoaded = !isLoaded;
-            anim = GetComponent<Animator>();
+            // anim = GetComponentInChildren<Animator>();
+            // invAnim = GetComponent<Animator>();
         }
     }
     void LoadParameter()
@@ -165,6 +167,10 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("IsRunning", true);
         }
+    }
+    public void InvisibleAnimPlay()
+    {
+        invAnim.Play("Invisible");
     }
     #endregion
 }

@@ -20,6 +20,7 @@ public class Player : Creatures
     [SerializeField] private float defaultStamina = 100;
     private float staminaRefillCooldown = 0.5f;
     private float lastRefillStamina = 0f;
+    [SerializeField] private GameEvent onScreenShake;
 
     [Header("PlayerState")]
     private State playerState = State.Normal;
@@ -34,7 +35,6 @@ public class Player : Creatures
 
     [Header("Unity Components")]
     private Bag bag;
-    // private Animator anim;
     private PlayerController playerController;
     private Rigidbody2D rb;
     private AttackEffect attackEffectScript;
@@ -51,6 +51,7 @@ public class Player : Creatures
     
     [Header("Effect")]
     [SerializeField] private GameObject attackEffect;
+    [SerializeField] private GameObject dustEffect;
 
     [Header("UI pointer")]
     [SerializeField] private Slider HPBar;
@@ -59,7 +60,7 @@ public class Player : Creatures
 
     [Header("Const")]
     protected const float KNOCKBACK_TIME = 0.5f;
-    protected const float ATTACKED_TIME = 1;
+    protected const float ATTACKED_TIME = 0.5f;
     protected const float ROLL_FORCE = 10;
     protected const float ROLL_TIME = 0.2f;
     
@@ -109,7 +110,6 @@ public class Player : Creatures
     {
         rb = GetComponent<Rigidbody2D>();
         bag = GetComponent<Bag>();
-        // anim = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
         attackEffectScript = attackEffect.GetComponent<AttackEffect>();
         LoadParameter();
@@ -149,9 +149,11 @@ public class Player : Creatures
     {
         if(playerState == State.Normal)
         {
+            playerController.InvisibleAnimPlay();
             playerState = State.Attacked;
             StartCoroutine(AttackedOff());
             Hp = -dmg;
+            onScreenShake.Invoke();
             HPEqual0();
         }      
     }
@@ -163,20 +165,6 @@ public class Player : Creatures
         }
     }
     #endregion
-    
-    // #region Animation
-    // void MoveAnimationUpdate(Vector2 _moveDir)
-    // {
-    //     if(_moveDir == Vector2.zero)
-    //     {
-    //         anim.SetBool("IsRunning", false);
-    //     }
-    //     else
-    //     {
-    //         anim.SetBool("IsRunning", true);
-    //     }
-    // }
-    // #endregion
 
     #region Player Status Controller
     void Hunger()
@@ -277,6 +265,7 @@ public class Player : Creatures
         bool canRoll = stamina >= 10f && playerState == State.Normal;
         if(canRoll)
         {
+            Instantiate(dustEffect, transform.position, Quaternion.identity);
             ChangeStatus("Action");
             StartCoroutine(RollEnd());
             Vector3 direction = new Vector3(moveDir.x,moveDir.y,0f);
