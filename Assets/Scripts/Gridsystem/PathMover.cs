@@ -31,6 +31,7 @@ public class PathMover : MonoBehaviour
         {
             SetTargetPosition(player.transform.position);
             HandleMovement();
+            subject.SetAnim("Move");
         }
     }
     private void HandleMovement()

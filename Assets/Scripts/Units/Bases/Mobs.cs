@@ -17,6 +17,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     protected const float ATTACKED_TIME = 1;
 
     [SerializeField] private Animator invAnim;
+    [SerializeField] private Animator anim;
 
     protected enum State
     {
@@ -155,5 +156,8 @@ public abstract class Mobs : Creatures, IAutoSpawn
         rigid2D.velocity = Vector2.zero;
     }
     #endregion
-
+    public void SetAnim(string animation)
+    {
+        anim.Play(animation);
+    }
 }
