@@ -360,7 +360,6 @@ GameObject:
   - component: {fileID: 4524243524283615739}
   - component: {fileID: 5598202969388060342}
   - component: {fileID: 8568159115294534300}
-  - component: {fileID: 13858666418231347}
   - component: {fileID: 6534474512115776802}
   - component: {fileID: 1967357290423687644}
   m_Layer: 9
@@ -422,27 +421,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subject: {fileID: 0}
---- !u!114 &13858666418231347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7046723784898012941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e2d215b222200438aaf23f524bba0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: 0
-  _name: 
-  speed: 0.4
-  itemDrops:
-  - Item: {fileID: 11400000, guid: 216330c494a87d64582bc686cc24189c, type: 2}
-    dropRate: 70
-  defaultHP: 10
-  defaultDmg: 10
-  activeRadius: 50
 --- !u!50 &6534474512115776802
 Rigidbody2D:
   serializedVersion: 4
@@ -500,6 +478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2649917564825559578}
   - component: {fileID: 7661208091150436522}
+  - component: {fileID: 4979977283936517536}
   m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
@@ -571,3 +550,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4979977283936517536
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9013963267284753911}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
