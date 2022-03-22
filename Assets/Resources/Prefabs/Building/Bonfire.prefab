@@ -4838,6 +4838,7 @@ GameObject:
   - component: {fileID: 8207861359228340786}
   - component: {fileID: 8207861359228340787}
   - component: {fileID: 1776342042}
+  - component: {fileID: 5254988946687901142}
   m_Layer: 0
   m_Name: Bonfire
   m_TagString: Untagged
@@ -4978,3 +4979,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5254988946687901142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207861359228340790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466db3e3ffadac14d99fc9f7b647066f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

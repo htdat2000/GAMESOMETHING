@@ -10,7 +10,7 @@ public class TargetChecker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastChase = Time.time;
+        lastChase = 0f;
     }
 
     // Update is called once per frame

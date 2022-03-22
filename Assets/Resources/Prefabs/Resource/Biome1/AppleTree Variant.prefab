@@ -157,12 +157,33 @@ PrefabInstance:
     - target: {fileID: 1669070084763872279, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_Name
-      value: AppleTree
+      value: AppleTree Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1669070084763872279, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_TagString
       value: OtherDamageableByPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568267832806332111, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d064090a88b93f743a2d9100869b3391,
+        type: 3}
+    - target: {fileID: 2568267832806332111, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568267832806332111, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638941906281722484, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.339
       objectReference: {fileID: 0}
     - target: {fileID: 2760992860699602159, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
@@ -178,22 +199,22 @@ PrefabInstance:
     - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.31660175
+      value: 0.211442
       objectReference: {fileID: 0}
     - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.23640537
+      value: 0.17253971
       objectReference: {fileID: 0}
     - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.0036349297
+      value: -0.004825115
       objectReference: {fileID: 0}
     - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.3817973
+      value: -0.008889675
       objectReference: {fileID: 0}
     - target: {fileID: 9090831109518852547, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
