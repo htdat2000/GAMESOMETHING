@@ -150,7 +150,7 @@ PrefabInstance:
     - target: {fileID: 4131458798485007401, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_Name
-      value: Big Rock
+      value: Big Rock Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4131458798485007401, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
@@ -211,6 +211,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797869803972635779, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797869803972635779, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797869803972635779, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a900cacde91fd4b4a8e919a23c4ab554,
+        type: 3}
+    - target: {fileID: 6797869803972635779, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6797869803972635779, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7efb306c8545004d8dcfdf4f3e2ced7, type: 3}

@@ -14,7 +14,7 @@ public class GridController : MonoBehaviour
     public static GridController Instance;
     [SerializeField] int pathSize;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pathfinding = new Pathfinding(pathSize,pathSize);
         if(!Instance)

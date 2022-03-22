@@ -14,7 +14,7 @@ public class RenewableResources : Resource
         defaultHP = hp;
         cooldown = renewTime;
         
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
                 
         InvokeRepeating("UpdateResourceStatus", 0, 0.5f);
     }
