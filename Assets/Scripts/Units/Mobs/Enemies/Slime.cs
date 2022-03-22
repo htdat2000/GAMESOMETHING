@@ -24,7 +24,8 @@ public class Slime : Enemies
     #region Override
     override public void Move()
     {
-        transform.position += (transform.position - (Vector3)randomPoint).normalized * speed * Time.deltaTime;
+        transform.position += (transform.position - (Vector3)randomPoint).normalized * speed * 0.1f * Time.deltaTime;
+        SetAnim("Idle");
     }
     override public void Attack() 
     {
