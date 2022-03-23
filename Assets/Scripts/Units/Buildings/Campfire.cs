@@ -20,7 +20,7 @@ public class Campfire : Buildings
     void SetLightByTime()
     {
         int hour = timeSystem.hour;
-        if(6 <= hour || hour <= 16)
+        if(6 <= hour && hour <= 16)
         {
             light2D.intensity = 0.2f;
         }
