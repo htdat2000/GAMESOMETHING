@@ -86,11 +86,19 @@ public class BagSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     #region Tooltip
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if(item == null)
+        {
+            return;
+        }
         TooltipSystem.tooltipSystem.Show("Items_Description", item.name_);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if(item == null)
+        {
+            return;
+        }
         TooltipSystem.tooltipSystem.Hide();
     }
     #endregion
