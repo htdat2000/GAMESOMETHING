@@ -10,8 +10,13 @@ public class TooltipSystem : MonoBehaviour
     public static TooltipSystem tooltipSystem;
 
     [Header("Tooltip UI")]
-    [SerializeField] TextMeshProUGUI content;
-    [SerializeField] LocalizeStringEvent contentKey;
+
+    [SerializeField] LayoutElement layoutElement;
+    [SerializeField] TextMeshProUGUI contentText;
+    
+    [SerializeField] LocalizeStringEvent content;
+
+    private int characterWrapLimit = 100;
 
     void Start()
     {
@@ -27,8 +32,8 @@ public class TooltipSystem : MonoBehaviour
     {
         //contentKey.Localization.TableReference = "Item_Description";
         //contentKey.LocalizedString.TableEntryReference = key;
-        contentKey.StringReference.TableReference = table;
-        contentKey.StringReference.TableEntryReference = key;
+        content.StringReference.TableReference = table;
+        content.StringReference.TableEntryReference = key;
         content.gameObject.SetActive(true);
     }
 
@@ -36,6 +41,14 @@ public class TooltipSystem : MonoBehaviour
     {
         content.gameObject.SetActive(false);
     }
+
+    void LayoutElementSwitch()
+    {
+        int contentTextLength = contentText.text.Length;
+        layoutElement.enabled = (contentTextLength > characterWrapLimit) ? true : false;
+    }
+
+
 
 
 
