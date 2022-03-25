@@ -8,6 +8,7 @@ using UnityEngine.Localization.Components;
 public class TooltipSystem : MonoBehaviour
 {
     public static TooltipSystem tooltipSystem;
+    RectTransform rectTransform;
 
     [Header("Tooltip UI")]
 
@@ -26,6 +27,7 @@ public class TooltipSystem : MonoBehaviour
             return;
         }
         tooltipSystem = this;
+        rectTransform = GetComponent<RectTransform>();
     }
 
     public void Show(string table, string key)
@@ -34,6 +36,7 @@ public class TooltipSystem : MonoBehaviour
         //contentKey.LocalizedString.TableEntryReference = key;
         content.StringReference.TableReference = table;
         content.StringReference.TableEntryReference = key;
+        SetTooltipPosition();
         content.gameObject.SetActive(true);
     }
 
@@ -48,6 +51,15 @@ public class TooltipSystem : MonoBehaviour
         layoutElement.enabled = (contentTextLength > characterWrapLimit) ? true : false;
     }
 
+    void SetTooltipPosition()
+    {
+        Vector2 position = Input.mousePosition;
+        transform.position = position;
+
+        float pivotX = position.x / Screen.width;
+        float pivotY = position.y / Screen.height;
+        rectTransform.pivot = new Vector2(pivotX, pivotY);
+    }
 
 
 
