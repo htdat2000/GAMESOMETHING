@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemDrop
 {
     // [SerializeField] private Items item; 
-    [SerializeField] public Items Item;
+    [SerializeField] public Items item;
     //  { get {return Item;} }
     [SerializeField] private int dropRate; //percentage 
 

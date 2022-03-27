@@ -36,13 +36,22 @@ public abstract class Resource : DamageableObjects, IAutoSpawn
         {
             return;
         }
-        foreach (ItemDrop item in itemDrops)
+        int numberOfItem = itemDrops.Length;
+        for (int i = 0; i <= numberOfItem - 1; i++)
+        {
+            if(itemDrops[i].SpawnItemByDropRate(randomValue))
+            {
+                SpawnItem(itemDrops[i].item);
+            }
+        }
+        
+        /*foreach (ItemDrop item in itemDrops)
         {
             if(item.SpawnItemByDropRate(randomValue))
             {
                 SpawnItem(item.Item);
             }
-        }
+        }*/
         anim.Play("Attacked");
     }
     protected void SpawnItem(Items item)

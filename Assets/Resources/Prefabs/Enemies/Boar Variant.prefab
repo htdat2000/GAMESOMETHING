@@ -18,7 +18,7 @@ MonoBehaviour:
   deadEffect: {fileID: 1554054051499632754, guid: e3d07d5aa46d7fa409120a64fd6da70c,
     type: 3}
   itemDrops:
-  - Item: {fileID: 11400000, guid: 324c35d85b26da441a4bc134feb66d22, type: 2}
+  - item: {fileID: 11400000, guid: 324c35d85b26da441a4bc134feb66d22, type: 2}
     dropRate: 80
   defaultHP: 1
   defaultDmg: 0
@@ -61,12 +61,12 @@ PrefabInstance:
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 22.34
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 9.4
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
@@ -141,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 7046723784898012941, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_Name
-      value: Boar Variant
+      value: Boar
       objectReference: {fileID: 0}
     - target: {fileID: 7661208091150436522, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}

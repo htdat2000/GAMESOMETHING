@@ -5,7 +5,7 @@ public class RenewableResources : Resource
     protected int defaultHP;
     [SerializeField] protected Sprite havingMaterialImg;
     [SerializeField] protected Sprite notHavingMaterialImg;
-    protected int renewTime;
+    [SerializeField] protected int renewTime;
     protected float cooldown; 
     protected SpriteRenderer spriteRenderer;  
     protected override async void Start()
