@@ -17,5 +17,6 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 25384fd1e7a17cd43892a807bd661460, type: 3}
   _description: Everybody want the light
   _stackAble: 1
+  usable: 0
   _sizeX: 5
   _sizeY: 5

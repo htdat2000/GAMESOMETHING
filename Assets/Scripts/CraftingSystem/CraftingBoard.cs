@@ -12,6 +12,8 @@ public class CraftingBoard : MonoBehaviour
 
     [Header("UI Area")]
     public Image[] materialIcons;
+    public Image itemCraftIcon;
+    public Text[] materialAmountTexts;
 
     [Header("Item Craft & Materials")]
     private Items itemCraftSelected;
@@ -27,12 +29,12 @@ public class CraftingBoard : MonoBehaviour
     {
         selectedBlueprint = _blueprint;
         UpdateUI();
-        Debug.Log(materials[0].name);
     }
 
     void UpdateUI()
     {
         itemCraftSelected = selectedBlueprint.itemCraft;
+        itemCraftIcon.sprite = selectedBlueprint.itemCraft.icon;
         for (int i = 0; i < 2; i++)
         {
             if(selectedBlueprint.materials[i] != null)
@@ -40,6 +42,7 @@ public class CraftingBoard : MonoBehaviour
                 materials[i] = selectedBlueprint.materials[i];
                 materialIcons[i].sprite = materials[i].icon;
                 amount[i] = selectedBlueprint.amount[i];
+                materialAmountTexts[i].text = amount[i].ToString();
             }
         }
     }
