@@ -23,6 +23,7 @@ MonoBehaviour:
   activeRadius: 25
   invAnim: {fileID: 3672633760006480441}
   anim: {fileID: 1660963955572429250}
+  model: {fileID: 170882626608951672}
 --- !u!95 &1660963955572429250
 Animator:
   serializedVersion: 3

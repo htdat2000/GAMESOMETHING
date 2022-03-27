@@ -23,6 +23,7 @@ MonoBehaviour:
   activeRadius: 50
   invAnim: {fileID: 9124960389713405036}
   anim: {fileID: 8507016177091204986}
+  model: {fileID: 5623473132798244653}
 --- !u!1001 &3680163070430751450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -187,6 +188,12 @@ GameObject:
 --- !u!95 &9124960389713405036 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5598202969388060342, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+    type: 3}
+  m_PrefabInstance: {fileID: 3680163070430751450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5623473132798244653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9013963267284753911, guid: 17a25d3f466fb5c40be50e6e1cad5388,
     type: 3}
   m_PrefabInstance: {fileID: 3680163070430751450}
   m_PrefabAsset: {fileID: 0}

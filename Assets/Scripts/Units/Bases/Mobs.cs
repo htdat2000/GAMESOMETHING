@@ -18,6 +18,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
 
     [SerializeField] private Animator invAnim;
     [SerializeField] private Animator anim;
+    [SerializeField] GameObject model;
 
     protected enum State
     {
@@ -42,6 +43,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
             transform.position = spawnPosition;
             Debug.Log("back to spawn pos");
         }
+        FacingCheck();
     }
     public bool IsState(string state)
     {
@@ -57,6 +59,13 @@ public abstract class Mobs : Creatures, IAutoSpawn
                 return false;
                 break;
         }
+    }
+    private void FacingCheck()
+    {
+        if(isFacingRight)
+            model.transform.localScale = new Vector3(1f, 1f, 1f);
+        else 
+            model.transform.localScale = new Vector3(-1f, 1f, 1f);
     }
     public void Remove()
     {
@@ -125,6 +134,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
 
     protected virtual void LoadParameter()
     {
+        isFacingRight = true;
         hp = defaultHP;
         dmg = defaultDmg;
         GetComponentInChildren<EnemiesHitBox>().SetDmg(dmg);
