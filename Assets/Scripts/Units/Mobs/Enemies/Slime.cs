@@ -52,4 +52,11 @@ public class Slime : Enemies
     {
         // TakeDmg(other.gameObject.GetComponent<DamageableObjects>().dmg);
     }
+    override protected void BackToFirstSpawnPos()
+    {
+        pathMover.SetChasing(false);
+        mobState = State.Normal;
+        transform.position = spawnPosition;
+        // Debug.Log("Slime override");
+    }
 }

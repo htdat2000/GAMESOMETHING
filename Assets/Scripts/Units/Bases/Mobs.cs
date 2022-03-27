@@ -40,10 +40,13 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         if(Vector3.Distance(spawnPosition, transform.position) > activeRadius)
         {
-            transform.position = spawnPosition;
-            Debug.Log("back to spawn pos");
+            BackToFirstSpawnPos();
         }
         FacingCheck();
+    }
+    protected virtual void BackToFirstSpawnPos()
+    {
+        transform.position = spawnPosition;
     }
     public bool IsState(string state)
     {
