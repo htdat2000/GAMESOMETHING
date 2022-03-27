@@ -15,6 +15,8 @@ MonoBehaviour:
   _id: 1
   _name: Boar
   speed: 5
+  deadEffect: {fileID: 1554054051499632754, guid: e3d07d5aa46d7fa409120a64fd6da70c,
+    type: 3}
   itemDrops:
   - Item: {fileID: 11400000, guid: 324c35d85b26da441a4bc134feb66d22, type: 2}
     dropRate: 80
@@ -157,6 +159,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1621878738483685411, guid: cbe759668abd2cb4c8229884cdc5427b,
         type: 3}
+    - target: {fileID: 7661208091150436522, guid: 17a25d3f466fb5c40be50e6e1cad5388,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7661208091150436522, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_WasSpriteAssigned
