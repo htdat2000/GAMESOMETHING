@@ -1507,6 +1507,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8342610328278491780, guid: c4fe4501dd682ac47ad590ce447780bc,
         type: 3}
+      propertyPath: blueprint
+      value: 
+      objectReference: {fileID: 11400000, guid: ce7e184f2ae32f148a5a10bec9144911,
+        type: 2}
+    - target: {fileID: 8342610328278491780, guid: c4fe4501dd682ac47ad590ce447780bc,
+        type: 3}
       propertyPath: craftingBoard
       value: 
       objectReference: {fileID: 1172279047}
@@ -3369,7 +3375,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ddbfa8e2c3eba6e45a29b87fed4d1fea, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3433,7 +3439,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &756312260
@@ -5198,7 +5204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: -119.1}
+  m_AnchoredPosition: {x: -2, y: -119.1001}
   m_SizeDelta: {x: 472.03906, y: 238.29437}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1310040749
@@ -6010,7 +6016,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 952bcc71936ab294e98a9f1a5857bee2, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -83793,7 +83799,7 @@ PrefabInstance:
     - target: {fileID: 1872784554413673454, guid: 880d575e6f74b0946b1482bcdacf0238,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 68.99778
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1872784554413673454, guid: 880d575e6f74b0946b1482bcdacf0238,
         type: 3}
