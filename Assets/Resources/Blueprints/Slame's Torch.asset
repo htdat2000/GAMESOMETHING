@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32a034b7ed52bc4cb3f004a86af7ccf, type: 3}
+  m_Name: Slame's Torch
+  m_EditorClassIdentifier: 
+  itemCraft: {fileID: 11400000, guid: 8b865d02d816d6f45aaea71335b1e26a, type: 2}
+  materials:
+  - {fileID: 11400000, guid: 1de63d4739c253d40bec4881a8c5548a, type: 2}
+  - {fileID: 11400000, guid: 216330c494a87d64582bc686cc24189c, type: 2}
+  - {fileID: 11400000, guid: 5db7131202d09f74d8d96b5df22fc46e, type: 2}
+  amount: 010000000100000001000000

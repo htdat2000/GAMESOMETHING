@@ -19,6 +19,10 @@ public class Boar : Enemies
     override public void Move()
     {
         transform.position += (transform.position - (Vector3)randomPoint).normalized * speed * 0.1f * Time.deltaTime;
+        if((transform.position - (Vector3)randomPoint).x > 0f)
+            isFacingRight = true;
+        else
+            isFacingRight = false;
         SetAnim("Idle");
     }
     private void ChoseRandomDir()

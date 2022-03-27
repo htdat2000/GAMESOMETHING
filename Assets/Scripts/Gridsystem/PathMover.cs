@@ -85,4 +85,8 @@ public class PathMover : MonoBehaviour
     {
         return chasing;
     }
+    public void SetChasing(bool chase)
+    {
+        chasing = chase;
+    }
 }
