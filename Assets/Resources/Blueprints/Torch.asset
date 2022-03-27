@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCraft: {fileID: 11400000, guid: 5b0eac508b6b3ea46ba8e9ac80f37828, type: 2}
   materials:
-  - {fileID: 11400000, guid: 41cece6614e862a40a0b6f7e25237464, type: 2}
-  - {fileID: 11400000, guid: aa70729d2a0d2df4bbf7f8d0100eec67, type: 2}
+  - {fileID: 11400000, guid: 1de63d4739c253d40bec4881a8c5548a, type: 2}
+  - {fileID: 11400000, guid: 264424cc8769f4b4cabc5ae2e1463873, type: 2}
   amount: 0100000001000000
