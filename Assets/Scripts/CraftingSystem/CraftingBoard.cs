@@ -35,7 +35,7 @@ public class CraftingBoard : MonoBehaviour
     {
         itemCraftSelected = selectedBlueprint.itemCraft;
         itemCraftIcon.sprite = selectedBlueprint.itemCraft.icon;
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i <= 2; i++)
         {
             if(selectedBlueprint.materials[i] != null)
             {
@@ -51,7 +51,7 @@ public class CraftingBoard : MonoBehaviour
     {
         if(CheckBeforeCraft())
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i <= 2; i++)
             {
                ReduceMaterial(i); 
             }
