@@ -15,6 +15,8 @@ MonoBehaviour:
   _id: 1
   _name: Slime
   speed: 10
+  deadEffect: {fileID: 1554054051499632754, guid: e3d07d5aa46d7fa409120a64fd6da70c,
+    type: 3}
   itemDrops:
   - Item: {fileID: 11400000, guid: 216330c494a87d64582bc686cc24189c, type: 2}
     dropRate: 70

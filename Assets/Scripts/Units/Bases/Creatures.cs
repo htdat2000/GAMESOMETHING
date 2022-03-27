@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Creatures : DamageableObjects
 {
     [SerializeField] protected float speed;
+    [SerializeField] protected GameObject deadEffect;
     protected bool isFacingRight;
 
     public abstract void Move();

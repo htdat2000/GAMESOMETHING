@@ -15,8 +15,13 @@ public class AutoDestroy : MonoBehaviour
     {
         
     }
-    void DestroyThisObject()
+    public void DestroyThisObject()
     {
         Destroy(gameObject);
+    }
+    public void DestroyThisParent()
+    {
+        GameObject parent = GetComponentInParent<GameObject>();
+        Destroy(parent);
     }
 }

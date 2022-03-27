@@ -108,8 +108,14 @@ public abstract class Mobs : Creatures, IAutoSpawn
 
     protected override void Die()
     {
+        SpawnDeadEffect();
         DropItem();
         Destroy(gameObject);
+    }
+
+    protected virtual void SpawnDeadEffect()
+    {
+        Instantiate(deadEffect, transform.position, Quaternion.identity);;
     }
 
     protected virtual void DropItem()
