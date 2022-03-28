@@ -21,6 +21,12 @@ public class ItemPrototype : MonoBehaviour, IInteractables
 
     public void UpdateItemPrototypeData()
     {
+        if(item == null)
+        {
+            Debug.LogError("No Item Data");
+            Destroy(gameObject);
+            return;
+        }
         spriteRenderer.sprite = item.icon;
         colliderComponent.size = new Vector2(item.sizeX, item.sizeY); 
     }

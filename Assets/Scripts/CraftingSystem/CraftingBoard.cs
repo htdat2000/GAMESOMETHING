@@ -11,6 +11,7 @@ public class CraftingBoard : MonoBehaviour
     private Bag bag = null;
 
     [Header("UI Area")]
+    public Sprite nodeSprite;
     public Image[] materialIcons;
     public Image itemCraftIcon;
     public Text[] materialAmountTexts;
@@ -28,6 +29,7 @@ public class CraftingBoard : MonoBehaviour
     public void SelectBlueprint(Blueprints _blueprint)
     {
         selectedBlueprint = _blueprint;
+        ClearArrayData();
         UpdateUI();
     }
 
@@ -35,7 +37,9 @@ public class CraftingBoard : MonoBehaviour
     {
         itemCraftSelected = selectedBlueprint.itemCraft;
         itemCraftIcon.sprite = selectedBlueprint.itemCraft.icon;
-        for (int i = 0; i < 2; i++)
+        
+        int numberOfMaterials = selectedBlueprint.materials.Length;
+        for (int i = 0; i <= numberOfMaterials - 1; i++)
         {
             if(selectedBlueprint.materials[i] != null)
             {
@@ -47,11 +51,23 @@ public class CraftingBoard : MonoBehaviour
         }
     }
 
+    void ClearArrayData()
+    {
+        int numberOfMaterials = materials.Length;
+        for (int i = 0; i <= numberOfMaterials - 1; i++)
+        {
+            materials[i] = null;
+            materialIcons[i].sprite = nodeSprite;
+            amount[i] = 0;
+            materialAmountTexts[i].text = "0";
+        }
+    }
+
     public void Craft()
     {
         if(CheckBeforeCraft())
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i <= 2; i++)
             {
                ReduceMaterial(i); 
             }

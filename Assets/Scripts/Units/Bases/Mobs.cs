@@ -129,7 +129,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
         {
             if(item.SpawnItemByDropRate(randomValue))
             {
-                SpawnItem(item.Item);
+                SpawnItem(item.item);
             }
         }
     }

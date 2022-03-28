@@ -29,26 +29,30 @@ public abstract class Resource : DamageableObjects, IAutoSpawn
             currentMaterialHolding[i] = maxMaterialCanHold[i];
         }
     }
-    protected void SpawnMaterials()
+    protected virtual void SpawnMaterials()
     {   
         int randomValue = Random.Range(1, 1001);
         if(itemDrops.Length <= 0)
         {
             return;
         }
-        foreach (ItemDrop item in itemDrops)
+
+        int numberOfItem = itemDrops.Length;
+        for (int i = 0; i <= numberOfItem - 1; i++)
         {
-            if(item.SpawnItemByDropRate(randomValue))
+            if(itemDrops[i].SpawnItemByDropRate(randomValue) && currentMaterialHolding[i] >= 1)
             {
-                SpawnItem(item.Item);
+                SpawnItem(itemDrops[i].item, i);
             }
         }
         anim.Play("Attacked");
     }
-    protected void SpawnItem(Items item)
+    protected virtual void SpawnItem(Items item, int itemIndex)
     {
+        currentMaterialHolding[itemIndex]--;
         itemPrototype.GetComponent<ItemPrototype>().item = item;
         Vector2 spawnPosition = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
         Instantiate(itemPrototype, spawnPosition, Quaternion.identity);
     }
+    
 }

@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-371965508424264831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2201665317175217026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e2d215b222200438aaf23f524bba0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: 1
-  _name: Slime
-  speed: 10
-  deadEffect: {fileID: 1554054051499632754, guid: e3d07d5aa46d7fa409120a64fd6da70c,
-    type: 3}
-  itemDrops:
-  - Item: {fileID: 11400000, guid: 216330c494a87d64582bc686cc24189c, type: 2}
-    dropRate: 70
-  defaultHP: 3
-  defaultDmg: 1
-  activeRadius: 25
-  invAnim: {fileID: 3672633760006480441}
-  anim: {fileID: 1660963955572429250}
-  model: {fileID: 170882626608951672}
 --- !u!95 &1660963955572429250
 Animator:
   serializedVersion: 3
@@ -45,6 +19,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-371965508424264831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201665317175217026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e2d215b222200438aaf23f524bba0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 1
+  _name: Slime
+  speed: 10
+  deadEffect: {fileID: 1554054051499632754, guid: e3d07d5aa46d7fa409120a64fd6da70c,
+    type: 3}
+  itemDrops:
+  - item: {fileID: 11400000, guid: 216330c494a87d64582bc686cc24189c, type: 2}
+    dropRate: 70
+  defaultHP: 3
+  defaultDmg: 1
+  activeRadius: 10
+  invAnim: {fileID: 3672633760006480441}
+  anim: {fileID: 1660963955572429250}
+  model: {fileID: 170882626608951672}
 --- !u!1001 &9171333262124166287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ PrefabInstance:
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 4524243524283615739, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
@@ -176,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 7046723784898012941, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
       propertyPath: m_Name
-      value: Slime Variant
+      value: Slime
       objectReference: {fileID: 0}
     - target: {fileID: 7661208091150436522, guid: 17a25d3f466fb5c40be50e6e1cad5388,
         type: 3}
