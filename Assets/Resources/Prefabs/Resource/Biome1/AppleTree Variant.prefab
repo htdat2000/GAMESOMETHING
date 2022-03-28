@@ -79,6 +79,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
+      propertyPath: renewTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
       propertyPath: materialsHolding
       value: 
       objectReference: {fileID: 11400000, guid: 1de63d4739c253d40bec4881a8c5548a,
