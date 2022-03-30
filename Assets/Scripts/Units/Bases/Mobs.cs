@@ -108,6 +108,10 @@ public abstract class Mobs : Creatures, IAutoSpawn
 
     protected override void Die()
     {
+        if(sfx != null)
+        {
+            sfx.PlaySFX(SFX.SFXState.DieSFX);
+        }
         SpawnDeadEffect();
         DropItem();
         Destroy(gameObject);

@@ -6,42 +6,42 @@ using System;
 
 public class MusicManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    public Music[] musics;
     AudioSource audioSource;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true;
     }
     
     void Start() 
     {
-        if(sounds.Length != 0)
+        if(musics.Length != 0)
         {
-            Play(sounds[0].name);
+            Play(musics[0].name);
         }
     }
 
     public void Play(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        Music m = Array.Find(musics, music => music.name == name);
+        if(m == null)
         {
-            Debug.Log("Sound: " + name + "Not Found");
+            Debug.Log("Music: " + name + "Not Found");
             return;
         }
-        audioSource.clip = s.audioClip;
-        audioSource.volume = s.volume;
-        audioSource.loop = true;
+        audioSource.clip = m.audioClip;
+        audioSource.volume = m.volume;
         audioSource.Play();
     }
 
     public void Stop(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        Music m = Array.Find(musics, music => music.name == name);
+        if(m == null)
         {
-            Debug.Log("Sound: " + name + "Not Found");
+            Debug.Log("Music: " + name + "Not Found");
             return;
         }
         audioSource.Stop();

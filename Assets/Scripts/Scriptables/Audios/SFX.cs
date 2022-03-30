@@ -24,6 +24,9 @@ public class SFX : Sound
     public void PlaySFX(SFXState state)
     {
         AudioClip _audioClip = Array.Find(types, type => type.type == state).clip;
-        SFXManager.sfxManager.PlaySFX(_audioClip);
+        if(_audioClip != null)
+        {
+            SFXManager.sfxManager.PlaySFX(_audioClip);
+        }    
     }
 }

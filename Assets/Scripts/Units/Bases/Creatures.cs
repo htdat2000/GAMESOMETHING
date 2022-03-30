@@ -6,6 +6,7 @@ public abstract class Creatures : DamageableObjects
 {
     [SerializeField] protected float speed;
     [SerializeField] protected GameObject deadEffect;
+    [SerializeField] protected SFX sfx;
     protected bool isFacingRight;
 
     public abstract void Move();
