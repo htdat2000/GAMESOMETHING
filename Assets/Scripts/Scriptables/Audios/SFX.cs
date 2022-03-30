@@ -23,10 +23,15 @@ public class SFX : Sound
 
     public void PlaySFX(SFXState state)
     {
-        AudioClip _audioClip = Array.Find(types, type => type.type == state).clip;
-        if(_audioClip != null)
+        if(types.Length <= 0)
         {
-            SFXManager.sfxManager.PlaySFX(_audioClip);
+            return;
+        }
+        SFXType _sfxType = Array.Find(types, type => type.type == state);
+        if(_sfxType != null)
+        {
+            
+            SFXManager.sfxManager.PlaySFX(_sfxType.clip);
         }    
     }
 }

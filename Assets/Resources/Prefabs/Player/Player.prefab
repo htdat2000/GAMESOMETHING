@@ -320,13 +320,18 @@ MonoBehaviour:
   _id: 0
   _name: 
   speed: 3
+  deadEffect: {fileID: 0}
+  sfx: {fileID: 11400000, guid: e96cfaf5166f5d840bac57912270a77e, type: 2}
   attackRange: 1.5
   defaultDmg: 1
   defaultSpeed: 3
   defaultHp: 100
   defaultStamina: 100
+  onScreenShake: {fileID: 11400000, guid: 40213aaffdf4139468925465f0602f32, type: 2}
   moveDir: {x: 0, y: 0}
   attackEffect: {fileID: 2851542105650535708, guid: ddecf423b2a1fdf43857f034e4def8f3,
+    type: 3}
+  dustEffect: {fileID: 6038764770608151325, guid: bc3cfe970d4595149a1048cf34996494,
     type: 3}
   HPBar: {fileID: 0}
   SPBar: {fileID: 0}

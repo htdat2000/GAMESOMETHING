@@ -142,6 +142,7 @@ public class Player : Creatures
     }
     override protected void Die()
     {
+        PlaySFX(SFX.SFXState.DieSFX);
         CheckPointManager.instance.RespawnPlayer(this.gameObject);
         Debug.Log("The Player has died");
     }
@@ -149,6 +150,7 @@ public class Player : Creatures
     {
         if(playerState == State.Normal)
         {
+            PlaySFX(SFX.SFXState.HurtSFX);
             playerController.InvisibleAnimPlay();
             playerState = State.Attacked;
             StartCoroutine(AttackedOff());
@@ -221,6 +223,7 @@ public class Player : Creatures
     {
         if(stamina >= 10f && playerState == State.Normal)
         {
+            PlaySFX(SFX.SFXState.AttackSFX);
             Instantiate(attackEffect, transform.position, Quaternion.identity);
             StaminaDecrease(10f);
         }
@@ -273,6 +276,14 @@ public class Player : Creatures
             StaminaDecrease(10f);
         }
         return canRoll;
+    }
+
+    void PlaySFX(SFX.SFXState state)
+    {
+        if(sfx != null)
+        {
+            sfx.PlaySFX(state);
+        }
     }
     #endregion
     #region Status Field

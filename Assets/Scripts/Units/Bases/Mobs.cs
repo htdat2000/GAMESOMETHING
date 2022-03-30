@@ -87,6 +87,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         if(mobState == State.Normal)
         {
+            PlaySFX(SFX.SFXState.HurtSFX);
             mobState = State.Attacked;
             StartCoroutine(AttackedOff());
             //KnockbackEffect();
@@ -107,11 +108,8 @@ public abstract class Mobs : Creatures, IAutoSpawn
     }
 
     protected override void Die()
-    {
-        if(sfx != null)
-        {
-            sfx.PlaySFX(SFX.SFXState.DieSFX);
-        }
+    { 
+        PlaySFX(SFX.SFXState.DieSFX);
         SpawnDeadEffect();
         DropItem();
         Destroy(gameObject);
@@ -177,6 +175,13 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         yield return new WaitForSeconds(KNOCKBACK_TIME); 
         rigid2D.velocity = Vector2.zero;
+    }
+    protected void PlaySFX(SFX.SFXState state)
+    {
+        if(sfx != null)
+        {
+            sfx.PlaySFX(state);
+        }
     }
     #endregion
     public void SetAnim(string animation)
