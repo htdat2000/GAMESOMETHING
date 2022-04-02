@@ -38,6 +38,7 @@ public class Player : Creatures
     private PlayerController playerController;
     private Rigidbody2D rb;
     private AttackEffect attackEffectScript;
+    public Transform playerCenter;
 
     [Header("Unity Script Variables")]
     [HideInInspector]public Vector2 moveDir;
@@ -221,7 +222,7 @@ public class Player : Creatures
     {
         if(stamina >= 10f && playerState == State.Normal)
         {
-            Instantiate(attackEffect, transform.position, Quaternion.identity);
+            Instantiate(attackEffect, playerCenter.position, Quaternion.identity);
             StaminaDecrease(10f);
         }
     }
@@ -265,7 +266,7 @@ public class Player : Creatures
         bool canRoll = stamina >= 10f && playerState == State.Normal;
         if(canRoll)
         {
-            Instantiate(dustEffect, transform.position, Quaternion.identity);
+            Instantiate(dustEffect, playerCenter.position, Quaternion.identity);
             ChangeStatus("Action");
             StartCoroutine(RollEnd());
             Vector3 direction = new Vector3(moveDir.x,moveDir.y,0f);
