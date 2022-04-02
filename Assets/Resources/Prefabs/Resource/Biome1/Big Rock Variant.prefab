@@ -71,6 +71,11 @@ PrefabInstance:
       propertyPath: maxMaterialCanHold.Array.data[0]
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 2214023352563484651, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 2604729533768093727, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_Size.x
@@ -79,7 +84,7 @@ PrefabInstance:
     - target: {fileID: 2604729533768093727, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.1868515
+      value: 0.12850767
       objectReference: {fileID: 0}
     - target: {fileID: 2604729533768093727, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
@@ -89,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 2604729533768093727, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.05631447
+      value: -0.027142555
       objectReference: {fileID: 0}
     - target: {fileID: 2604729533768093727, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
@@ -165,12 +170,12 @@ PrefabInstance:
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6492012262748496659, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
@@ -231,7 +236,7 @@ PrefabInstance:
     - target: {fileID: 6797869803972635779, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6797869803972635779, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
