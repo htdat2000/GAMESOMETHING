@@ -11,7 +11,6 @@ TagManager:
   - OtherDamageableByEnemies
   - OtherDamageableByPlayer
   - EnemiesHurtBox
-  - PlayerBasement
   layers:
   - Default
   - TransparentFX
@@ -48,10 +47,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 1385116849
-    locked: 0
-  - name: Foreground
-    uniqueID: 267247581
     locked: 0

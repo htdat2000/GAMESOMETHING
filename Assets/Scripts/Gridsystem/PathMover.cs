@@ -11,13 +11,11 @@ public class PathMover : MonoBehaviour
     private bool chasing = false;
     
     private GameObject player;
-    // private Transform playerPosition;
 
     [SerializeField] private Mobs subject;
     // Start is called before the first frame update
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
-        // playerPosition = GameObject.FindWithTag("PlayerBasement").transform;
     }
     private void StopMoving()
     {
@@ -77,7 +75,7 @@ public class PathMover : MonoBehaviour
     }
     public void Chase()
     {
-        // chasing = true;
+        chasing = true;
     }
     public void StopChasing()
     {

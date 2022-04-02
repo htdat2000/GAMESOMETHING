@@ -7285,16 +7285,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1884201607570991712, guid: 1dfb916b68eb3bd49ab2effbd1868310,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1884201607570991712, guid: 1dfb916b68eb3bd49ab2effbd1868310,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1385116849
-      objectReference: {fileID: 0}
     - target: {fileID: 1884201607570991713, guid: 1dfb916b68eb3bd49ab2effbd1868310,
         type: 3}
       propertyPath: m_Size.x
@@ -57122,16 +57112,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1884201607892945362, guid: 1dfb916b68eb3bd49ab2effbd1868310,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1884201607892945362, guid: 1dfb916b68eb3bd49ab2effbd1868310,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1385116849
-      objectReference: {fileID: 0}
     - target: {fileID: 1884201607892945363, guid: 1dfb916b68eb3bd49ab2effbd1868310,
         type: 3}
       propertyPath: m_Size.x
@@ -78143,16 +78123,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1884201608891684751, guid: 1dfb916b68eb3bd49ab2effbd1868310,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1884201608891684751, guid: 1dfb916b68eb3bd49ab2effbd1868310,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1385116849
-      objectReference: {fileID: 0}
     - target: {fileID: 3156964352810069427, guid: 1dfb916b68eb3bd49ab2effbd1868310,
         type: 3}
       propertyPath: m_Size.x
@@ -83677,16 +83647,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5720891159609267711, guid: 1dfb916b68eb3bd49ab2effbd1868310,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5720891159609267711, guid: 1dfb916b68eb3bd49ab2effbd1868310,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1385116849
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfb916b68eb3bd49ab2effbd1868310, type: 3}
