@@ -68,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1972434837
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7595986285605212588, guid: cd1023c46a6dec74d8913f446f263f14,
     type: 3}
@@ -320,14 +320,17 @@ MonoBehaviour:
   _id: 0
   _name: 
   speed: 3
+  deadEffect: {fileID: 0}
   attackRange: 1.5
   defaultDmg: 1
   defaultSpeed: 3
   defaultHp: 100
   defaultStamina: 100
+  onScreenShake: {fileID: 0}
   moveDir: {x: 0, y: 0}
   attackEffect: {fileID: 2851542105650535708, guid: ddecf423b2a1fdf43857f034e4def8f3,
     type: 3}
+  dustEffect: {fileID: 0}
   HPBar: {fileID: 0}
   SPBar: {fileID: 0}
   CPBar: {fileID: 0}
