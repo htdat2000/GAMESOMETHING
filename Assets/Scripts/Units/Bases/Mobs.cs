@@ -87,6 +87,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     {
         if(mobState == State.Normal)
         {
+            PlaySFX(SFX.SFXState.HurtSFX);
             mobState = State.Attacked;
             StartCoroutine(AttackedOff());
             //KnockbackEffect();
@@ -107,7 +108,8 @@ public abstract class Mobs : Creatures, IAutoSpawn
     }
 
     protected override void Die()
-    {
+    { 
+        PlaySFX(SFX.SFXState.DieSFX);
         SpawnDeadEffect();
         DropItem();
         Destroy(gameObject);

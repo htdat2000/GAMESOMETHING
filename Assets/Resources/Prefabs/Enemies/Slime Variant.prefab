@@ -17,6 +17,7 @@ MonoBehaviour:
   speed: 10
   deadEffect: {fileID: 1554054051499632754, guid: e3d07d5aa46d7fa409120a64fd6da70c,
     type: 3}
+  sfx: {fileID: 11400000, guid: f87d40ff93309dc47aa39d12b8776f8a, type: 2}
   itemDrops:
   - item: {fileID: 11400000, guid: 216330c494a87d64582bc686cc24189c, type: 2}
     dropRate: 70

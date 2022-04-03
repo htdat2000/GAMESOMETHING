@@ -19,6 +19,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1461924807906977660, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
         type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 11400000, guid: cd560d6b49f4f414886a287bca215cff,
+        type: 2}
+    - target: {fileID: 1461924807906977660, guid: b7efb306c8545004d8dcfdf4f3e2ced7,
+        type: 3}
       propertyPath: _name
       value: Grass
       objectReference: {fileID: 0}
