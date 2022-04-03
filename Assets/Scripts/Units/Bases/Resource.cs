@@ -10,7 +10,6 @@ public abstract class Resource : DamageableObjects, IAutoSpawn
     protected GameObject itemPrototype;
     [SerializeField] protected ItemDrop[] itemDrops;
     private Animator anim;
-    [SerializeField] protected SFX sfx;
 
     protected virtual void Start()
     {
@@ -54,14 +53,6 @@ public abstract class Resource : DamageableObjects, IAutoSpawn
         itemPrototype.GetComponent<ItemPrototype>().item = item;
         Vector2 spawnPosition = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
         Instantiate(itemPrototype, spawnPosition, Quaternion.identity);
-    }
-
-    protected void PlaySFX(SFX.SFXState state)
-    {
-        if(sfx != null)
-        {
-            sfx.PlaySFX(state);
-        }
     }
     
 }
