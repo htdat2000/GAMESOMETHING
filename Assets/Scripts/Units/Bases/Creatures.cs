@@ -12,4 +12,11 @@ public abstract class Creatures : DamageableObjects
     public abstract void Move();
     protected abstract void Die();
     public abstract void Attack();
+    protected void PlaySFX(SFX.SFXState state)
+    {
+        if(sfx != null)
+        {
+            sfx.PlaySFX(state);
+        }
+    }
 }

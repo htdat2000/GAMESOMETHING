@@ -74,6 +74,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
         type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 11400000, guid: cd560d6b49f4f414886a287bca215cff,
+        type: 2}
+    - target: {fileID: 1123253013038068030, guid: d3e32f63b1ac1d14c84236cfeb572c67,
+        type: 3}
       propertyPath: _name
       value: Apple Tree
       objectReference: {fileID: 0}
