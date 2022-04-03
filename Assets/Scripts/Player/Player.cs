@@ -59,9 +59,9 @@ public class Player : Creatures
     [SerializeField] private Slider CPBar;
 
     [Header("Const")]
-    protected const float KNOCKBACK_TIME = 0.5f;
-    protected const float ATTACKED_TIME = 0.5f;
-    protected const float ROLL_FORCE = 10;
+    protected const float KNOCKBACK_TIME = 0.2f;
+    protected const float ATTACKED_TIME = 0.2f;
+    protected const float ROLL_FORCE = 5;
     protected const float ROLL_TIME = 0.2f;
     
     #region Properties
