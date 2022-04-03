@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a30bcc2184bc3a4fbc1cda6b13fd366, type: 3}
   m_Name: SlimeSFX
   m_EditorClassIdentifier: 
-  name: 
-  audioClip: {fileID: 0}
-  volume: 0
+  soundName: 
   types:
   - type: 2
-    clip: {fileID: 8300000, guid: f161aa64aef8a0a488e16686e1ed311a, type: 3}
+    clip: {fileID: 8300000, guid: 8d7fdb5dc0f2c974cba36f3ce45307f3, type: 3}
+  - type: 0
+    clip: {fileID: 8300000, guid: 1c7ce7c5682883b4a8cbfbe0acb2e66a, type: 3}

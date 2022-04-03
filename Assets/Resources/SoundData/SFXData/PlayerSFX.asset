@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: PlayerSFX
   m_EditorClassIdentifier: 
   soundName: 
-  types: []
+  types:
+  - type: 0
+    clip: {fileID: 8300000, guid: 4a232e7ee521d494b8f7aac82c41f973, type: 3}
+  - type: 2
+    clip: {fileID: 8300000, guid: 4242d1e11e3a28f4fa38e1f44c867243, type: 3}
