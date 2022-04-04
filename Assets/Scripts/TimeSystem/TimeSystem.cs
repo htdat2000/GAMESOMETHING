@@ -11,7 +11,7 @@ public class TimeSystem : MonoBehaviour
     private int _day;
     private int _hour;
     private int _minute;
-    private float realTimeToMinute = 0.05f; //"1" second = one minute in game
+    private float realTimeToMinute = 1f; //"1" second = one minute in game
     private float timer;
 
     [Header("Day and Night Setup")]
@@ -45,8 +45,8 @@ public class TimeSystem : MonoBehaviour
     void Start()
     {
         day = 1;
-        hour = 18;
-        minute = 0;
+        hour = 6;
+        minute = 55;
         timer = realTimeToMinute;
 
         //need some check before set this current color
