@@ -277,14 +277,6 @@ public class Player : Creatures
         }
         return canRoll;
     }
-
-    void PlaySFX(SFX.SFXState state)
-    {
-        if(sfx != null)
-        {
-            sfx.PlaySFX(state);
-        }
-    }
     #endregion
     #region Status Field
     protected IEnumerator KnockBackOff()
