@@ -67,11 +67,11 @@ public class CraftingBoard : MonoBehaviour
     {
         if(CheckBeforeCraft())
         {
-            for (int i = 0; i <= 2; i++)
+            bag.AddItem(itemCraftSelected);
+            for (int i = 0; i < selectedBlueprint.materials.Length; i++)
             {
                ReduceMaterial(i); 
             }
-            bag.AddItem(itemCraftSelected);
         }
     }
 
