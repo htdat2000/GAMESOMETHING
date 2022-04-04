@@ -136,6 +136,7 @@ public class Player : Creatures
     {
         if(playerState == State.Normal)
         {  
+            Debug.Log("Player.cs move with speed: " + speed);
             rb.velocity = moveDir * speed;
             playerController.MoveAnimationUpdate(moveDir);
         }
