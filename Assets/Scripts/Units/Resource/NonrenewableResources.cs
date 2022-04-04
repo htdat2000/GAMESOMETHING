@@ -34,6 +34,7 @@ public class NonrenewableResources : Resource
     {
         // hp -= dmg;
         // HPEqual0();
+        sfx.PlaySFX(SFX.SFXState.HurtSFX);
         SpawnMaterials();
     }
     protected override void HPEqual0()
