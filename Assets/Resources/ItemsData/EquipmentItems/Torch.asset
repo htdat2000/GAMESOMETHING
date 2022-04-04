@@ -18,5 +18,5 @@ MonoBehaviour:
   _description: Everybody want the light
   _stackAble: 1
   usable: 0
-  _sizeX: 5
-  _sizeY: 5
+  _sizeX: 0.3
+  _sizeY: 0.3

@@ -136,6 +136,7 @@ public class Player : Creatures
     {
         if(playerState == State.Normal)
         {  
+            Debug.Log("Player.cs move with speed: " + speed);
             rb.velocity = moveDir * speed;
             playerController.MoveAnimationUpdate(moveDir);
         }
@@ -260,7 +261,7 @@ public class Player : Creatures
         {
             StartCoroutine(KnockBackOff());
             Vector3 direction = this.gameObject.transform.position - attacker.transform.position;
-            rb.velocity = direction.normalized * 2;
+            rb.velocity = direction.normalized * 3;
         }
     }
     public bool Roll()

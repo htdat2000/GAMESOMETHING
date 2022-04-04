@@ -17,5 +17,6 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: ca67e2f60f0c0294fa4e1d3e6d060266, type: 3}
   _description: Spawn from big rock
   _stackAble: 1
-  _sizeX: 5
-  _sizeY: 5
+  usable: 0
+  _sizeX: 0.3
+  _sizeY: 0.3

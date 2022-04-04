@@ -17,5 +17,6 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 5470d0cea1f19604fac353846b65beac, type: 3}
   _description: Log wood
   _stackAble: 1
-  _sizeX: 5
-  _sizeY: 5
+  usable: 0
+  _sizeX: 0.3
+  _sizeY: 0.3
