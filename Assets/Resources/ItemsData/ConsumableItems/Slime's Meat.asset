@@ -18,7 +18,7 @@ MonoBehaviour:
   _description: How dare you
   _stackAble: 1
   usable: 1
-  _sizeX: 5
-  _sizeY: 5
+  _sizeX: 0.3
+  _sizeY: 0.3
   healthValue: 1
   hungerValue: 5
