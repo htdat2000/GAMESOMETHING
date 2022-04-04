@@ -17,5 +17,6 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: e245e811a0d15c24ca7d9a756880eaad, type: 3}
   _description: Normal grass
   _stackAble: 1
-  _sizeX: 5
-  _sizeY: 5
+  usable: 0
+  _sizeX: 0.3
+  _sizeY: 0.3
