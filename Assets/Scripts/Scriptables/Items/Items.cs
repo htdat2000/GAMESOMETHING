@@ -16,8 +16,8 @@ public abstract class Items : ScriptableObject
     public bool usable;
     
     [Header("Unity Collider Size")]
-    [SerializeField] protected int _sizeX; public int sizeX  { get {return _sizeX;} }
-    [SerializeField] protected int _sizeY; public int sizeY { get {return _sizeY;} }
+    [SerializeField] protected float _sizeX; public float sizeX  { get {return _sizeX;} }
+    [SerializeField] protected float _sizeY; public float sizeY { get {return _sizeY;} }
 
     public abstract void Use(Player player);
 }
