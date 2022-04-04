@@ -176,6 +176,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
         yield return new WaitForSeconds(KNOCKBACK_TIME); 
         rigid2D.velocity = Vector2.zero;
     }
+    
     #endregion
     public void SetAnim(string animation)
     {

@@ -67,6 +67,7 @@ public class RenewableResources : Resource
         //         HPEqual0();
         //     }
         // }
+        sfx.PlaySFX(SFX.SFXState.HurtSFX);
         SpawnMaterials();
     }
     protected override void HPEqual0()
