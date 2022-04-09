@@ -45,7 +45,7 @@ public class TimeSystem : MonoBehaviour
     void Start()
     {
         day = 1;
-        hour = 6;
+        hour = 17;
         minute = 55;
         timer = realTimeToMinute;
 

@@ -54,3 +54,6 @@ TagManager:
   - name: Foregound
     uniqueID: 1972434837
     locked: 0
+  - name: Closest
+    uniqueID: 3577399811
+    locked: 0
