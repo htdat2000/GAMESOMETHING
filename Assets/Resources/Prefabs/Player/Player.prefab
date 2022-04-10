@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 1796665929341101248}
   m_Layer: 8
   m_Name: HurtBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.000000029802322, y: -0.016599357}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -157,7 +157,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.35028344, y: 0.31215823}
   m_EdgeRadius: 0
 --- !u!1 &5624540597338432765
 GameObject:
@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 5624540598252706363}
   - component: {fileID: 5624540598252706365}
   - component: {fileID: 5252480789958155971}
-  - component: {fileID: 717645059}
   - component: {fileID: 385588151}
   m_Layer: 8
   m_Name: Player
@@ -337,32 +336,6 @@ MonoBehaviour:
   HPBar: {fileID: 0}
   SPBar: {fileID: 0}
   CPBar: {fileID: 0}
---- !u!61 &717645059
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5624540598252706356}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.005724907, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 1.5, y: 1.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.41242218, y: 0.56085587}
-  m_EdgeRadius: 0
 --- !u!61 &385588151
 BoxCollider2D:
   m_ObjectHideFlags: 0

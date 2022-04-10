@@ -27,6 +27,7 @@ public class Player : Creatures
     enum State
     {
         Normal,
+        Invisible,
         Attacked,
         Stun,
         Action
@@ -134,7 +135,7 @@ public class Player : Creatures
     #region Basic Function
     override public void Move()
     {
-        if(playerState == State.Normal)
+        if(playerState == State.Normal || playerState == State.Invisible)
         {  
             Debug.Log("Player.cs move with speed: " + speed);
             rb.velocity = moveDir * speed;
@@ -153,7 +154,8 @@ public class Player : Creatures
         {
             PlaySFX(SFX.SFXState.HurtSFX);
             playerController.InvisibleAnimPlay();
-            playerState = State.Attacked;
+            ChangeStatus("Attacked");
+            // playerState = State.Attacked;
             StartCoroutine(AttackedOff());
             Hp = -dmg;
             onScreenShake.Invoke();
@@ -289,14 +291,20 @@ public class Player : Creatures
     protected IEnumerator AttackedOff()
     {
         yield return new WaitForSeconds(ATTACKED_TIME);
-        playerState = State.Normal;
+        ChangeStatus("Invisible");
+        StartCoroutine(InvisibleOff());
+    }
+    protected IEnumerator InvisibleOff()
+    {
+        yield return new WaitForSeconds(1.3f);
+        ChangeStatus("Normal");
     }
 
     protected IEnumerator RollEnd()
     {
         yield return new WaitForSeconds(ROLL_TIME);
         rb.velocity = Vector2.zero;
-        playerState = State.Normal;
+        ChangeStatus("Normal");
     }
 
     public void ChangeStatus(string status)
@@ -311,6 +319,9 @@ public class Player : Creatures
                 break;
             case "Normal":
                 playerState = State.Normal;
+                break;
+            case "Invisible":
+                playerState = State.Invisible;
                 break;
             case "Stun":
                 playerState = State.Stun;
