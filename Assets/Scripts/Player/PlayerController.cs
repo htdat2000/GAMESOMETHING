@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         Move();
         if(Input.GetKeyDown(KeyCode.T))
             Interact();
-        if(Input.GetKeyDown(KeyCode.Q) && CanAttack())
+        if(Input.GetKeyDown(KeyCode.Space) && CanAttack())
             Attack();
         if(Input.GetKeyDown(KeyCode.I))
             OpenInventory();

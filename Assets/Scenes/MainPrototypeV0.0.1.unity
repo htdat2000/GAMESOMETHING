@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -10308,7 +10308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -11273,7 +11273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -11992,7 +11992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -91839,7 +91839,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf8b6c9e98e98a4b9f7b3a202e27486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicImg: {fileID: 1049023060}
+  musicIcon: {fileID: 21300000, guid: e6d09cdd467736d4c8c7109921609cfd, type: 3}
+  muteMusicIcon: {fileID: 21300000, guid: 45aec79b24e29214188ce5306a85b089, type: 3}
   musicManager: {fileID: 2092191856}
+  sfxImg: {fileID: 1184024555}
+  sfxIcon: {fileID: 21300000, guid: 996bf549fc31ebb42a8eda24616fb602, type: 3}
+  muteSFXIcon: {fileID: 21300000, guid: 1734dbed4d3bcc840a3ab05da3aa6c07, type: 3}
   sfxManager: {fileID: 1540556793}
 --- !u!1001 &1202649448831507981
 PrefabInstance:
