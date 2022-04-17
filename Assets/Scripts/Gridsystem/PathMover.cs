@@ -29,8 +29,8 @@ public class PathMover : MonoBehaviour
     {
         if(chasing == true && subject.IsState("Normal"))
         {
-            SetTargetPosition(player.transform.position);
-            HandleMovement();
+            // SetTargetPosition(player.transform.position);
+            // HandleMovement();
             subject.SetAnim("Move");
         }
     }
