@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SFXManager : MonoBehaviour
 {
     public static SFXManager sfxManager;
     AudioSource audioSource;
+    [SerializeField] Slider sfxVolume;
     
     void Awake() 
     {
@@ -23,7 +25,7 @@ public class SFXManager : MonoBehaviour
     {
         if(this.gameObject.activeSelf)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clip, sfxVolume.value);
         }
     }
 }

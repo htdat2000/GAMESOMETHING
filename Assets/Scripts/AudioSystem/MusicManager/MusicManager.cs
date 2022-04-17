@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
     public Music[] musics;
     AudioSource audioSource;
-
+    [SerializeField] Slider musicVolume;
+    
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -32,7 +34,7 @@ public class MusicManager : MonoBehaviour
             return;
         }
         audioSource.clip = m.audioClip;
-        audioSource.volume = m.volume;
+        audioSource.volume = musicVolume.value;
         audioSource.Play();
     }
 
@@ -45,5 +47,10 @@ public class MusicManager : MonoBehaviour
             return;
         }
         audioSource.Stop();
+    }
+
+    public void AdjustVolume()
+    {
+        audioSource.volume = musicVolume.value;
     }
 }
