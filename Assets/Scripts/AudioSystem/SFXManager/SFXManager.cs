@@ -21,6 +21,9 @@ public class SFXManager : MonoBehaviour
     
     public void PlaySFX(AudioClip clip)
     {
-        audioSource.PlayOneShot(clip);
+        if(this.gameObject.activeSelf)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }
