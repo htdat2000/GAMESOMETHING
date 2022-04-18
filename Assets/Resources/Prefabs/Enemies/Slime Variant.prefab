@@ -21,8 +21,8 @@ MonoBehaviour:
   itemDrops:
   - item: {fileID: 11400000, guid: 216330c494a87d64582bc686cc24189c, type: 2}
     dropRate: 70
-  defaultHP: 3
-  defaultDmg: 1
+  defaultHP: 10
+  defaultDmg: 10
   activeRadius: 10
   invAnim: {fileID: 3672633760006480441}
   anim: {fileID: 1660963955572429250}

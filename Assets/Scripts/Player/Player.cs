@@ -11,6 +11,7 @@ public class Player : Creatures
     private float _hunger;
     private float _stamina;
     private int _hp;
+    [SerializeField] Transform attackPoint;
  
     [Header("Default Value")]
     private float defaultHunger = 100;
@@ -19,8 +20,12 @@ public class Player : Creatures
     [SerializeField] private int defaultHp = 100;
     [SerializeField] private float defaultStamina = 100;
     private float staminaRefillCooldown = 0.5f;
+    [SerializeField] private float staminaRefillPerTurn = 5f;
     private float lastRefillStamina = 0f;
     [SerializeField] private GameEvent onScreenShake;
+    [SerializeField] private float attackCost = 30f;
+    [SerializeField] private float rollCost = 20f;
+
 
     [Header("PlayerState")]
     private State playerState = State.Normal;
@@ -76,6 +81,7 @@ public class Player : Creatures
         {
             _hunger += value;
             _hunger = Mathf.Clamp(_hunger, 0, defaultHunger);
+            CPBar.value = hunger;
         } 
     }
     public float stamina
@@ -89,6 +95,7 @@ public class Player : Creatures
             _stamina += value;
             _stamina = Mathf.Clamp(_stamina, 0, defaultStamina);
             SPBar.value = stamina;
+            lastRefillStamina = Time.time;
         } 
     }
 
@@ -196,7 +203,6 @@ public class Player : Creatures
         {
             hunger = -1;
             hungerCooldown = hungerTimer;
-            CPBar.value = hunger;
         }
     }
 
@@ -215,7 +221,7 @@ public class Player : Creatures
         if(lastRefillStamina + staminaRefillCooldown < Time.time)
         {
             lastRefillStamina = Time.time;
-            StaminaIncrease(3f);
+            StaminaIncrease(staminaRefillPerTurn);
         }
     }
 
@@ -224,11 +230,12 @@ public class Player : Creatures
     #region Player Action Controller
     override public void Attack()
     {
-        if(stamina >= 10f && playerState == State.Normal)
+        if(stamina >= attackCost && playerState == State.Normal ||  playerState == State.Invisible)
         {
+            hunger = -2;
             PlaySFX(SFX.SFXState.AttackSFX);
-            Instantiate(attackEffect, transform.position, Quaternion.identity);
-            StaminaDecrease(10f);
+            Instantiate(attackEffect, attackPoint.position, Quaternion.identity);
+            StaminaDecrease(attackCost);
         }
     }
 
@@ -268,15 +275,16 @@ public class Player : Creatures
     }
     public bool Roll()
     {
-        bool canRoll = stamina >= 10f && playerState == State.Normal;
+        bool canRoll = stamina >= rollCost && playerState == State.Normal;
         if(canRoll)
         {
+            hunger = -2f;
             Instantiate(dustEffect, transform.position, Quaternion.identity);
             ChangeStatus("Action");
             StartCoroutine(RollEnd());
             Vector3 direction = new Vector3(moveDir.x,moveDir.y,0f);
             rb.velocity = direction.normalized * ROLL_FORCE;
-            StaminaDecrease(10f);
+            StaminaDecrease(rollCost);
         }
         return canRoll;
     }
