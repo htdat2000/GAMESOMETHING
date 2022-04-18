@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5624540597338432765}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.187, z: 0}
+  m_LocalPosition: {x: 0, y: 0.226, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5624540598252706358}
@@ -323,6 +323,7 @@ MonoBehaviour:
     type: 3}
   sfx: {fileID: 0}
   attackRange: 0
+  attackPoint: {fileID: 5624540597338432764}
   defaultDmg: 1
   defaultSpeed: 3
   defaultHp: 100
