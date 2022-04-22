@@ -20,5 +20,5 @@ MonoBehaviour:
   usable: 1
   _sizeX: 0.3
   _sizeY: 0.3
-  healthValue: 50
+  healthValue: 5
   hungerValue: 10
