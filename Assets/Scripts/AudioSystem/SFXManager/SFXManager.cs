@@ -9,6 +9,7 @@ public class SFXManager : MonoBehaviour
     public static SFXManager sfxManager;
     AudioSource audioSource;
     [SerializeField] Slider sfxVolume;
+    private AudioManager audioManager;
     
     void Awake() 
     {
@@ -20,12 +21,29 @@ public class SFXManager : MonoBehaviour
         sfxManager = this;
         audioSource = GetComponent<AudioSource>();
     }
+    void Start() 
+    {
+        audioManager = GetComponentInParent<AudioManager>();    
+    }
     
     public void PlaySFX(AudioClip clip)
     {
         if(this.gameObject.activeSelf)
         {
-            audioSource.PlayOneShot(clip, sfxVolume.value);
+            audioSource.PlayOneShot(clip, audioManager.SFXVolume);
         }
+    }
+
+    public void AdjustVolume()
+    {
+        if(audioSource.volume > 0 && sfxVolume.value <= 0)
+        {
+            audioManager.SFXSwitch();
+        }
+        if(audioSource.volume <= 0 && sfxVolume.value > 0)
+        {
+            audioManager.SFXSwitch();
+        }
+        audioSource.volume = sfxVolume.value;
     }
 }

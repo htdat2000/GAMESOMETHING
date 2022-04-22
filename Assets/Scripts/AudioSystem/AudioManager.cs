@@ -11,36 +11,58 @@ public class AudioManager : MonoBehaviour
     [SerializeField] Sprite musicIcon;
     [SerializeField] Sprite muteMusicIcon;
     [SerializeField] protected MusicManager musicManager;
+    [SerializeField] AudioSource musicSource;
+    private float lastMusicVolume;
 
     [Header("SFX")]
     [SerializeField] Image sfxImg;
     [SerializeField] Sprite sfxIcon;
     [SerializeField] Sprite muteSFXIcon;
     [SerializeField] protected SFXManager sfxManager;
+    [SerializeField] AudioSource SFXSource;
+    public float SFXVolume;
      
     public void MusicSwitch()
     {
-        if(musicManager.gameObject.activeSelf)
+        if(musicSource.volume > 0)
         {
-            musicImg.sprite = muteMusicIcon;
+            lastMusicVolume = musicSource.volume;
+            SetMuteMusicIcon(true);
+            musicSource.volume = 0;
         }
         else
         {
-            musicImg.sprite = musicIcon;
+            SetMuteMusicIcon(false);
+            musicSource.volume = lastMusicVolume;
         }
-        musicManager.gameObject.SetActive(!musicManager.gameObject.activeSelf);
+    }
+    public void SetMuteMusicIcon(bool isMute)
+    {
+        if(isMute)
+            musicImg.sprite = muteMusicIcon;
+        else
+            musicImg.sprite = musicIcon;
     }
 
     public void SFXSwitch()
     {
-        if(sfxManager.gameObject.activeSelf)
+        if(SFXSource.volume > 0)
         {
-            sfxImg.sprite = muteSFXIcon;
+            SFXVolume = SFXSource.volume;
+            SetMuteSFXIcon(true);
+            SFXSource.volume = 0;
         }
         else
         {
-            sfxImg.sprite = sfxIcon;
+            SetMuteSFXIcon(false);
+            SFXSource.volume = SFXVolume;
         }
-        sfxManager.gameObject.SetActive(!sfxManager.gameObject.activeSelf);
+    }
+    public void SetMuteSFXIcon(bool isMute)
+    {
+        if(isMute)
+            sfxImg.sprite = muteSFXIcon;
+        else
+            sfxImg.sprite = sfxIcon;
     }
 }
