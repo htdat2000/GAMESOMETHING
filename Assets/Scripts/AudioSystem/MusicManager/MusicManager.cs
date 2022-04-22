@@ -10,6 +10,7 @@ public class MusicManager : MonoBehaviour
     public Music[] musics;
     AudioSource audioSource;
     [SerializeField] Slider musicVolume;
+    private AudioManager audioManager;
     
     void Awake()
     {
@@ -23,6 +24,7 @@ public class MusicManager : MonoBehaviour
         {
             Play(musics[0].name);
         }
+        audioManager = GetComponentInParent<AudioManager>();
     }
 
     public void Play(string name)
@@ -51,6 +53,14 @@ public class MusicManager : MonoBehaviour
 
     public void AdjustVolume()
     {
+        if(audioSource.volume > 0 && musicVolume.value <= 0)
+        {
+            audioManager.MusicSwitch();
+        }
+        if(audioSource.volume <= 0 && musicVolume.value > 0)
+        {
+            audioManager.MusicSwitch();
+        }
         audioSource.volume = musicVolume.value;
     }
 }
