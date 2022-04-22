@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Bosses : Enemies
 {
-    [SerializeField] protected Vector2 activePosition;
-    
     protected override void Update()
     {   
         base.Update();
@@ -14,12 +12,19 @@ public class Bosses : Enemies
     }
     public override void Move()
     {
+        if(isMoveable == false)
+        {
+            return;
+        }
         if(target != null )//&& mobState == State.Normal)
         {
             Vector3 dir = (target.transform.position - transform.position).normalized;
             transform.Translate(dir * speed * Time.deltaTime);
         }
+        else if((target == null) && (transform.position != spawnPosition))
+        {
+            Vector3 dir = (spawnPosition - transform.position).normalized;
+            transform.Translate(dir * speed * Time.deltaTime);
+        }
     }
-    
-    
 }

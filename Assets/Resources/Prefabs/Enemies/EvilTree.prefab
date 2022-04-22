@@ -82,10 +82,15 @@ PrefabInstance:
       propertyPath: defaultDmg
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6423980867783680214, guid: 25733561489babe4ead55be3de49abff,
+        type: 3}
+      propertyPath: isMoveable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7046723784898012941, guid: 25733561489babe4ead55be3de49abff,
         type: 3}
       propertyPath: m_Name
-      value: Boss1
+      value: EvilTree
       objectReference: {fileID: 0}
     - target: {fileID: 7661208091150436522, guid: 25733561489babe4ead55be3de49abff,
         type: 3}
