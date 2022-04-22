@@ -10,7 +10,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     public GameObject target;
     protected GameObject itemPrototype;
     protected Vector3 spawnPosition;
-    [SerializeField] private float activeRadius = 50f;
+    [SerializeField] private float activeRadius = 20f;
     [SerializeField] protected bool isMoveable;
     Rigidbody2D rigid2D;
     [Header("Const")]

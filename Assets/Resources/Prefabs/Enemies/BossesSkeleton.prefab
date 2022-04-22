@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87b5121637e0aa4fba2ff1095fdec7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notiAnim: {fileID: 0}
+  notiAnim: {fileID: 8686710528587183671}
 --- !u!1 &1339555658005200847
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,18 +421,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 0
   _name: 
-  speed: 0
-  deadEffect: {fileID: 0}
-  sfx: {fileID: 0}
+  speed: 2
+  deadEffect: {fileID: 1554054051499632754, guid: e3d07d5aa46d7fa409120a64fd6da70c,
+    type: 3}
+  sfx: {fileID: 11400000, guid: f87d40ff93309dc47aa39d12b8776f8a, type: 2}
   itemDrops: []
-  defaultHP: 0
-  defaultDmg: 0
-  activeRadius: 50
+  defaultHP: 1000
+  defaultDmg: 20
+  target: {fileID: 0}
+  activeRadius: 20
+  isMoveable: 0
   invAnim: {fileID: 0}
   anim: {fileID: 0}
-  model: {fileID: 0}
-  activePosition: {x: 0, y: 0}
-  target: {fileID: 0}
+  model: {fileID: 9013963267284753911}
 --- !u!1 &9013963267284753911
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,15 +505,15 @@ SpriteRenderer:
   m_SortingLayerID: 1972434837
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0467ceb0aa9a5134d8237dede3c02efe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &4979977283936517536

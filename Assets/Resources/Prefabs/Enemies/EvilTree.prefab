@@ -62,62 +62,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6423980867783680214, guid: 25733561489babe4ead55be3de49abff,
-        type: 3}
-      propertyPath: model
-      value: 
-      objectReference: {fileID: 456475555407123878}
-    - target: {fileID: 6423980867783680214, guid: 25733561489babe4ead55be3de49abff,
-        type: 3}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423980867783680214, guid: 25733561489babe4ead55be3de49abff,
-        type: 3}
-      propertyPath: defaultHP
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423980867783680214, guid: 25733561489babe4ead55be3de49abff,
-        type: 3}
-      propertyPath: defaultDmg
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6423980867783680214, guid: 25733561489babe4ead55be3de49abff,
-        type: 3}
-      propertyPath: isMoveable
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7046723784898012941, guid: 25733561489babe4ead55be3de49abff,
         type: 3}
       propertyPath: m_Name
       value: EvilTree
       objectReference: {fileID: 0}
-    - target: {fileID: 7661208091150436522, guid: 25733561489babe4ead55be3de49abff,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661208091150436522, guid: 25733561489babe4ead55be3de49abff,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7661208091150436522, guid: 25733561489babe4ead55be3de49abff,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 533925764876870624, guid: cd1023c46a6dec74d8913f446f263f14,
-        type: 3}
-    - target: {fileID: 7661208091150436522, guid: 25733561489babe4ead55be3de49abff,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25733561489babe4ead55be3de49abff, type: 3}
---- !u!1 &456475555407123878 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9013963267284753911, guid: 25733561489babe4ead55be3de49abff,
-    type: 3}
-  m_PrefabInstance: {fileID: 8884966323816073297}
-  m_PrefabAsset: {fileID: 0}
