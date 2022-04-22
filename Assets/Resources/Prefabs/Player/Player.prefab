@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 5624540598252706365}
   - component: {fileID: 5252480789958155971}
   - component: {fileID: 385588151}
+  - component: {fileID: 3938083135941110245}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -328,7 +329,10 @@ MonoBehaviour:
   defaultSpeed: 3
   defaultHp: 100
   defaultStamina: 100
+  staminaRefillPerTurn: 5
   onScreenShake: {fileID: 11400000, guid: 40213aaffdf4139468925465f0602f32, type: 2}
+  attackCost: 30
+  rollCost: 20
   moveDir: {x: 0, y: 0}
   attackEffect: {fileID: 2851542105650535708, guid: ddecf423b2a1fdf43857f034e4def8f3,
     type: 3}
@@ -344,7 +348,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5624540598252706356}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -363,6 +367,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37098283, y: 0.405402}
   m_EdgeRadius: 0
+--- !u!70 &3938083135941110245
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5624540598252706356}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00178051, y: 0.17167905}
+  m_Size: {x: 0.36824423, y: 0.40479678}
+  m_Direction: 0
 --- !u!1 &6588715397567289749
 GameObject:
   m_ObjectHideFlags: 0
