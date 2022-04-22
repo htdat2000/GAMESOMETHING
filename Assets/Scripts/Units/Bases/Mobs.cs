@@ -7,7 +7,7 @@ public abstract class Mobs : Creatures, IAutoSpawn
     [SerializeField] protected ItemDrop[] itemDrops;
     [SerializeField] protected int defaultHP;
     [SerializeField] protected int defaultDmg;
-    protected GameObject target;
+    public GameObject target;
     protected GameObject itemPrototype;
     protected Vector3 spawnPosition;
     [SerializeField] private float activeRadius = 50f;
