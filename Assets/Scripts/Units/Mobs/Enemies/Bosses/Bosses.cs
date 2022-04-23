@@ -7,7 +7,6 @@ public class Bosses : Enemies
     protected override void Update()
     {   
         base.Update();
-        
         Move(); 
     }
     public override void Move()

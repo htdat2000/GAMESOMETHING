@@ -15,17 +15,22 @@ public class Enemies : Mobs
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        //MeleeAttack(collision.gameObject);
+    }
+
+    protected virtual void MeleeAttack(GameObject target)
+    {
+        if(target.CompareTag("Player"))
         {   
             Player player;
-            collision.gameObject.TryGetComponent<Player>(out player);
+            target.TryGetComponent<Player>(out player);
             player.TakeDmg(dmg);
             player.KnockbackEffect(this.gameObject);
         }
-        if(collision.gameObject.CompareTag("OtherDamageableByEnemies"))
+        if(target.CompareTag("OtherDamageableByEnemies"))
         {
             DamageableObjects attackedObject;
-            collision.gameObject.TryGetComponent<DamageableObjects>(out attackedObject);
+            target.TryGetComponent<DamageableObjects>(out attackedObject);
             attackedObject.TakeDmg(dmg);
         }
     }
