@@ -11,6 +11,6 @@ public class RangeAttack : BossAttack
     {
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        bullet.target = target.transform;
+        bullet.SeekTarget(target.transform);
     }
 }

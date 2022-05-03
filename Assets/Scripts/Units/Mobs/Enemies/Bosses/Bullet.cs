@@ -6,13 +6,13 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] protected int dmg;
     [SerializeField] protected float speed;
-    public Transform target;
+    protected Transform target;
+    protected Vector3 dir;
 
     protected void Update()
     {
         if(target != null)
         {
-            Vector3 dir = (target.transform.position - transform.position).normalized;
             transform.Translate(dir * speed * Time.deltaTime);
         }
     }
@@ -34,5 +34,17 @@ public class Bullet : MonoBehaviour
             attackedObject.TakeDmg(dmg);
             Destroy(gameObject);
         }
+    }
+
+    public void SeekTarget(Transform _target)
+    {
+        target = _target;
+        dir = (target.position - transform.position).normalized;
+        Invoke("AutoDestroy", 3);
+    }
+
+    protected void AutoDestroy()
+    {
+        Destroy(gameObject);
     }
 }

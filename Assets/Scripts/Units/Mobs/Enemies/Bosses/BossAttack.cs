@@ -42,7 +42,6 @@ public class BossAttack : MonoBehaviour
     {
         if (lastAttack + attackSpeed < Time.time)
         {
-            Debug.Log("attack");
             Attack();
             lastAttack = Time.time;
             return;
