@@ -9,14 +9,8 @@ public class RangeAttack : BossAttack
 
     protected override void Attack()
     {
-        base.Attack();
-        SpawnBullet(target);
-    }
-    protected void SpawnBullet(GameObject target)
-    {
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        bullet.target = target;
-        Debug.Log("bullet");
+        bullet.target = target.transform;
     }
 }

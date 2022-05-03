@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] protected int dmg;
     [SerializeField] protected float speed;
-    public GameObject target;
+    public Transform target;
 
     protected void Update()
     {
@@ -16,4 +17,22 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {   
+            Player player;
+            collision.TryGetComponent<Player>(out player);
+            player.TakeDmg(dmg);
+            player.KnockbackEffect(this.gameObject);
+            Destroy(gameObject);
+        }
+        if(collision.CompareTag("OtherDamageableByEnemies"))
+        {
+            DamageableObjects attackedObject;
+            collision.TryGetComponent<DamageableObjects>(out attackedObject);
+            attackedObject.TakeDmg(dmg);
+            Destroy(gameObject);
+        }
+    }
 }

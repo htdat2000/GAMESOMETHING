@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9816240b71281b94b869aede31bed4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1.5
+  attackSpeed: 2
   attackRange: 5
   bulletPrefab: {fileID: 8202498153597609503, guid: 09a1f4c2f9b202b469861b857c9f5ff7,
     type: 3}
@@ -94,6 +94,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269865398391119461, guid: 25733561489babe4ead55be3de49abff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25733561489babe4ead55be3de49abff, type: 3}

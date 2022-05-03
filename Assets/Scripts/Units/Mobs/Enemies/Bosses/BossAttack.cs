@@ -6,7 +6,7 @@ public class BossAttack : MonoBehaviour
 {
     protected GameObject target;
     [SerializeField] protected float attackSpeed;
-    protected float lastAttack;
+    protected float lastAttack = 0;
     [SerializeField] protected float attackRange;
     protected CircleCollider2D cir2D;
     
@@ -21,31 +21,36 @@ public class BossAttack : MonoBehaviour
         cir2D.radius = attackRange;
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D col)
+    protected virtual void OnTriggerStay2D(Collider2D col)
     {
-        Debug.Log(col.gameObject.name);
-        if(col.CompareTag("Player"))
+        if(col.CompareTag("Player") || col.CompareTag("OtherDamageableByEnemies"))
         {
             target = col.gameObject;
-            Attack();
-            Debug.Log("Hit");
+            CheckIsAttackable();
         }
     }
 
     protected virtual void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("OtherDamageableByEnemies"))
+        if (col.CompareTag("Player") || col.CompareTag("OtherDamageableByEnemies"))
         {
             target = null;
         }
     }
 
-    protected virtual void Attack()
+    protected virtual void CheckIsAttackable()
     {
-        if (lastAttack + attackSpeed > Time.time)
+        if (lastAttack + attackSpeed < Time.time)
         {
+            Debug.Log("attack");
+            Attack();
+            lastAttack = Time.time;
             return;
         }
-        lastAttack = Time.time;
+
     }
+    protected virtual void Attack()
+    {
+        
+    }   
 }
