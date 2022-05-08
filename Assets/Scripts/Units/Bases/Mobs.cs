@@ -7,10 +7,11 @@ public abstract class Mobs : Creatures, IAutoSpawn
     [SerializeField] protected ItemDrop[] itemDrops;
     [SerializeField] protected int defaultHP;
     [SerializeField] protected int defaultDmg;
-    protected GameObject target;
+    [HideInInspector] public GameObject target;
     protected GameObject itemPrototype;
     protected Vector3 spawnPosition;
-    [SerializeField] private float activeRadius = 50f;
+    [SerializeField] private float activeRadius = 20f;
+    [SerializeField] protected bool isMoveable;
     Rigidbody2D rigid2D;
     [Header("Const")]
     protected const float KNOCKBACK_TIME = 0.5f;

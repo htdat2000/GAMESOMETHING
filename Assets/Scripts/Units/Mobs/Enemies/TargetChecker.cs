@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class TargetChecker : MonoBehaviour
 {
-    [SerializeField] private Animator notiAnim;
+    [SerializeField] protected Animator notiAnim;
     // private float lastChase;
     // private const float CHASE_REFRESH = 0.25f;
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         // lastChase = 0f;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }
-    void OnTriggerEnter2D(Collider2D col)
+    protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Player"))
             {
@@ -28,7 +28,7 @@ public class TargetChecker : MonoBehaviour
                 notiAnim.Play("Show");
             }
     }
-    void OnTriggerExit2D(Collider2D col)
+    protected virtual void OnTriggerExit2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Player"))
         {
