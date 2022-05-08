@@ -8,6 +8,11 @@ public class BossAttack : MonoBehaviour
     [SerializeField] protected float attackSpeed;
     protected float lastAttack = 0;
     [SerializeField] protected float attackRange;
+
+    [Header("Skill Cooldown")]
+    [SerializeField] protected float skillCooldown;
+    protected float lastSkillAttack = 0;
+
     protected CircleCollider2D cir2D;
     
     protected virtual void Start()
@@ -46,9 +51,20 @@ public class BossAttack : MonoBehaviour
             lastAttack = Time.time;
             return;
         }
-
+        if (lastSkillAttack + skillCooldown < Time.time)
+        {
+            BossSkill();
+            lastSkillAttack = Time.time;
+            return;
+        }
     }
+
     protected virtual void Attack()
+    {
+        
+    }
+
+    protected virtual void BossSkill()
     {
         
     }   

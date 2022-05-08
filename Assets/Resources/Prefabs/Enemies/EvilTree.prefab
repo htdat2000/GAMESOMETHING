@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 2
   attackRange: 5
+  skillCooldown: 5
   bulletPrefab: {fileID: 8202498153597609503, guid: 09a1f4c2f9b202b469861b857c9f5ff7,
     type: 3}
   firePoint: {fileID: 8888249213670433606}

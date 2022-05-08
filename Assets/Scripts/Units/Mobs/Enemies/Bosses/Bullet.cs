@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
 
     protected void Update()
     {
-        if(target != null)
+        if(target != null || dir.magnitude != 0)
         {
             transform.Translate(dir * speed * Time.deltaTime);
         }
@@ -46,5 +46,11 @@ public class Bullet : MonoBehaviour
     protected void AutoDestroy()
     {
         Destroy(gameObject);
+    }
+
+    public void SetDirection(Vector3 _dir)
+    {
+        dir = _dir;
+        Invoke("AutoDestroy", 3);
     }
 }
