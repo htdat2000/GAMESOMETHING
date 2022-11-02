@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,10 +48,10 @@ public class Slime : Enemies
         randomPoint = new Vector2(randx, randy);
     }
 
-    private void OnCollisionEnter(Collision other) 
-    {
-        // TakeDmg(other.gameObject.GetComponent<DamageableObjects>().dmg);
-    }
+    // private void OnCollisionEnter(Collision other) 
+    // {
+    //     // TakeDmg(other.gameObject.GetComponent<DamageableObjects>().dmg);
+    // }
     override protected void BackToFirstSpawnPos()
     {
         pathMover.SetChasing(false);

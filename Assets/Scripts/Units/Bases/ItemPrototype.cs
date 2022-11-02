@@ -18,7 +18,6 @@ public class ItemPrototype : MonoBehaviour, IInteractables
     {
         UpdateItemPrototypeData();
     }
-
     public void UpdateItemPrototypeData()
     {
         if(item == null)
@@ -34,7 +33,6 @@ public class ItemPrototype : MonoBehaviour, IInteractables
     {
         PickUp(bag);
     }
-
     void PickUp(Bag _bag)
     {   if(_bag != null)
         {
@@ -45,7 +43,6 @@ public class ItemPrototype : MonoBehaviour, IInteractables
             }
         }
     }
-
     void OnTriggerStay2D(Collider2D collision)
     {
        PlayerInteractCollider player; 
@@ -60,12 +57,10 @@ public class ItemPrototype : MonoBehaviour, IInteractables
         if(bag != null)
         bag = null;
     }
-
     void Reset() 
     {
         LoadComponent();
     }
-
     void LoadComponent()
     {
         if(!isLoaded)

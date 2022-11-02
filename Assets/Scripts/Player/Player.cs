@@ -98,7 +98,6 @@ public class Player : Creatures
             lastRefillStamina = Time.time;
         } 
     }
-
     public int Hp
     {
         get 
@@ -113,7 +112,6 @@ public class Player : Creatures
         } 
     }
     #endregion
-
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -126,19 +124,16 @@ public class Player : Creatures
     {
         UISetup();
     }
-
     void Update()
     {
         Hunger();
-        IsHunger();
+        HungerPointDecrease();
         StaminaRefill();
     }
-
     void FixedUpdate() 
     {
         Move();
     }
-
     #region Basic Function
     override public void Move()
     {
@@ -177,7 +172,6 @@ public class Player : Creatures
         }
     }
     #endregion
-
     #region Player Status Controller
     void Hunger()
     {
@@ -195,8 +189,7 @@ public class Player : Creatures
             }
         }
     }
-
-    void IsHunger()
+    void HungerPointDecrease()
     {
         hungerCooldown -= Time.deltaTime;
         if(hungerCooldown <= 0)
@@ -205,7 +198,6 @@ public class Player : Creatures
             hungerCooldown = hungerTimer;
         }
     }
-
     public void StaminaDecrease(float value)
     {
         stamina = -value;
@@ -224,9 +216,7 @@ public class Player : Creatures
             StaminaIncrease(staminaRefillPerTurn);
         }
     }
-
     #endregion
-
     #region Player Action Controller
     override public void Attack()
     {
@@ -238,9 +228,7 @@ public class Player : Creatures
             StaminaDecrease(attackCost);
         }
     }
-
     #endregion
-
     #region UI Setup
     void UISetup()
     {
@@ -248,7 +236,6 @@ public class Player : Creatures
         HPBar.maxValue = defaultHp;
     }
     #endregion
-
     #region Setup
     void LoadParameter()
     {
@@ -262,7 +249,6 @@ public class Player : Creatures
         attackEffectScript.dmg = dmg;
     }
     #endregion
-
     #region Player Effect
     public void KnockbackEffect(GameObject attacker)
     {
@@ -295,7 +281,6 @@ public class Player : Creatures
         yield return new WaitForSeconds(KNOCKBACK_TIME);
         rb.velocity = Vector2.zero;
     }
-
     protected IEnumerator AttackedOff()
     {
         yield return new WaitForSeconds(ATTACKED_TIME);
@@ -307,14 +292,12 @@ public class Player : Creatures
         yield return new WaitForSeconds(1.3f);
         ChangeStatus("Normal");
     }
-
     protected IEnumerator RollEnd()
     {
         yield return new WaitForSeconds(ROLL_TIME);
         rb.velocity = Vector2.zero;
         ChangeStatus("Normal");
     }
-
     public void ChangeStatus(string status)
     {
         switch (status)

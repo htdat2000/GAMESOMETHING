@@ -60,7 +60,6 @@ public class Pathfinding
             }
         }
     }
-
     public List<PathNode> FindPath(int startX, int startY, int endX, int endY)
     {
         PathNode startNode = grid.GetGridObject(startX, startY);
@@ -115,7 +114,6 @@ public class Pathfinding
 
         return null;
     }
-
     private List<PathNode> GetNeighbourList(PathNode currentNode)
     {
         List<PathNode> neighbourList = new List<PathNode>();
@@ -161,7 +159,6 @@ public class Pathfinding
         path.Reverse();
         return path;
     }
-
     private int CalculateDistanceCost(PathNode a, PathNode b)
     {
         int xDistance = Mathf.Abs(a.x - b.x);

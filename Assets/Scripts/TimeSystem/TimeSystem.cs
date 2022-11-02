@@ -7,6 +7,9 @@ public class TimeSystem : MonoBehaviour
 {   
     public static TimeSystem timeSystem;
 
+    public int start_hour;
+    public int start_minute;
+
     [Header("Time Variables")]
     private int _day;
     private int _hour;
@@ -45,8 +48,8 @@ public class TimeSystem : MonoBehaviour
     void Start()
     {
         day = 1;
-        hour = 17;
-        minute = 55;
+        hour = start_hour;
+        minute = start_minute;
         timer = realTimeToMinute;
 
         //need some check before set this current color
@@ -104,7 +107,7 @@ public class TimeSystem : MonoBehaviour
         if (globalLight.color == nightColorLight)
             nextColor = dayColorLight;
 
-        // 6 - 15, 15 - 17, 17 - 6
+        // 7 - 15, 16 - 17, 19 - 6
         if (hour > 6 && hour <= 15)
         {
             nextColor = lightsInDay[0];

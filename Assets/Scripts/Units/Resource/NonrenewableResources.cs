@@ -12,7 +12,6 @@ public class NonrenewableResources : Resource
         defaultHP = hp;
         CreateData();
     }
-
     protected void CreateData()
     {
         int numberOfMaterialHolding = currentMaterialHolding.Length;
@@ -45,19 +44,16 @@ public class NonrenewableResources : Resource
             hp = defaultHP;
         }
     }
-
     protected override void SpawnItem(Items item, int itemIndex)
     {
         base.SpawnItem(item, itemIndex);
         CheckAmountAfterSpawn(itemIndex);
     }
-
     protected override void SpawnMaterials()
     {
         base.SpawnMaterials();
         CheckIsOutOfAllMaterials();
     }
-
     protected void CheckAmountAfterSpawn(int itemIndex)
     {
         if(currentMaterialHolding[itemIndex] <= 0)
@@ -65,7 +61,6 @@ public class NonrenewableResources : Resource
             isOutOfMaterials[itemIndex] = true;
         }
     }
-
     protected void CheckIsOutOfAllMaterials()
     {
         if(isOutOfMaterials.All(value => value == true))

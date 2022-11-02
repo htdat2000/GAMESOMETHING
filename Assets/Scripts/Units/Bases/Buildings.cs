@@ -7,6 +7,7 @@ public abstract class Buildings : DamageableObjects, IInteractables
     protected abstract void Broken();
     public virtual void Interact()
     {
-        return;
+        //Nếu là NPC: thực hiện A
+        //Nếu là người chơi: thực hiện B
     }
 }

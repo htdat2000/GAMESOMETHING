@@ -18,7 +18,6 @@ public class BagUI : MonoBehaviour
         UpdateUI();
         SetIndexForBagSlot();
     }
-
     public void UpdateUI()
     {
         for (int i = 0; i < bagSlots.Length; i++)
@@ -33,7 +32,6 @@ public class BagUI : MonoBehaviour
             }   
         }
     }
-
     void SetIndexForBagSlot()
     {
         for (int i = 0; i < bagSlots.Length; i++)

@@ -16,7 +16,6 @@ public class Bag : MonoBehaviour
     {
         player = GetComponent<Player>();
     }
-
     public bool AddItem(Items item)
     {   
         if(items.Count >= space)
@@ -58,14 +57,12 @@ public class Bag : MonoBehaviour
             return true;
         }
     }
-
     public void RemoveItem(int itemIndex) //remove by order of item in list
     {
         items.RemoveAt(itemIndex);
         amount.RemoveAt(itemIndex);
         onItemChange.Invoke();
     }
-
     public void RemoveItem(Items item) //remove by type of item
     {
         int index = items.LastIndexOf(item);
@@ -73,13 +70,11 @@ public class Bag : MonoBehaviour
         amount.RemoveAt(index);
         onItemChange.Invoke();
     }
-    
     public void UseItemInList(int itemIndex)
     {
         items[itemIndex].Use(player);
         RemoveAfterUse(itemIndex);
     }
-
     private void RemoveAfterUse(int itemIndex)
     {
         if(items[itemIndex].stackAble)
@@ -99,7 +94,6 @@ public class Bag : MonoBehaviour
             RemoveItem(itemIndex);
         }
     }
-
     private bool IsAmountOfItemEqual1(int itemIndex) //check whether item's amount equal or more than 1
     {
         if(amount[itemIndex] <= 1)
@@ -111,14 +105,12 @@ public class Bag : MonoBehaviour
             return false;
         }
     }
-
     private void ReduceItemAmount(int itemIndex)
     {
         amount[itemIndex]--;
         ReduceTotalAmount(itemIndex, 1);
         onItemChange.Invoke();
     }
-
     private void AddTotalAmount(Items item)
     {
         if(totalAmount.ContainsKey(item))
@@ -131,7 +123,6 @@ public class Bag : MonoBehaviour
             totalAmount.Add(item, 1);
         }
     }
-
     private void ReduceTotalAmount(int itemIndex, int amountReduce)
     {
         Items itemReduce = items[itemIndex];
@@ -165,7 +156,6 @@ public class Bag : MonoBehaviour
             }
         }
     }
-
     public int ReduceAmountAtLastIndexOfItem(Items item, int amountReduce)
     {   
         int index = items.LastIndexOf(item);
